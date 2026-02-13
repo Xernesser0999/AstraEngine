@@ -55,8 +55,10 @@ bool Pawn::intersects(const sf::FloatRect& a, const sf::FloatRect& b)
 
 void Pawn::collisionHori(const std::vector<Collider*>& colliders) {
     for (auto c : colliders) {                                                          // For every collider
-        //if (!SDL_HasRectIntersectionFloat(&rect, &c->rect))                             // If there are no intersection
-        //    continue;                                                                   // Then do nothing
+        sf::FloatRect playerRect({ pos.x, pos.y }, { size.x, size.y });
+        sf::FloatRect blockRect({ c->pos.x, c->pos.y }, { c->size.x, c->size.y });
+        if (!intersects(playerRect, blockRect))
+            continue;
 
         float playerTop = pos.y;                                                       // Get the top of the player rect
         float playerBottom = pos.y + size.y;                                           // Get the bottom of the player rect
@@ -87,8 +89,7 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
     isGrounded = false;
 
     for (auto c : colliders) {
-        //if (!SDL_HasRectIntersectionFloat(&rect, &c->rect))
-        //    continue;
+
         sf::FloatRect playerRect({ pos.x, pos.y }, { size.x, size.y });
         sf::FloatRect blockRect({ c->pos.x, c->pos.y }, { c->size.x, c->size.y });
 

@@ -4,7 +4,7 @@
 #include "KeyStruct.h"
 
 enum SceneState {
-
+	Elevel
 };
 
 class Scene {

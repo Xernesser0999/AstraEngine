@@ -10,13 +10,8 @@ Camera::Camera(float ScreenX, float ScreenY, float LevelX, float LevelY) {
 }
 
 void Camera::setCameraOnPlayer(Pawn& pawn) {
-    pos = sizeC.getPosition();
-
-    // Center on player
-    sizeC.setPosition({
-        (pawn.pos.x + pawn.size.x / 2) - ScreenSize.x / 2,
-        (pawn.pos.y + pawn.size.y / 2) - ScreenSize.y / 2
-        });
+    pos.x = (pawn.pos.x + pawn.size.x / 2) - ScreenSize.x / 2;
+    pos.y = (pawn.pos.y + pawn.size.y / 2) - ScreenSize.y / 2;
     
     // Lock screen in world
     if (pos.x < 0) {
@@ -31,6 +26,8 @@ void Camera::setCameraOnPlayer(Pawn& pawn) {
     if (pos.y + ScreenSize.y > LevelSize.y) {
         pos.y = LevelSize.y - ScreenSize.y;        // Y axis
     }
+
+    sizeC.setPosition(pos);
 }
 
 sf::RectangleShape Camera::worldToScreen(sf::RectangleShape& worldRect)
@@ -45,8 +42,6 @@ sf::RectangleShape Camera::worldToScreen(sf::RectangleShape& worldRect)
         worldPos.y - pos.y
         });
 
-    // Si tu veux garder la texture :
     screenRect.setTexture(worldRect.getTexture());
-
     return screenRect;
 }

@@ -1,3 +1,4 @@
-﻿  main.cpp
-C:\Users\Steve\source\repos\AstraLevelEditor\AstraLevelEditor\main.cpp(53,44): warning C4244: '=' : conversion de 'int32_t' en 'float', perte possible de données
-  AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraLevelEditor\x64\Debug\AstraLevelEditor.exe
+﻿  EngineLevel.cpp
+  main.cpp
+  Génération de code en cours...
+  AstraLevelEditor.vcxproj -> C:\Users\Steve\Documents\GitHub\AstraEngine\x64\Debug\AstraLevelEditor.exe
