@@ -1,4 +1,12 @@
-﻿  EngineLevel.cpp
+﻿  Camera.cpp
+  Collider.cpp
+  EngineLevel.cpp
+  KeyStruct.cpp
   main.cpp
+  Pawn.cpp
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.cpp(21,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+  PlayerEX.cpp
+  Scene.cpp
+  SceneManager.cpp
   Génération de code en cours...
-  AstraLevelEditor.vcxproj -> C:\Users\Steve\Documents\GitHub\AstraEngine\x64\Debug\AstraLevelEditor.exe
+  AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe
