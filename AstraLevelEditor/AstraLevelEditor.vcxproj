@@ -131,10 +131,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BGstatic.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="EngineLevel.cpp" />
     <ClCompile Include="KeyStruct.cpp" />
+    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="PlayerEX.cpp" />
@@ -142,10 +144,12 @@
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BGstatic.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="EngineLevel.h" />
     <ClInclude Include="KeyStruct.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="PlayerEX.h" />
     <ClInclude Include="Scene.h" />

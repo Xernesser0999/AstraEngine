@@ -64,15 +64,15 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 	//  |\=-_
 	//  HORIZONTAL MOVEMENT
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)) {                  // Arrow Left
-		velocityX = -speed;                         // Set the velocity
-		direction = 1;                              // Set the direction to left
+		velocityX = -speed;
+		direction = 1;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)) {                 // Arrow Right
-		velocityX = speed;                          // Set the velocity
-		direction = 0;                              // Set the direction to right
+		velocityX = speed;
+		direction = 0;
 	}
 
-	pos.x += velocityX * dt;                       // Apply the movement
+	pos.x += velocityX * dt;
 	Pawn::collisionHori(colliders);                 // Check for collision
 
 	//  |\=-_

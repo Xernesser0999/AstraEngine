@@ -1,8 +1,9 @@
 #include "EngineLevel.h"
 
 EngineLevel::EngineLevel(sf::RenderWindow& window) {
-    Colliderlist.push_back(new Collider(window, 0, 900, 2000, 100, "sprite/PlaceHolder.png"));
-    Colliderlist.push_back(new Collider(window, 2000, 900, 2000, 100, "sprite/PlaceHolder.png"));
+    loader = new LevelLoader();
+    loader->load("level/level.txt", window);
+
     cam = new Camera(1920, 1080, 10000, 10000);
     player = new PlayerEX
     (
@@ -24,14 +25,13 @@ EngineLevel::~EngineLevel() {
 }
 
 void EngineLevel::displayScene(sf::RenderWindow& window) {
-    for (Collider* c : Colliderlist) {
-        c->render(window, *cam);
-    }
+    loader->render(window, cam);
     player->render(window, cam);
 }
 
 void EngineLevel::update(const bool* keys, float dt) {
-    player->update(dt, Colliderlist);
+    loader->update(dt, *player);
+    player->update(dt, loader->colliders);
     cam->setCameraOnPlayer(*player);
 }
 

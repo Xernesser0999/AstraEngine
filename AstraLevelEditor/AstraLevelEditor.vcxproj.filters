@@ -25,13 +25,40 @@
     <Filter Include="Fichiers sources\Engine\Actor">
       <UniqueIdentifier>{64f22048-96de-4a79-a827-7322b3bb8245}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Engine\SceneManager">
+      <UniqueIdentifier>{4d755d66-9fa1-41ef-a0ed-e0a650840c6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\SceneManager">
+      <UniqueIdentifier>{753d9a37-76b0-481f-ad8e-d07dc6078aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\SceneManager\Engine">
+      <UniqueIdentifier>{71763236-7e68-4f1b-b109-e19798360d4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\SceneManager\Level">
+      <UniqueIdentifier>{a7a11d32-87d7-43b7-96d0-74ede217e762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\SceneManager\Engine">
+      <UniqueIdentifier>{c7f00924-5291-41a5-b0e0-8fe97812bdb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\SceneManager\Level">
+      <UniqueIdentifier>{bbbe8504-e754-41e7-80f1-ae31b9003cdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\LevelEditor">
+      <UniqueIdentifier>{c3f92bc9-1db5-447c-9da6-4662c88a0e3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\LevelEditor">
+      <UniqueIdentifier>{4fae6eab-55a5-4cc7-b3d1-99c50725d18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Game">
+      <UniqueIdentifier>{e867350e-0660-404a-994a-cf616ca5e872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Game">
+      <UniqueIdentifier>{d02b9630-0e15-4c19-bdef-a0f05a3580f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerEX.cpp">
-      <Filter>Fichiers sources\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Fichiers sources\Engine\Actor</Filter>
@@ -42,23 +69,29 @@
     <ClCompile Include="Pawn.cpp">
       <Filter>Fichiers sources\Engine\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="KeyStruct.cpp">
+      <Filter>Fichiers sources\Engine\SceneManager\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Engine\SceneManager\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="KeyStruct.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Fichiers sources\Engine\SceneManager\Engine</Filter>
     </ClCompile>
     <ClCompile Include="EngineLevel.cpp">
+      <Filter>Fichiers sources\Engine\SceneManager\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Fichiers sources\Engine\LevelEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerEX.cpp">
+      <Filter>Fichiers sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="BGstatic.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PlayerEX.h">
-      <Filter>Fichiers d%27en-tête\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Fichiers d%27en-tête\Engine\Actor</Filter>
     </ClInclude>
@@ -68,16 +101,25 @@
     <ClInclude Include="Pawn.h">
       <Filter>Fichiers d%27en-tête\Engine\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="KeyStruct.h">
+      <Filter>Fichiers d%27en-tête\Engine\SceneManager\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Engine\SceneManager\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyStruct.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Engine\SceneManager\Engine</Filter>
     </ClInclude>
     <ClInclude Include="EngineLevel.h">
+      <Filter>Fichiers d%27en-tête\Engine\SceneManager\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Fichiers d%27en-tête\Engine\LevelEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerEX.h">
+      <Filter>Fichiers d%27en-tête\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="BGstatic.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 
+#include "LevelLoader.h"
 #include "Collider.h"
 #include "Camera.h"
 #include "PlayerEX.h"
@@ -17,6 +18,7 @@ public:
 
 public:
 
+	LevelLoader* loader;
 	PlayerEX* player;
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
