@@ -2,7 +2,7 @@
 
 EngineLevel::EngineLevel(sf::RenderWindow& window) {
     loader = new LevelLoader();
-    loader->load("level/level.txt", window);
+    loader->load("level/Test.txt", window);
 
     cam = new Camera(1920, 1080, 10000, 10000);
     player = new PlayerEX

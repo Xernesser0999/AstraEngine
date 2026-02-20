@@ -19,6 +19,7 @@ public:
     std::vector<Collider*> colliders;
 
     LevelLoader() : actualX(0), actualY(0) {}
+    ~LevelLoader();
 
     void load(const std::string& path, sf::RenderWindow& window);
 

@@ -1,2 +1,32 @@
-﻿  EngineLevel.cpp
+﻿  LevelLoader.cpp
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(21,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(21,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(22,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(22,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(23,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(23,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(24,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(24,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(25,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(25,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(27,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(27,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(28,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(28,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(29,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(29,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(30,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(30,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(31,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(31,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(32,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(32,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(33,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(33,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(34,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(34,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(35,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(35,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe
