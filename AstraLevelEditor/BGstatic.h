@@ -3,6 +3,8 @@
 
 #include <string>
 
+class Camera;
+
 class BGstatic {
 public:
 	sf::RectangleShape rect;
@@ -14,4 +16,5 @@ public:
 	~BGstatic();
 
 	void render(sf::RenderWindow& window);
+	void renderCam(sf::RenderWindow& window, Camera& camera);
 };

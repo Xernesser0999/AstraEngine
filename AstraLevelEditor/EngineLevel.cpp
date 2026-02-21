@@ -2,7 +2,7 @@
 
 EngineLevel::EngineLevel(sf::RenderWindow& window) {
     loader = new LevelLoader();
-    loader->load("level/Test.txt", window);
+    loader->load("level/TestLevel/Level.txt","level/TestLevel/Level.png", window);
 
     cam = new Camera(1920, 1080, 10000, 10000);
     player = new PlayerEX
@@ -15,7 +15,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         50,
         1250,
         500,
-        "sprite/PlaceHolder.png",
+        "sprite/Debug/PlaceHolder.png",
         1
     );
 }

@@ -2,7 +2,41 @@
 
 #include "Camera.h"
 
-void LevelLoader::load(const std::string& path, sf::RenderWindow& window)
+
+void LevelLoader::load(const std::string& collider_path, const std::string& render_path, sf::RenderWindow& window)
+{
+    std::ifstream file(collider_path);
+    if (!file.is_open()) return;
+
+    actualX = 0;
+    actualY = 0;
+
+    std::string line;
+    int size = 50;
+
+    int id;
+    while (std::getline(file, line))
+    {
+        actualX = 0;
+
+        for (char c : line)
+        {
+            if (c == '1')
+            {
+                colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Debug/Collider_DebugTX.png"));
+            }
+
+            actualX += size;
+        }
+
+        actualY += size;
+    }
+
+
+    back = new BGstatic(window, render_path, 30, 20);
+}
+
+void LevelLoader::oldload(const std::string& path, sf::RenderWindow& window)
 {
     std::ifstream file(path);
     if (!file.is_open()) return;
@@ -51,10 +85,12 @@ void LevelLoader::load(const std::string& path, sf::RenderWindow& window)
     }
 }
 
-
 void LevelLoader::render(sf::RenderWindow& window, Camera* cam) {
-    for (Collider* c : colliders) {
-        c->render(window, *cam);
+    back->renderCam(window, *cam);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {                  // Arrow Left
+        for (Collider* c : colliders) {
+            c->render(window, *cam);
+        }
     }
 }
 
@@ -65,19 +101,3 @@ void LevelLoader::update(float dt, PlayerEX& player) {
 LevelLoader::~LevelLoader() {
     colliders.clear();
 }
-
-/*
-En raison de trop de tuile = lag il est nécéssaire de modif le tous afin que :
-Le niveau soit séparé en deux parti :
-Une parti collision avec un export en
-011111110
-010000010
-010000010
-011111110
-Ou 1 = collision et 0 = rien
-Le tous avec des collider sans image chargé.
-
-Et la deuxieme parti qui charge une seul image sur la meme couche que le joueur.
-
-Pour faire un Foreground ont utilise un BG static rendu apres le joueur si besoin.
-*/

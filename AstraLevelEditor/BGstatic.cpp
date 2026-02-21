@@ -1,7 +1,8 @@
 #include "BGstatic.h"
+#include "Camera.h"
 
 BGstatic::BGstatic(sf::RenderWindow& window, std::string file, float sizeX, float sizeY) {
-    size = {sizeX, sizeY};
+    size = {sizeX * 50, sizeY * 50};
     rect.setPosition({ 0, 0 });
     rect.setSize(size);
 
@@ -11,6 +12,10 @@ BGstatic::BGstatic(sf::RenderWindow& window, std::string file, float sizeX, floa
 
 void BGstatic::render(sf::RenderWindow& window) {
     window.draw(rect);
+}
+void BGstatic::renderCam(sf::RenderWindow& window, Camera& camera) {
+    sf::RectangleShape screenRect = camera.worldToScreen(rect);
+    window.draw(screenRect);
 }
 
 BGstatic::~BGstatic() {
