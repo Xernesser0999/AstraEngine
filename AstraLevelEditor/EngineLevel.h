@@ -5,6 +5,7 @@
 #include "Collider.h"
 #include "Camera.h"
 #include "PlayerEX.h"
+#include "BGparralaxAuto.h"
 
 class EngineLevel : public Scene {
 public:
@@ -22,4 +23,5 @@ public:
 	PlayerEX* player;
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
+	BGparralaxAuto* parralax;
 };

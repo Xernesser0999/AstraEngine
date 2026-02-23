@@ -23,7 +23,7 @@ public:
     LevelLoader() : actualX(0), actualY(0) {}
     ~LevelLoader();
 
-    void load(const std::string& collider_path, const std::string& render_path, sf::RenderWindow& window);
+    void load(const std::string& collider_path, const std::string& render_path, sf::RenderWindow& window, float tileX, float tileY);
     void oldload(const std::string& path, sf::RenderWindow& window);
 
     void update(float dt, PlayerEX& player);

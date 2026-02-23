@@ -1,31 +1,31 @@
 #include "Camera.h"
 
-Camera::Camera(float ScreenX, float ScreenY, float LevelX, float LevelY) {
+//#include <cmath>
+
+Camera::Camera(float ScreenX, float ScreenY, float LevelX, float LevelY, float lagfactor) {
 
     ScreenSize = {ScreenX, ScreenY};
     LevelSize = {LevelX, LevelY};
 
     sizeC.setPosition({ 0, 0 });
     sizeC.setSize({ ScreenSize.x, ScreenSize.y });
+
+    lag = lagfactor;
 }
 
 void Camera::setCameraOnPlayer(Pawn& pawn) {
-    pos.x = (pawn.pos.x + pawn.size.x / 2) - ScreenSize.x / 2;
-    pos.y = (pawn.pos.y + pawn.size.y / 2) - ScreenSize.y / 2;
-    
-    // Lock screen in world
-    if (pos.x < 0) {
-        pos.x = 0;
+    ObjectivePos.x = (pawn.pos.x + pawn.size.x / 2) - ScreenSize.x / 2;
+    ObjectivePos.y = (pawn.pos.y + pawn.size.y / 2) - ScreenSize.y / 2;
+
+    if (ObjectivePos.x < 0) {
+        ObjectivePos.x = 0;
     }
-    if (pos.y < 0) {
-        pos.y = 0;
+    if (ObjectivePos.x > LevelSize.x - ScreenSize.x) {
+        ObjectivePos.x = LevelSize.x - ScreenSize.x;
     }
-    if (pos.x + ScreenSize.x > LevelSize.x) {       // The camera can't leave the level
-        pos.x = LevelSize.x - ScreenSize.x;         // X axis
-    }
-    if (pos.y + ScreenSize.y > LevelSize.y) {
-        pos.y = LevelSize.y - ScreenSize.y;        // Y axis
-    }
+
+    pos.x += (ObjectivePos.x - pos.x) * lag;
+    pos.y += (ObjectivePos.y - pos.y) * lag;
 
     sizeC.setPosition(pos);
 }

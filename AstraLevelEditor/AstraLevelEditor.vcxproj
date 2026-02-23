@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BGparralaxAuto.cpp" />
     <ClCompile Include="BGstatic.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BGparralaxAuto.h" />
     <ClInclude Include="BGstatic.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />

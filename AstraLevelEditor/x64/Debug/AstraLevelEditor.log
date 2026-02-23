@@ -1,41 +1,4 @@
-﻿  BGstatic.cpp
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\BGstatic.cpp(9,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
-  EngineLevel.cpp
-  LevelLoader.cpp
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(17,9): warning C4101: 'id' : variable locale non référencée
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(55,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(55,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(56,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(56,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(57,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(57,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(58,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(58,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(59,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(59,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(60,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(60,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(61,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(61,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(62,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(62,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(63,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(63,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(64,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(64,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(65,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(65,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(66,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(66,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(67,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(67,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(68,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(68,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(69,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(69,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  SceneManager.cpp
-  main.cpp
-  Génération de code en cours...
+﻿  EngineLevel.cpp
+C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\EngineLevel.cpp(42,9): warning C4305: 'argument' : troncation de 'double' à 'float'
   AstraLevelEditor.vcxproj -> C:\Users\Steve\Documents\GitHub\AstraEngine\x64\Debug\AstraLevelEditor.exe

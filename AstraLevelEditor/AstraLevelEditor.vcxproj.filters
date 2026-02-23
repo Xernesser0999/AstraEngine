@@ -55,6 +55,12 @@
     <Filter Include="Fichiers d%27en-tête\Game">
       <UniqueIdentifier>{d02b9630-0e15-4c19-bdef-a0f05a3580f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Engine\BGsystem">
+      <UniqueIdentifier>{42430155-bfb6-4c84-90f4-ff02328f7a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\BGsystem">
+      <UniqueIdentifier>{1eb84596-c319-4bf3-a10c-0e6bfc42bea3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -88,7 +94,10 @@
       <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
     <ClCompile Include="BGstatic.cpp">
-      <Filter>Fichiers sources\Engine</Filter>
+      <Filter>Fichiers sources\Engine\BGsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="BGparralaxAuto.cpp">
+      <Filter>Fichiers sources\Engine\BGsystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,8 +128,11 @@
     <ClInclude Include="PlayerEX.h">
       <Filter>Fichiers d%27en-tête\Game</Filter>
     </ClInclude>
+    <ClInclude Include="BGparralaxAuto.h">
+      <Filter>Fichiers d%27en-tête\Engine\BGsystem</Filter>
+    </ClInclude>
     <ClInclude Include="BGstatic.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Engine\BGsystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

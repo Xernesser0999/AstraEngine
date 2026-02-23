@@ -3,7 +3,7 @@
 #include "Camera.h"
 
 
-void LevelLoader::load(const std::string& collider_path, const std::string& render_path, sf::RenderWindow& window)
+void LevelLoader::load(const std::string& collider_path, const std::string& render_path, sf::RenderWindow& window, float tileX, float tileY)
 {
     std::ifstream file(collider_path);
     if (!file.is_open()) return;
@@ -33,7 +33,7 @@ void LevelLoader::load(const std::string& collider_path, const std::string& rend
     }
 
 
-    back = new BGstatic(window, render_path, 30, 20);
+    back = new BGstatic(window, render_path, tileX, tileY);
 }
 
 void LevelLoader::oldload(const std::string& path, sf::RenderWindow& window)
@@ -100,4 +100,6 @@ void LevelLoader::update(float dt, PlayerEX& player) {
 
 LevelLoader::~LevelLoader() {
     colliders.clear();
+    delete back;
+    back = nullptr;
 }
