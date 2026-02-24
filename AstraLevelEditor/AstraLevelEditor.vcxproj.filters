@@ -99,6 +99,9 @@
     <ClCompile Include="BGparralaxAuto.cpp">
       <Filter>Fichiers sources\Engine\BGsystem</Filter>
     </ClCompile>
+    <ClCompile Include="PS_burst.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="BGstatic.h">
       <Filter>Fichiers d%27en-tête\Engine\BGsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PS_burst.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
