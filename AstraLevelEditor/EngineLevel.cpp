@@ -12,7 +12,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50*60, 50*40, 0.001);
+    cam = new Camera(1920, 1080, 50*60, 50*40, 0.01);
 
     // Player
     player = new PlayerEX (
