@@ -41,6 +41,15 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         25,
         1.2
     );
+
+    test = new Collider(
+        window,
+        500,
+        1000,
+        50,
+        50,
+        "sprite/Debug/PlaceHolder.png"
+    );
 }
 
 EngineLevel::~EngineLevel() {
@@ -67,6 +76,7 @@ void EngineLevel::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window, cam);
+    test->render(window, *cam);
 }
 
 void EngineLevel::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

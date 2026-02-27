@@ -1,3 +1,4 @@
 ﻿  EngineLevel.cpp
 C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(42,9): warning C4305: 'argument' : troncation de 'double' à 'float'
   AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe

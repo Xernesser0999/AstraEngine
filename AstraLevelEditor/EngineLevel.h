@@ -23,5 +23,6 @@ public:
 	PlayerEX* player;
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
+	Collider* test;
 	BGparralaxAuto* parralax;
 };
