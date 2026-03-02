@@ -36,7 +36,7 @@ void LevelLoader::load(const std::string& collider_path, const std::string& rend
     back = new BGstatic(window, render_path, tileX, tileY);
 }
 
-void LevelLoader::oldload(const std::string& path, sf::RenderWindow& window)
+void LevelLoader::TileLoad(const std::string& path, sf::RenderWindow& window)
 {
     std::ifstream file(path);
     if (!file.is_open()) return;
@@ -47,9 +47,8 @@ void LevelLoader::oldload(const std::string& path, sf::RenderWindow& window)
     int size = 50;
 
     int id;
-    while (file >> id)   // lit un nombre (ex : 012 → 12)
+    while (file >> id)
     {
-        // Conversion ID → sprite
         switch (id)
         {
         case 1: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest001.png")); break;
@@ -69,7 +68,7 @@ void LevelLoader::oldload(const std::string& path, sf::RenderWindow& window)
         case 15: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest015.png")); break;
 
         default:
-            break; // 000 → rien
+            break;
         }
 
         // Gestion du placement
@@ -87,7 +86,7 @@ void LevelLoader::oldload(const std::string& path, sf::RenderWindow& window)
 
 void LevelLoader::render(sf::RenderWindow& window, Camera* cam) {
     back->renderCam(window, *cam);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {                  // Arrow Left
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {
         for (Collider* c : colliders) {
             c->render(window, *cam);
         }

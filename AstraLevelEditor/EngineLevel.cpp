@@ -42,13 +42,13 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         1.2
     );
 
-    test = new Collider(
-        window,
+    //Triggernn
+    trig = new Trigger(
         500,
-        1000,
+        800,
+        150,
         50,
-        50,
-        "sprite/Debug/PlaceHolder.png"
+        true
     );
 }
 
@@ -58,11 +58,13 @@ EngineLevel::~EngineLevel() {
     delete cam;
     delete player;
     delete parralax;
+    delete trig;
 
     loader = nullptr;
     cam = nullptr;
     player = nullptr;
     parralax = nullptr;
+    trig = nullptr;
 }
 
 void EngineLevel::update(const bool* keys, float dt) {
@@ -70,13 +72,17 @@ void EngineLevel::update(const bool* keys, float dt) {
     player->update(dt, loader->colliders);
     cam->setCameraOnPlayer(*player);
     parralax->update(dt);
+    trig->update(dt, *player);
+    if (trig->trigger) {
+        std::cout << "tick";
+    }
 }
 
 void EngineLevel::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window, cam);
-    test->render(window, *cam);
+    trig->render(window, *cam);
 }
 
 void EngineLevel::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

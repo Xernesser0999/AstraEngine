@@ -1,4 +1,12 @@
-﻿  EngineLevel.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(42,9): warning C4305: 'argument' : troncation de 'double' à 'float'
+﻿  Pawn.cpp
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.cpp(21,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.cpp(38,33): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+  Trigger.cpp
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
+  (compiler le fichier source 'Trigger.cpp')
+      C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
+      voir la déclaration de 'Pawn'
+  
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Trigger.cpp(21,20): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+  Génération de code en cours...
   AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe

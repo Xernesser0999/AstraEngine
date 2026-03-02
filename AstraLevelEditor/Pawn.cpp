@@ -35,12 +35,10 @@ void Pawn::render(sf::RenderWindow& window, Camera* camera) {
 
     // Changing texture depending on is direction
         if (direction == 1) {
+            texture.loadFromFile("");
         }
         else {
         }
-
-        //Render here
-        //SDL_RenderTextureRotated(renderer, texture, nullptr, &screenRect, 0.0f, nullptr, flip);
 
     window.draw(screenRect);
 }
