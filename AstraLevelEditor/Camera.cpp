@@ -20,6 +20,9 @@ void Camera::setCameraOnPlayer(Pawn& pawn) {
     if (ObjectivePos.x < 0) {
         ObjectivePos.x = 0;
     }
+    if (ObjectivePos.y < 0) {
+        ObjectivePos.y = 0;
+    }
     if (ObjectivePos.x > LevelSize.x - ScreenSize.x) {
         ObjectivePos.x = LevelSize.x - ScreenSize.x;
     }
