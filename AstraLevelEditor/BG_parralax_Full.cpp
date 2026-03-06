@@ -3,7 +3,7 @@
 #include "Camera.h"
 
 
-BG_parralax_Full::BG_parralax_Full(float screenW, float screenH) {
+BG_parralax_Full::BG_parralax_Full() {
 
 }
 
@@ -40,6 +40,7 @@ void BG_parralax_Full::render(sf::RenderWindow& window, Camera& camera, float Le
 
         for (float x = startX; x < LevelSizeX; x += layer.size.x)
         {
+<<<<<<< Updated upstream
             /*
             sf::RectangleShape dst{
                 x,
@@ -48,6 +49,14 @@ void BG_parralax_Full::render(sf::RenderWindow& window, Camera& camera, float Le
                 layer.size.y
             };
             */
+=======
+            sf::RectangleShape dst(sf::Vector2f(layer.size.x, layer.size.y));
+
+            dst.setPosition({
+                x, LevelSizeY - layer.size.y / 1.5f - camera.pos.y * layer.speed
+            });
+
+>>>>>>> Stashed changes
             window.draw(screenRect);
         }
     }

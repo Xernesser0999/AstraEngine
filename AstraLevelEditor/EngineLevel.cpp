@@ -29,7 +29,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
     );
 
     // Parralax background
-    parralax = new BGparralaxAuto (
+    /*parralax = new BGparralaxAuto (
         window,
         "sprite/Background/BG_layer3.png",
         "sprite/Background/BG_layer2.png",
@@ -40,7 +40,10 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         1080,
         1,
         1.2
-    );
+    );*/
+
+    parralax = new BG_parralax_Full();
+    parralax->addLayer("sprite/Background/BG_layer3.png", 100);
 
     //Triggernn
     trig = new Trigger(
@@ -71,7 +74,7 @@ void EngineLevel::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
     cam->setCameraOnPlayer(*player);
-    parralax->update(dt, *cam);
+    // parralax->update(dt, *cam);
     trig->update(dt, *player);
     if (trig->trigger) {
         std::cout << "tick";
@@ -79,7 +82,7 @@ void EngineLevel::update(const bool* keys, float dt) {
 }
 
 void EngineLevel::displayScene(sf::RenderWindow& window) {
-    parralax->render(window);
+    parralax->render(window, *cam, 50*60, 50*40);
     loader->render(window, cam);
     player->render(window, cam);
     trig->render(window, *cam);

@@ -20,7 +20,7 @@ struct ParallaxLayer {
 class BG_parralax_Full {
 public:
     std::vector<ParallaxLayer> layers;
-    BG_parralax_Full(float sw, float sh);
+    BG_parralax_Full();
     void addLayer(std::string file, float scrollSpeed);
     void render(sf::RenderWindow& window, Camera& camera, float LevelSizeX, float LevelSizeY);
     ~BG_parralax_Full();

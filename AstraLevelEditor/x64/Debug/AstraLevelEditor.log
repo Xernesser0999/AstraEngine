@@ -1,9 +1,18 @@
 ﻿  EngineLevel.cpp
+<<<<<<< Updated upstream
 C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
+=======
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
+>>>>>>> Stashed changes
   (compiler le fichier source 'EngineLevel.cpp')
       C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
       voir la déclaration de 'Pawn'
   
+<<<<<<< Updated upstream
 C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
 C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\EngineLevel.cpp(42,9): warning C4305: 'argument' : troncation de 'double' à 'float'
   AstraLevelEditor.vcxproj -> C:\Users\Steve\Documents\GitHub\AstraEngine\x64\Debug\AstraLevelEditor.exe
+=======
+C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
+  AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe
+>>>>>>> Stashed changes

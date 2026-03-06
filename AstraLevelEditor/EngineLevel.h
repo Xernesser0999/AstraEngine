@@ -7,6 +7,7 @@
 #include "PlayerEX.h"
 #include "BGparralaxAuto.h"
 #include "Trigger.h"
+#include "BG_parralax_Full.h"
 
 class EngineLevel : public Scene {
 public:
@@ -25,5 +26,6 @@ public:
 	PlayerEX* player;
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
-	BGparralaxAuto* parralax;
+	// BGparralaxAuto* parralax;
+	BG_parralax_Full* parralax;
 };
