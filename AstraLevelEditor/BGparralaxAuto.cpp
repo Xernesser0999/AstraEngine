@@ -1,16 +1,14 @@
 #include "BGparralaxAuto.h"
+#include "Camera.h"
 
-BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std::string file2, std::string file3, std::string file4, std::string file5, float sizeX, float sizeY, float speed, float speedfactor)
+BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std::string file2, std::string file3, std::string file4, std::string file5, float speed, float speedfactor)
 {
     //  BG Layer 5
     rect5.setPosition({ 0, 0 });
-    rect5.setSize({sizeX, sizeY});
-    rect5bis.setPosition({ 0 + sizeX, 0 });
-    rect5bis.setSize({ sizeX, sizeY });
+    rect5.setSize({1920 * 3, 1080 * 3});
 
     TX5.loadFromFile(file5.c_str());
     rect5.setTexture(&TX5);
-    rect5bis.setTexture(&TX5);
 
     //  BG Layer 4
     rect4.setPosition({ 0, 0 });
@@ -24,7 +22,7 @@ BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std:
 
     //  BG Layer 3
     rect3.setPosition({ 0, 0 });
-    rect5.setSize({ sizeX, sizeY });
+    rect3.setSize({ sizeX, sizeY });
     rect3bis.setPosition({ 0 + sizeX, 0 });
     rect3bis.setSize({ sizeX, sizeY });
 
@@ -59,29 +57,55 @@ BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std:
     Speed_L0 = speed * (speedfactor * 5);
 }
 
-
-void BGparralaxAuto::update(float dt) {
-    scrollX4 -= Speed_L4 * dt;        // Background scrolling
-    scrollX3 -= Speed_L3 * dt;        // Background scrolling
-    scrollX2 -= Speed_L2 * dt;        // Background scrolling
-    scrollX1 -= Speed_L1 * dt;        // Background scrolling
-    scrollX0 -= Speed_L0 * dt;        // Background scrolling
-
+void BGparralaxAuto::checkSubstract() {
     if (scrollX4 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
-        scrollX4 = 0;
+        scrollX4 += 1920;
     }
     if (scrollX3 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
-        scrollX3 = 0;
+        scrollX3 += 1920;
     }
     if (scrollX2 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
-        scrollX2 = 0;
+        scrollX2 += 1920;
     }
     if (scrollX1 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
-        scrollX1 = 0;
+        scrollX1 += 1920;
     }
     if (scrollX0 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
-        scrollX0 = 0;
+        scrollX0 += 1920;
     }
+}
+void BGparralaxAuto::checkAdd() {
+    if (scrollX4 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+        scrollX4 -= 1920;
+    }
+    if (scrollX3 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+        scrollX3 -= 1920;
+    }
+    if (scrollX2 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+        scrollX2 -= 1920;
+    }
+    if (scrollX1 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+        scrollX1 -= 1920;
+    }
+    if (scrollX0 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+        scrollX0 -= 1920;
+    }
+}
+
+void BGparralaxAuto::update(float dt, Camera& cam) {
+    float deltaCamX = cam.pos.x - LastCamX;
+    float deltaCamY = cam.pos.x - LastCamX;
+
+    scrollX4 -= Speed_L4 * deltaCamX;
+    scrollX3 -= Speed_L3 * deltaCamX;
+    scrollX2 -= Speed_L2 * deltaCamX;
+    scrollX1 -= Speed_L1 * deltaCamX;
+    scrollX0 -= Speed_L0 * deltaCamX;
+
+    checkSubstract();
+    checkAdd();
+
+    LastCamX = cam.pos.x;
 }
 
 void BGparralaxAuto::render(sf::RenderWindow& window) {

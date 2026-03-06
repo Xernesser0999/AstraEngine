@@ -4,20 +4,24 @@
 #include <optional>
 #include <string>
 
+class Camera;
+
 class BGparralaxAuto
 {
 public:
-    float scrollX4;
-    float scrollX3;
-    float scrollX2;
-    float scrollX1;
-    float scrollX0;
+    float scrollX4 = 0;
+    float scrollX3 = 0;
+    float scrollX2 = 0;
+    float scrollX1 = 0;
+    float scrollX0 = 0;
 
     float Speed_L4;
     float Speed_L3;
     float Speed_L2;
     float Speed_L1;
     float Speed_L0;
+
+    float LastCamX = 0;
 
     BGparralaxAuto(sf::RenderWindow& window, std::string file1, std::string file2, std::string file3, std::string file4, std::string file5, float sizeX, float sizeY, float speed, float speedfactor);
     ~BGparralaxAuto();
@@ -35,8 +39,11 @@ public:
     sf::RectangleShape rect4bis;
     sf::RectangleShape rect5bis;
 
-    void update(float dt);
+    void update(float dt, Camera& cam);
     void render(sf::RenderWindow& window);
+
+    void checkSubstract();
+    void checkAdd();
 
     sf::Texture TX1;
     sf::Texture TX2;

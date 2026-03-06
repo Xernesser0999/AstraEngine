@@ -38,7 +38,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         "",
         1920,
         1080,
-        25,
+        1,
         1.2
     );
 
@@ -71,7 +71,7 @@ void EngineLevel::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
     cam->setCameraOnPlayer(*player);
-    parralax->update(dt);
+    parralax->update(dt, *cam);
     trig->update(dt, *player);
     if (trig->trigger) {
         std::cout << "tick";
