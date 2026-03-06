@@ -1,8 +1,9 @@
 #include "BGparralaxAuto.h"
 #include "Camera.h"
 
-BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std::string file2, std::string file3, std::string file4, std::string file5, float speed, float speedfactor)
+BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std::string file2, std::string file3, std::string file4, std::string file5, float sizeX, float sizeY, float speed, float speedfactor)
 {
+    /*
     //  BG Layer 5
     rect5.setPosition({ 0, 0 });
     rect5.setSize({1920 * 3, 1080 * 3});
@@ -49,7 +50,7 @@ BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std:
     TX1.loadFromFile(file1.c_str());
     rect1.setTexture(&TX1);
     rect1bis.setTexture(&TX1);
-
+    */
     Speed_L4 = speed;
     Speed_L3 = speed * (speedfactor * 2);
     Speed_L2 = speed * (speedfactor * 3);

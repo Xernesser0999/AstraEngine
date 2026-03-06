@@ -40,14 +40,13 @@ void BG_parralax_Full::render(sf::RenderWindow& window, Camera& camera, float Le
 
         for (float x = startX; x < LevelSizeX; x += layer.size.x)
         {
-            /*
-            sf::RectangleShape dst{
-                x,
-                LevelSizeY - layer.size.y / 1.5 - camera.pos.y * layer.speed,
-                layer.size.x,
-                layer.size.y
-            };
-            */
+            sf::RectangleShape dst(sf::Vector2f(layer.size.x, layer.size.y));
+
+            dst.setPosition({
+                x, LevelSizeY - layer.size.y / 1.5f - camera.pos.y * layer.speed
+                });
+
+            
             window.draw(screenRect);
         }
     }
