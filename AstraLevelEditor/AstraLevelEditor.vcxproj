@@ -131,7 +131,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BGparralaxAuto.cpp" />
     <ClCompile Include="BGstatic.cpp" />
     <ClCompile Include="BG_parralax_Full.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -149,7 +148,6 @@
     <ClCompile Include="Trigger.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BGparralaxAuto.h" />
     <ClInclude Include="BGstatic.h" />
     <ClInclude Include="BG_parralax_Full.h" />
     <ClInclude Include="Camera.h" />

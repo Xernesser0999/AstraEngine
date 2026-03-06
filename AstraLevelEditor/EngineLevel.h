@@ -5,7 +5,6 @@
 #include "Collider.h"
 #include "Camera.h"
 #include "PlayerEX.h"
-#include "BGparralaxAuto.h"
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 

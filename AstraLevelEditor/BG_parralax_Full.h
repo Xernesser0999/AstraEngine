@@ -1,27 +1,30 @@
 #pragma once
+#pragma once
 #include <SFML/Graphics.hpp>
-#include <vector>
+#include <optional>
 #include <string>
+#include <vector>
 
 class Camera;
 
-struct ParallaxLayer {
-    float speed;
-    float offsetX;
-    float offsetY;
-
-    sf::Vector2f size = {1920, 1080};
-    sf::Vector2f pos = {0, 0};
-
-    sf::Texture TX;
-    sf::RectangleShape rect;
-};
-
-class BG_parralax_Full {
+class BG_parralax_Full
+{
 public:
-    std::vector<ParallaxLayer> layers;
-    BG_parralax_Full();
-    void addLayer(std::string file, float scrollSpeed);
-    void render(sf::RenderWindow& window, Camera& camera, float LevelSizeX, float LevelSizeY);
+    float scroll = 0;
+    float speed;
+    float speedfactor;
+
+    sf::Vector2f size;
+    sf::Vector2f pos;
+
+    std::vector<sf::RectangleShape> rect;
+    std::vector<sf::RectangleShape> rectbis;
+
+    BG_parralax_Full(float speed_, float speedfactor_);
     ~BG_parralax_Full();
+
+    void addlayer(std::string file);
+    void update(float dt, Camera& cam);
+    void render(sf::RenderWindow& window);
 };
+
