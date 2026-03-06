@@ -42,8 +42,8 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         1.2
     );*/
 
-    parralax = new BG_parralax_Full(1, 1);
-    parralax->addlayer("sprite/Background/BG_layer3.png");
+    parralax = new BG_parralax_Full();
+    parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
     //Triggernn
     trig = new Trigger(

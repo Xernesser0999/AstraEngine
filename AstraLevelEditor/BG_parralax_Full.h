@@ -7,23 +7,22 @@
 
 class Camera;
 
+struct Layer {
+    sf::Texture TX;
+    std::vector<sf::RectangleShape> rect;
+
+    float speed;
+};
+
 class BG_parralax_Full
 {
 public:
-    float scroll = 0;
-    float speed;
-    float speedfactor;
+    std::vector<Layer> layer_;
 
-    sf::Vector2f size;
-    sf::Vector2f pos;
-
-    std::vector<sf::RectangleShape> rect;
-    std::vector<sf::RectangleShape> rectbis;
-
-    BG_parralax_Full(float speed_, float speedfactor_);
+    BG_parralax_Full();
     ~BG_parralax_Full();
 
-    void addlayer(std::string file);
+    void addlayer(std::string file, float speed_);
     void update(float dt, Camera& cam);
     void render(sf::RenderWindow& window);
 };

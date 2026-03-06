@@ -1,3 +1,3 @@
 ﻿  BG_parralax_Full.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\BG_parralax_Full.cpp(18,17): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
-  AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe
+C:\Users\Steve\Documents\GitHub\AstraEngine\AstraLevelEditor\BG_parralax_Full.cpp(17,19): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+  AstraLevelEditor.vcxproj -> C:\Users\Steve\Documents\GitHub\AstraEngine\x64\Debug\AstraLevelEditor.exe
