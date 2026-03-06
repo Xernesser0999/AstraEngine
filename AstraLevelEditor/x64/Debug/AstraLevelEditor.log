@@ -1,93 +1,93 @@
 ﻿  BGparralaxAuto.cpp
   BGstatic.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\BGstatic.cpp(9,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\BGstatic.cpp(9,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
   BG_parralax_Full.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\BG_parralax_Full.cpp(14,26): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\BG_parralax_Full.cpp(14,26): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
   Camera.cpp
   Collider.cpp
   EngineLevel.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
   (compiler le fichier source 'EngineLevel.cpp')
-      C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
+      C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
       voir la déclaration de 'Pawn'
   
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\EngineLevel.cpp(42,9): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\EngineLevel.cpp(15,48): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\EngineLevel.cpp(42,9): warning C4305: 'argument' : troncation de 'double' à 'float'
   KeyStruct.cpp
   LevelLoader.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(17,9): warning C4101: 'id' : variable locale non référencée
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(54,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(54,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(55,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(55,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(56,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(56,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(57,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(57,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(58,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(58,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(59,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(59,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(60,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(60,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(61,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(61,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(62,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(62,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(63,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(63,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(64,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(64,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(65,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(65,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(66,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(66,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(67,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(67,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(68,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\LevelLoader.cpp(68,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(26,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(17,9): warning C4101: 'id' : variable locale non référencée
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(54,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(54,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(55,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(55,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(56,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(56,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(57,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(57,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(58,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(58,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(59,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(59,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(60,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(60,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(61,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(61,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(62,82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(62,76): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(63,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(63,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(64,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(64,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(65,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(65,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(66,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(66,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(67,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(67,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(68,83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\LevelLoader.cpp(68,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   main.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
   (compiler le fichier source 'main.cpp')
-      C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
+      C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
       voir la déclaration de 'Pawn'
   
   Pawn.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.cpp(21,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.cpp(38,33): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.cpp(21,25): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.cpp(38,33): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
   PlayerEX.cpp
   PS_burst.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244: 'argument' : conversion de '_Ty' en 'float', perte possible de données
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:             _Ty=int
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244: 'argument' : conversion de '_Ty' en 'float', perte possible de données
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:             _Ty=int
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         ]
   (compiler le fichier source 'PS_burst.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103):
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103):
       le contexte d’instanciation du modèle (le plus ancien) est
-          C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\PS_burst.cpp(19,22):
+          C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\PS_burst.cpp(19,22):
           voir la référence à l'instanciation de la fonction modèle 'PS_particle &std::vector<PS_particle,std::allocator<PS_particle>>::emplace_back<float&,int,float&,float&,T&,T&,std::string&>(float &,int &&,float &,float &,T &,T &,std::string &)' en cours de compilation
           with
           [
               T=float
           ]
-              C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\PS_burst.cpp(19,34):
+              C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\PS_burst.cpp(19,34):
               voir la première référence à « std::vector<PS_particle,std::allocator<PS_particle>>::emplace_back » dans « PS_burst::update »
-          C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\vector(924,24):
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(924,24):
           voir la référence à l'instanciation de la fonction modèle '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<float&,int,float&,float&,float&,float&,std::string&>(float &,int &&,float &,float &,float &,float &,std::string &)' en cours de compilation
           with
           [
               _Ty=PS_particle
           ]
-          C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\vector(845,20):
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(845,20):
           voir la référence à l'instanciation de la fonction modèle '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<float&,int,float&,float&,float&,float&,std::string&>(float &,int &&,float &,float &,float &,float &,std::string &)' en cours de compilation
           with
           [
               _Ty=PS_particle
           ]
-          C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207\include\vector(863,27):
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vector(863,27):
           voir la référence à l'instanciation de la fonction modèle 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,float&,int,float&,float&,float&,float&,std::string&>(_Alloc &,_Objty *const ,float &,int &&,float &,float &,float &,float &,std::string &)' en cours de compilation
           with
           [
@@ -97,21 +97,21 @@ C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.3
           ]
   
   PS_particle.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\PS_particle.cpp(11,17): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\PS_particle.cpp(23,12): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\PS_particle.cpp(11,17): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\PS_particle.cpp(23,12): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   Scene.cpp
   SceneManager.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Trigger.h(6,7): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'struct' et utilisant maintenant 'class'
   (compiler le fichier source 'SceneManager.cpp')
-      C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
+      C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
       voir la déclaration de 'Pawn'
   
   Trigger.cpp
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.h(13,8): warning C4099: 'Pawn' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
   (compiler le fichier source 'Trigger.cpp')
-      C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
+      C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Pawn.h(13,8):
       voir la déclaration de 'Pawn'
   
-C:\Users\Steve\source\repos\AstraEngine\AstraLevelEditor\Trigger.cpp(21,20): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
+C:\Users\lineh\Documents\GitHub\AstraEngine\AstraLevelEditor\Trigger.cpp(21,20): warning C4834: abandon de la valeur de retour de la fonction avec l’attribut [[nodiscard]]
   Génération de code en cours...
-  AstraLevelEditor.vcxproj -> C:\Users\Steve\source\repos\AstraEngine\x64\Debug\AstraLevelEditor.exe
+  AstraLevelEditor.vcxproj -> C:\Users\lineh\Documents\GitHub\AstraEngine\x64\Debug\AstraLevelEditor.exe
