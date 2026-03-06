@@ -3,8 +3,8 @@
 #include "Camera.h"
 
 
-BG_parralax_Full::BG_parralax_Full(SDL_Renderer* _renderer, float screenW, float screenH) {
-    renderer = _renderer;
+BG_parralax_Full::BG_parralax_Full(float screenW, float screenH) {
+
 }
 
 
@@ -20,34 +20,35 @@ void BG_parralax_Full::addLayer(std::string file, float speed)
     layers.push_back(layer);
 }
 
-void BG_parralax_Full::render(Camera& camera)
+void BG_parralax_Full::render(sf::RenderWindow& window, Camera& camera, float LevelSizeX, float LevelSizeY)
 {
     for (auto& layer : layers)
     {
         sf::RectangleShape screenRect = camera.worldToScreen(layer.rect);
 
-        layer.offsetX = -camera.ScreenSize.x;
+        layer.offsetX = -camera.pos.x;
 
         float normalizedOffset = layer.offsetX - (camera.ScreenSize.x * layer.speed);
-        if (layer.rect.w > 0) {
+        if (layer.size.x > 0) {
             normalizedOffset = fmod(layer.offsetX, layer.size.x);
             if (normalizedOffset > 0) {
-                normalizedOffset -= layer.rect.w;
+                normalizedOffset -= layer.size.x;
             }
         }
 
         float startX = normalizedOffset;
 
-        for (float x = startX; x < levelWidth; x += layer.rect.w)
+        for (float x = startX; x < LevelSizeX; x += layer.size.x)
         {
-            SDL_FRect dst{
+            /*
+            sf::RectangleShape dst{
                 x,
-                levelHeight - layer.rect.h / 1.5 - camera.sizeC.y * layer.speed,
-                layer.rect.w,
-                layer.rect.h
+                LevelSizeY - layer.size.y / 1.5 - camera.pos.y * layer.speed,
+                layer.size.x,
+                layer.size.y
             };
-
-            SDL_RenderTexture(renderer, layer.texture, nullptr, &dst);
+            */
+            window.draw(screenRect);
         }
     }
 };
