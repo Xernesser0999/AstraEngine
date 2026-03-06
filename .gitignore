@@ -31,3 +31,7 @@
 
 .vs/
 x64/
+.tlog
+.idb
+.pdb
+.ilk
