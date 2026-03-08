@@ -61,6 +61,18 @@
     <Filter Include="Fichiers d%27en-tête\Engine\BGsystem">
       <UniqueIdentifier>{1eb84596-c319-4bf3-a10c-0e6bfc42bea3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Engine\Particle system">
+      <UniqueIdentifier>{071d65fe-c66c-48e3-8dba-532742691ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Particle system">
+      <UniqueIdentifier>{7a066df3-e90b-4e7d-8149-e15914231b3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Game\Level">
+      <UniqueIdentifier>{9b546843-26e4-498a-8461-f42df7643376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Game\Level">
+      <UniqueIdentifier>{fdb05709-f15f-455e-b9a2-41d3d407b11e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,17 +108,26 @@
     <ClCompile Include="BGstatic.cpp">
       <Filter>Fichiers sources\Engine\BGsystem</Filter>
     </ClCompile>
+    <ClCompile Include="BG_parralax_Full.cpp">
+      <Filter>Fichiers sources\Engine\BGsystem</Filter>
+    </ClCompile>
     <ClCompile Include="PS_burst.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Engine\Particle system</Filter>
     </ClCompile>
     <ClCompile Include="PS_particle.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Engine\Particle system</Filter>
     </ClCompile>
     <ClCompile Include="Trigger.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Engine\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="BG_parralax_Full.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Level0.cpp">
+      <Filter>Fichiers sources\Game\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Fichiers sources\Engine\SceneManager\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Level1.cpp">
+      <Filter>Fichiers sources\Game\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,23 +155,32 @@
     <ClInclude Include="LevelLoader.h">
       <Filter>Fichiers d%27en-tête\Engine\LevelEditor</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerEX.h">
-      <Filter>Fichiers d%27en-tête\Game</Filter>
-    </ClInclude>
     <ClInclude Include="BGstatic.h">
       <Filter>Fichiers d%27en-tête\Engine\BGsystem</Filter>
     </ClInclude>
-    <ClInclude Include="PS_burst.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="PS_particle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="BG_parralax_Full.h">
+      <Filter>Fichiers d%27en-tête\Engine\BGsystem</Filter>
     </ClInclude>
     <ClInclude Include="Trigger.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Engine\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="BG_parralax_Full.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="PS_burst.h">
+      <Filter>Fichiers d%27en-tête\Engine\Particle system</Filter>
+    </ClInclude>
+    <ClInclude Include="PS_particle.h">
+      <Filter>Fichiers d%27en-tête\Engine\Particle system</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Fichiers d%27en-tête\Engine\SceneManager\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Level0.h">
+      <Filter>Fichiers d%27en-tête\Game\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerEX.h">
+      <Filter>Fichiers d%27en-tête\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Level1.h">
+      <Filter>Fichiers d%27en-tête\Game\Level</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

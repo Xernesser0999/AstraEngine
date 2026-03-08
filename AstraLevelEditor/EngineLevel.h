@@ -8,10 +8,12 @@
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 
+class Global;
+
 class EngineLevel : public Scene {
 public:
 
-	EngineLevel(sf::RenderWindow& window);
+	EngineLevel(sf::RenderWindow& window, Global& var_);
 	~EngineLevel();
 
 	void displayScene(sf::RenderWindow& window) override;
@@ -25,6 +27,7 @@ public:
 	PlayerEX* player;
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
-	// BGparralaxAuto* parralax;
 	BG_parralax_Full* parralax;
+
+	Global& glob;
 };

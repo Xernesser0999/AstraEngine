@@ -1,6 +1,7 @@
 #include "EngineLevel.h"
+#include "Global.h"
 
-EngineLevel::EngineLevel(sf::RenderWindow& window) {
+EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
     // Level loader
     loader = new LevelLoader();
     loader->load (
@@ -27,20 +28,6 @@ EngineLevel::EngineLevel(sf::RenderWindow& window) {
         "sprite/Debug/PlaceHolder.png",
         1
     );
-
-    // Parralax background
-    /*parralax = new BGparralaxAuto (
-        window,
-        "sprite/Background/BG_layer3.png",
-        "sprite/Background/BG_layer2.png",
-        "sprite/Background/BG_layer1.png",
-        "sprite/Background/BG_layer0.png",
-        "",
-        1920,
-        1080,
-        1,
-        1.2
-    );*/
 
     parralax = new BG_parralax_Full();
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
