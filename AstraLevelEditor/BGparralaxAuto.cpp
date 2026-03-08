@@ -59,36 +59,36 @@ BGparralaxAuto::BGparralaxAuto(sf::RenderWindow& window, std::string file1, std:
 }
 
 void BGparralaxAuto::checkSubstract() {
-    if (scrollX4 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX4 <= -1920) {             
         scrollX4 += 1920;
     }
-    if (scrollX3 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX3 <= -1920) {             
         scrollX3 += 1920;
     }
-    if (scrollX2 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX2 <= -1920) {             
         scrollX2 += 1920;
     }
-    if (scrollX1 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX1 <= -1920) {             
         scrollX1 += 1920;
     }
-    if (scrollX0 <= -1920) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX0 <= -1920) {             
         scrollX0 += 1920;
     }
 }
 void BGparralaxAuto::checkAdd() {
-    if (scrollX4 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX4 >= 0) {             
         scrollX4 -= 1920;
     }
-    if (scrollX3 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX3 >= 0) {             
         scrollX3 -= 1920;
     }
-    if (scrollX2 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX2 >= 0) {             
         scrollX2 -= 1920;
     }
-    if (scrollX1 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX1 >= 0) {             
         scrollX1 -= 1920;
     }
-    if (scrollX0 >= 0) {             // Give the illusion of an infinite scrolling background by repeating them
+    if (scrollX0 >= 0) {             
         scrollX0 -= 1920;
     }
 }
