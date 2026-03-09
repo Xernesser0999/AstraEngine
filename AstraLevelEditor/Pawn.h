@@ -41,6 +41,12 @@ struct Pawn {
 	bool isalive = true;
 
 	//  |\=-_
+	//  DOUBLE SAUT
+	bool isJumping;
+	bool isDoubleJumping = false;
+	bool isInpuConsume = false;
+
+	//  |\=-_
 	//  SDL VARIABLE
 	// SDL_FlipMode flip = SDL_FLIP_NONE;
 	sf::RectangleShape rect;

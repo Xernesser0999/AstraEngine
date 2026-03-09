@@ -15,8 +15,9 @@ public:
 		float speed_,
 		std::string image,
 		float Iframe
+		
 	);
-
+	
 	void update(float dt, const std::vector<Collider*>& colliders) override;
 	void death() override;
 

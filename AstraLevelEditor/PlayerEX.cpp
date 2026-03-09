@@ -77,9 +77,32 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 
 	//  |\=-_
 	//  VERTICAL MOVEMENT
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded) {   // Spacebar (only work if the player on ground)
-		velocityY = -power_jump;                    // Set the velocity
-		isGrounded = false;                         // Player not on ground anymore
+	
+	
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isGrounded && isInpuConsume == false) {   // Spacebar (only work if the player on ground)
+		velocityY = -power_jump;  
+		isInpuConsume = true;// Set the velocity
+		isGrounded = false;   
+		isJumping = true;
+		isInpuConsume = true;
+		// Player not on ground anymore
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && isJumping == true && isDoubleJumping == false && isInpuConsume == false) {
+		velocityY = -power_jump;
+		isDoubleJumping = true;
+		if (isGrounded == true) {
+			isJumping = false;
+			isDoubleJumping = false;
+		}
+		isInpuConsume = true;
+
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) == false)
+	{
+		isInpuConsume = false;
 	}
 
 	velocityY += 2000.0f * dt;                      // Gravity
@@ -87,6 +110,8 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 	Pawn::collisionVert(colliders);                 // Check for collision
 
 	rect.setPosition({ pos.x, pos.y });
+
+	
 
 	//  |\=-_
 	//  STATE MACHINE

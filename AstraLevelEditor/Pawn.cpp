@@ -112,6 +112,7 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
         if (velocityY > 0) {
             pos.y = blockTop - size.y;
             isGrounded = true;
+            isDoubleJumping = false;
         }
         else if (velocityY < 0) {
             pos.y = blockBottom;
