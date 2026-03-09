@@ -145,10 +145,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="PlayerEX.cpp" />
+    <ClCompile Include="PlayerStateMachine.cpp" />
     <ClCompile Include="PS_burst.cpp" />
     <ClCompile Include="PS_particle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="StateStruct.cpp" />
     <ClCompile Include="Trigger.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,10 +167,12 @@
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="PlayerEX.h" />
+    <ClInclude Include="PlayerStateMachine.h" />
     <ClInclude Include="PS_burst.h" />
     <ClInclude Include="PS_particle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="StateStruct.h" />
     <ClInclude Include="Trigger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

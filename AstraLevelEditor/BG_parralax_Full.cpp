@@ -23,7 +23,6 @@ void BG_parralax_Full::addlayer(std::string file, float speed_) {
 		r.setTexture(&l.TX);
 		l.rect.push_back(r);
 	}
-
 }
 
 void BG_parralax_Full::update(float dt, Camera& cam) {
