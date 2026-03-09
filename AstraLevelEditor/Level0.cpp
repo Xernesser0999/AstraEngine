@@ -5,15 +5,15 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     // Level loader
     loader = new LevelLoader();
     loader->load(
-        "level/TestLevel/debug-map-01-coll.txt",  // Collision
-        "level/TestLevel/debug-map-01.png",  // Render
+        "level/LVL1.txt",  // Collision
+        "level/LVL1.png",  // Render
         window,
-        30,                         // Size (in tiles) X
-        20                          // Size (in tiles) Y
+        76,                         // Size (in tiles) X
+        60                          // Size (in tiles) Y
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50 * 38.4, 50 * 21.6, 0.005);
+    cam = new Camera(1920, 1080, 50 * 76, 50 * 60, 0.005);
 
     // Player
     player = new PlayerEX(
@@ -23,7 +23,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         0,
         50,
         50,
-        1250,
+        925,
         500,
         "sprite/Debug/PlaceHolder.png",
         1
@@ -31,7 +31,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
     if (glob.Boot) {
         glob.Boot = false;
-        player->pos = {250, 700};
+        player->pos = {100, 2000};
     }
     else {
         player->pos = glob.pos;
@@ -41,13 +41,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
     //Trigger
-    trig = new Trigger(
+    /*trig = new Trigger(
         1475,
         350,
         50,
         150,
         true
-    );
+    );*/
 }
 
 Level0::~Level0() {
@@ -70,19 +70,19 @@ void Level0::update(const bool* keys, float dt) {
     player->update(dt, loader->colliders);
     cam->setCameraOnPlayer(*player);
     parralax->update(dt, *cam);
-    trig->update(dt, *player);
+    /*trig->update(dt, *player);*/
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window, cam);
-    trig->render(window, *cam);
+    /*trig->render(window, *cam);*/
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
-    if (trig->trigger) {
+    /*if (trig->trigger) {
         glob.pos = { 50, 450 };
         currentScene = SceneState::Map2;
-    }
+    }*/
 }
