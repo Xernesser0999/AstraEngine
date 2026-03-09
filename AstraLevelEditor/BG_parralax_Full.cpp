@@ -1,57 +1,67 @@
 #include "BG_parralax_Full.h"
-
 #include "Camera.h"
 
-
-BG_parralax_Full::BG_parralax_Full(float screenW, float screenH) {
+BG_parralax_Full::BG_parralax_Full() {
 
 }
-
-
-void BG_parralax_Full::addLayer(std::string file, float speed)
-{
-    ParallaxLayer layer;
-    layer.TX.loadFromFile(file.c_str());
-    layer.speed = speed;
-    layer.offsetX = 0.0f;
-    layer.offsetY = 0.0f;
-    layer.rect.setPosition({0, 0});
-    layer.rect.setSize({1920, 1080});
-    layers.push_back(layer);
-}
-
-void BG_parralax_Full::render(sf::RenderWindow& window, Camera& camera, float LevelSizeX, float LevelSizeY)
-{
-    for (auto& layer : layers)
-    {
-        sf::RectangleShape screenRect = camera.worldToScreen(layer.rect);
-
-        layer.offsetX = -camera.pos.x;
-
-        float normalizedOffset = layer.offsetX - (camera.ScreenSize.x * layer.speed);
-        if (layer.size.x > 0) {
-            normalizedOffset = fmod(layer.offsetX, layer.size.x);
-            if (normalizedOffset > 0) {
-                normalizedOffset -= layer.size.x;
-            }
-        }
-
-        float startX = normalizedOffset;
-
-        for (float x = startX; x < LevelSizeX; x += layer.size.x)
-        {
-            sf::RectangleShape dst(sf::Vector2f(layer.size.x, layer.size.y));
-
-            dst.setPosition({
-                x, LevelSizeY - layer.size.y / 1.5f - camera.pos.y * layer.speed
-                });
-
-            
-            window.draw(screenRect);
-        }
-    }
-};
 
 BG_parralax_Full::~BG_parralax_Full() {
+	layer_.clear();
+}
 
+void BG_parralax_Full::addlayer(std::string file, float speed_) {
+	layer_.emplace_back();
+	Layer& l = layer_.back();
+
+	l.speed = speed_;
+	l.TX.loadFromFile(file);
+
+	for (int i = 0; i < 9; i++)
+	{
+		sf::RectangleShape r;
+		r.setSize({ 1920, 1080 });
+		r.setTexture(&l.TX);
+		l.rect.push_back(r);
+	}
+
+}
+
+void BG_parralax_Full::update(float dt, Camera& cam) {
+	for (auto& r : layer_) {
+		float ox = cam.pos.x * r.speed;
+		float oy = cam.pos.y * r.speed;
+
+		// X
+		while (ox < 0) {
+			ox += 1920.f;
+		}
+		while (ox >= 1920.f) {
+			ox -= 1920.f;
+		}
+		// Y
+		while (oy < 0) {
+			oy += 1080.f;
+		}
+		while (oy >= 1080.f) {
+			oy -= 1080.f;
+		}
+
+		int index = 0;
+		for (int y = -1; y <= 1; y++)
+		{
+			for (int x = -1; x <= 1; x++)
+			{
+				r.rect[index].setPosition({ x * 1920 - ox, y * 1080 - oy });
+				index++;
+			}
+		}
+	}
+}
+
+void BG_parralax_Full::render(sf::RenderWindow& window) {
+	for (auto& z : layer_) {
+		for (auto& x : z.rect) {
+			window.draw(x);
+		}
+	}
 }

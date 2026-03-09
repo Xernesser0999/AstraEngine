@@ -1,26 +1,26 @@
-#include "EngineLevel.h"
+#include "Level0.h"
 #include "Global.h"
 
-EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
+Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     // Level loader
     loader = new LevelLoader();
-    loader->load (
-        "level/TestLevel/map.txt",  // Collision
-        "level/TestLevel/map.png",  // Render
+    loader->load(
+        "level/TestLevel/debug-map-01-coll.txt",  // Collision
+        "level/TestLevel/debug-map-01.png",  // Render
         window,
-        60,                         // Size (in tiles) X
-        40                          // Size (in tiles) Y
+        30,                         // Size (in tiles) X
+        20                          // Size (in tiles) Y
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50*60, 50*40, 0.005);
+    cam = new Camera(1920, 1080, 50 * 38.4, 50 * 21.6, 0.005);
 
     // Player
-    player = new PlayerEX (
+    player = new PlayerEX(
         window,
         1,
-        200,
-        1300,
+        0,
+        0,
         50,
         50,
         1250,
@@ -29,20 +29,28 @@ EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
         1
     );
 
+    if (glob.Boot) {
+        glob.Boot = false;
+        player->pos = {250, 700};
+    }
+    else {
+        player->pos = glob.pos;
+    }
+
     parralax = new BG_parralax_Full();
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
-    //Triggernn
+    //Trigger
     trig = new Trigger(
-        500,
-        800,
-        150,
+        1475,
+        350,
         50,
+        150,
         true
     );
 }
 
-EngineLevel::~EngineLevel() {
+Level0::~Level0() {
     Colliderlist.clear();
     delete loader;
     delete cam;
@@ -57,27 +65,24 @@ EngineLevel::~EngineLevel() {
     trig = nullptr;
 }
 
-void EngineLevel::update(const bool* keys, float dt) {
+void Level0::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
     cam->setCameraOnPlayer(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
-    if (trig->trigger) {
-        std::cout << "tick";
-    }
 }
 
-void EngineLevel::displayScene(sf::RenderWindow& window) {
+void Level0::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window, cam);
     trig->render(window, *cam);
 }
 
-void EngineLevel::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
-    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
-    //    currentScene = SceneState::menu;
-    //    EngineLevel::~EngineLevel();
-    //}
+void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
+    if (trig->trigger) {
+        glob.pos = { 50, 450 };
+        currentScene = SceneState::Map2;
+    }
 }
