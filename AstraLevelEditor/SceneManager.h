@@ -1,15 +1,25 @@
 #pragma once
 #include "Scene.h"
+#include "Global.h"
+
 #include "EngineLevel.h"
+#include "Level0.h"
+#include "Level1.h"
 
 class SceneManager {
 public:
+	Global var;
 
 	SceneState currentState;
 	SceneState previousState;
 
 	Scene* MyLevel;
+	Scene* MyLevel0;
+	Scene* MyLevel1;
 
+	sf::Vector2f playerpos;
+
+public:
 	SceneManager(sf::RenderWindow& window);
 	~SceneManager();
 

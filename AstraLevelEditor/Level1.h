@@ -10,11 +10,11 @@
 
 class Global;
 
-class EngineLevel : public Scene {
+class Level1 : public Scene {
 public:
 
-	EngineLevel(sf::RenderWindow& window, Global& var_);
-	~EngineLevel();
+	Level1(sf::RenderWindow& window, Global& var_);
+	~Level1();
 
 	void displayScene(sf::RenderWindow& window) override;
 	void update(const bool* keys, float dt);
