@@ -5,15 +5,15 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
     // Level loader
     loader = new LevelLoader();
     loader->load(
-        "level/TestLevel/debug-map-02-coll.txt",  // Collision
-        "level/TestLevel/debug-map-02.png",  // Render
+        "level/TestLevel/maptestv2.txt",  // Collision
+        "level/TestLevel/maplvl2.png",  // Render
         window,
-        30,                         // Size (in tiles) X
-        20                          // Size (in tiles) Y
+        230,                         // Size (in tiles) X
+        120                          // Size (in tiles) Y
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50 * 500, 50 * 500, 0.005);
+    cam = new Camera(1920, 1080, 50 * 230, 50 * 120, 0.005);
 
     // Player
     player = new PlayerEX(
