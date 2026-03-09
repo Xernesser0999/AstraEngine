@@ -135,6 +135,7 @@
     <ClCompile Include="BG_parralax_Full.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="DisplayEntity.cpp" />
     <ClCompile Include="EngineLevel.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="KeyStruct.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="BG_parralax_Full.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="DisplayEntity.h" />
     <ClInclude Include="EngineLevel.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="KeyStruct.h" />

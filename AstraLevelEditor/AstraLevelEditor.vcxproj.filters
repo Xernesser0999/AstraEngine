@@ -129,6 +129,9 @@
     <ClCompile Include="Level1.cpp">
       <Filter>Fichiers sources\Game\Level</Filter>
     </ClCompile>
+    <ClCompile Include="DisplayEntity.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Level1.h">
       <Filter>Fichiers d%27en-tête\Game\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayEntity.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
