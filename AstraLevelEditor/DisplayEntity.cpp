@@ -22,8 +22,7 @@ void DisplayEntity::update(float dt) {
 }
 
 void DisplayEntity::render(sf::RenderWindow& window, Camera& camera) {
-	sf::RectangleShape screenRect = camera.worldToScreen(rect);
-	window.draw(screenRect);
+	window.draw(rect);
 }
 
 DisplayEntity::~DisplayEntity() {

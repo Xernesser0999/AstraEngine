@@ -145,7 +145,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="PlayerEX.cpp" />
-    <ClCompile Include="PlayerStateMachine.cpp" />
     <ClCompile Include="PS_burst.cpp" />
     <ClCompile Include="PS_particle.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -167,7 +166,6 @@
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="PlayerEX.h" />
-    <ClInclude Include="PlayerStateMachine.h" />
     <ClInclude Include="PS_burst.h" />
     <ClInclude Include="PS_particle.h" />
     <ClInclude Include="Scene.h" />

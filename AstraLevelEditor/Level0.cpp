@@ -13,7 +13,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50 * 38.4, 50 * 21.6, 0.005);
+    cam = new Camera(
+        1920,               // Taille X camera (a pas modif)
+        1080,               // Taille Y camera (a pas modif)
+        1920,               // Taille X du niveau
+        1080,               // Tailel Y du niveau
+        0.005               // Lag factor
+    );
 
     // Player
     player = new PlayerEX(
@@ -68,15 +74,17 @@ Level0::~Level0() {
 void Level0::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
-    cam->setCameraOnPlayer(*player);
+    cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
+    window.setView(*cam->view);
+
     parralax->render(window);
     loader->render(window, cam);
-    player->render(window, cam);
+    player->render(window);
     trig->render(window, *cam);
 }
 

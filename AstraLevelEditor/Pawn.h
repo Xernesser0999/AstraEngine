@@ -52,7 +52,7 @@ struct Pawn {
 	virtual ~Pawn();
 
 	virtual void update(float dt, const std::vector<Collider*>& colliders);		// Update		// Can be Override
-	void render(sf::RenderWindow& window, Camera* camera = nullptr);			// Render
+	void render(sf::RenderWindow& window);			// Render
 
 	void collisionVert(const std::vector<Collider*>& colliders);				// Vertical Collision
 	void collisionHori(const std::vector<Collider*>& colliders);				// Horizontal Collision

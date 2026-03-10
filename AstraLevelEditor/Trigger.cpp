@@ -45,7 +45,6 @@ void Trigger::update(float dt, Pawn& p) {
 
 void Trigger::render(sf::RenderWindow& window, Camera& camera) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {
-        sf::RectangleShape screenRect = camera.worldToScreen(rect);
-        window.draw(screenRect);
+        window.draw(rect);
     }
 }

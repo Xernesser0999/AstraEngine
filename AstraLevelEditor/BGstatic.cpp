@@ -14,8 +14,7 @@ void BGstatic::render(sf::RenderWindow& window) {
     window.draw(rect);
 }
 void BGstatic::renderCam(sf::RenderWindow& window, Camera& camera) {
-    sf::RectangleShape screenRect = camera.worldToScreen(rect);
-    window.draw(screenRect);
+    window.draw(rect);
 }
 
 BGstatic::~BGstatic() {

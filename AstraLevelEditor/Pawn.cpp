@@ -22,16 +22,10 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
     rect.setTexture(&texture);
 }
 
-void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
+void Pawn::update(float dt, const std::vector<Collider*>& colliders) {}
 
-}
-
-void Pawn::render(sf::RenderWindow& window, Camera* camera) {
+void Pawn::render(sf::RenderWindow& window) {
     sf::RectangleShape screenRect = rect;
-
-    if (camera) {                                           // If a camera is linked to the player
-        screenRect = camera->worldToScreen(rect);           // Make the cam follow him
-    }
 
     // Changing texture depending on is direction
         if (direction == 1) {
@@ -112,6 +106,7 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
         if (velocityY > 0) {
             pos.y = blockTop - size.y;
             isGrounded = true;
+
         }
         else if (velocityY < 0) {
             pos.y = blockBottom;

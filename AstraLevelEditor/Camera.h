@@ -19,10 +19,12 @@ public:
     sf::Vector2f worldPos;
     sf::Vector2f worldSize;
 
+    sf::View* view;
+
 public:
 
     Camera(float ScreenX, float ScreenY, float LevelX, float LevelY, float lagfactor);
+    ~Camera();
 
-    void setCameraOnPlayer(Pawn& pawn);
-    sf::RectangleShape worldToScreen(sf::RectangleShape& worldRect);
+    void Update(Pawn& pawn);
 };

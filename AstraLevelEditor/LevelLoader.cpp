@@ -123,8 +123,13 @@ void LevelLoader::update(float dt, PlayerEX& player) {
 
 }
 
-LevelLoader::~LevelLoader() {
+LevelLoader::~LevelLoader()  {
+    for (auto& c : colliders) {
+        delete c;
+        c = nullptr;
+    }
     colliders.clear();
+
     delete back;
     back = nullptr;
 }

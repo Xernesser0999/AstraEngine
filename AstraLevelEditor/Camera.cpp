@@ -3,51 +3,28 @@
 //#include <cmath>
 
 Camera::Camera(float ScreenX, float ScreenY, float LevelX, float LevelY, float lagfactor) {
-
-    ScreenSize = {ScreenX, ScreenY};
-    LevelSize = {LevelX, LevelY};
-
-    sizeC.setPosition({ 0, 0 });
-    sizeC.setSize({ ScreenSize.x, ScreenSize.y });
+    view = new sf::View({ ScreenX / 2, ScreenY / 2 }, { ScreenX, ScreenY });
+    lag = lagfactor;
+    ScreenSize = { ScreenX, ScreenY };
+    LevelSize = { LevelX, LevelY };
 
     lag = lagfactor;
 }
 
-void Camera::setCameraOnPlayer(Pawn& pawn) {
-    ObjectivePos.x = (pawn.pos.x + pawn.size.x / 2) - ScreenSize.x / 2;
-    ObjectivePos.y = (pawn.pos.y + pawn.size.y / 2) - ScreenSize.y / 2;
-
-    if (ObjectivePos.x < 0) {
-        ObjectivePos.x = 0;
-    }
-    if (ObjectivePos.y < 0) {
-        ObjectivePos.y = 0;
-    }
-    if (ObjectivePos.x > LevelSize.x - ScreenSize.x) {
-        ObjectivePos.x = LevelSize.x - ScreenSize.x;
-    }
-    if (ObjectivePos.y > LevelSize.y - ScreenSize.y) {
-        ObjectivePos.y = LevelSize.y - ScreenSize.y;
-    }
-
-    pos.x += (ObjectivePos.x - pos.x) * lag;
-    pos.y += (ObjectivePos.y - pos.y) * lag;
-
-    sizeC.setPosition(pos);
+Camera::~Camera() {
+    delete view;
+    view = nullptr;
 }
 
-sf::RectangleShape Camera::worldToScreen(sf::RectangleShape& worldRect)
-{
-    sf::Vector2f worldPos = worldRect.getPosition();
-    sf::Vector2f worldSize = worldRect.getSize();
+void Camera::Update(Pawn& pawn) {
+    ObjectivePos = { pawn.pos.x + pawn.size.x / 2, pawn.pos.y + pawn.size.y / 2 };
 
-    sf::RectangleShape screenRect;
-    screenRect.setSize(worldSize);
-    screenRect.setPosition({
-        worldPos.x - pos.x,
-        worldPos.y - pos.y
-        });
+    ObjectivePos.x = std::max(ScreenSize.x / 2, std::min(ObjectivePos.x, LevelSize.x - ScreenSize.x / 2));
+    ObjectivePos.y = std::max(ScreenSize.y / 2, std::min(ObjectivePos.y, LevelSize.y - ScreenSize.y / 2));
 
-    screenRect.setTexture(worldRect.getTexture());
-    return screenRect;
+    sf::Vector2f current = view->getCenter();
+    current.x += (ObjectivePos.x - current.x) * lag;
+    current.y += (ObjectivePos.y - current.y) * lag;
+
+    view->setCenter(current);
 }
