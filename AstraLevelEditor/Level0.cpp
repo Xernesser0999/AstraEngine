@@ -13,7 +13,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50 * 76, 50 * 60, 0.005);
+    cam = new Camera(
+        1920,               // Taille X camera (a pas modif)
+        1080,               // Taille Y camera (a pas modif)
+        76*50,               // Taille X du niveau
+        60*50,               // Tailel Y du niveau
+        0.005               // Lag factor
+    );
 
     // Player
     player = new PlayerEX(
@@ -23,7 +29,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         0,
         50,
         50,
-        925,
+        1250,
         500,
         "sprite/Debug/PlaceHolder.png",
         1
@@ -31,7 +37,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
     if (glob.Boot) {
         glob.Boot = false;
-        player->pos = {100, 2000};
+        player->pos = {250, 700};
     }
     else {
         player->pos = glob.pos;
@@ -41,13 +47,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
     //Trigger
-    /*trig = new Trigger(
+    trig = new Trigger(
         1475,
         350,
         50,
         150,
         true
-    );*/
+    );
 }
 
 Level0::~Level0() {
@@ -68,21 +74,23 @@ Level0::~Level0() {
 void Level0::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
-    cam->setCameraOnPlayer(*player);
+    cam->Update(*player);
     parralax->update(dt, *cam);
-    /*trig->update(dt, *player);*/
+    trig->update(dt, *player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
+    window.setView(*cam->view);
+
     parralax->render(window);
     loader->render(window, cam);
-    player->render(window, cam);
-    /*trig->render(window, *cam);*/
+    player->render(window);
+    trig->render(window, *cam);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
-    /*if (trig->trigger) {
+    if (trig->trigger) {
         glob.pos = { 50, 450 };
         currentScene = SceneState::Map2;
-    }*/
+    }
 }

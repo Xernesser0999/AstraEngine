@@ -1,7 +1,5 @@
 #include "Camera.h"
 
-//#include <cmath>
-
 Camera::Camera(float ScreenX, float ScreenY, float LevelX, float LevelY, float lagfactor) {
     view = new sf::View({ ScreenX / 2, ScreenY / 2 }, { ScreenX, ScreenY });
     lag = lagfactor;
@@ -27,4 +25,5 @@ void Camera::Update(Pawn& pawn) {
     current.y += (ObjectivePos.y - current.y) * lag;
 
     view->setCenter(current);
+    pos = current;
 }
