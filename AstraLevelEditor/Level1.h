@@ -22,6 +22,7 @@ public:
 
 public:
 
+	StateMachine* Machine;
 	Trigger* trig;
 	LevelLoader* loader;
 	PlayerEX* player;

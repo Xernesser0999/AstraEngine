@@ -8,6 +8,8 @@
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 
+#include "StateMachine.h"
+
 class Global;
 
 class Level0 : public Scene {
@@ -22,6 +24,7 @@ public:
 
 public:
 
+	StateMachine* Machine;
 	Trigger* trig;
 	LevelLoader* loader;
 	PlayerEX* player;

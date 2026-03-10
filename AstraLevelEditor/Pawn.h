@@ -7,6 +7,8 @@
 #include <vector>
 
 #include "Collider.h"
+#include "StateMachine.h"
+
 
 class Camera;
 
@@ -40,6 +42,8 @@ struct Pawn {
 	bool isInvincible = false;
 	bool isalive = true;
 
+	StateMachine& state;
+
 	//  |\=-_
 	//  DOUBLE SAUT
 	bool isJumping;
@@ -54,7 +58,7 @@ struct Pawn {
 
 	//  |\=-_
 	//  FUNCTION
-	Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_);
+	Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine state_);
 	virtual ~Pawn();
 
 	virtual void update(float dt, const std::vector<Collider*>& colliders);		// Update		// Can be Override

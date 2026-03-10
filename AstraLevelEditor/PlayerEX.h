@@ -14,8 +14,8 @@ public:
 		float power_jump_,
 		float speed_,
 		std::string image,
-		float Iframe
-		
+		float Iframe,
+		StateMachine& state_
 	);
 	
 	void update(float dt, const std::vector<Collider*>& colliders) override;

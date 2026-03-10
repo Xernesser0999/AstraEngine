@@ -10,7 +10,8 @@ PlayerEX::PlayerEX(
 	float power_jump_,
 	float speed_,
 	std::string image,
-	float Iframe_
+	float Iframe_,
+	StateMachine& state_
 )
 	: Pawn(
 		window,
@@ -22,7 +23,8 @@ PlayerEX::PlayerEX(
 		power_jump_,
 		speed_,
 		image,
-		Iframe_
+		Iframe_,
+		state_
 	) 
 {}
 

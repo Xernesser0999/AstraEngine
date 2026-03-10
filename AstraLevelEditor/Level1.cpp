@@ -20,6 +20,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
         120*50,               // Tailel Y du niveau
         0.005               // Lag factor
     );
+    Machine = new StateMachine(new IdleState());
 
     // Player
     player = new PlayerEX(
@@ -32,7 +33,8 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
         1250,
         500,
         "sprite/Debug/PlaceHolder.png",
-        1
+        1,
+        *Machine
     );
 
     parralax = new BG_parralax_Full();
@@ -61,6 +63,9 @@ Level1::~Level1() {
     player = nullptr;
     parralax = nullptr;
     trig = nullptr;
+
+    delete Machine;
+    Machine = nullptr;
 }
 
 void Level1::update(const bool* keys, float dt) {

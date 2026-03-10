@@ -1,7 +1,7 @@
 #include "Pawn.h"
 #include "Camera.h"
 
-Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_) {
+Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine state_) : state(state_) {
     hp = hp_;
 
     pos = {posX_, posY_};
@@ -20,6 +20,8 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
     // TEXTURE LOADING
     texture.loadFromFile(image.c_str());
     rect.setTexture(&texture);
+
+    state = state_;
 }
 
 void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
