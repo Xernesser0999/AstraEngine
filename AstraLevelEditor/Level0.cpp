@@ -29,7 +29,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         0,
         50,
         50,
-        1250,
+        925,
         500,
         "sprite/Debug/PlaceHolder.png",
         1
