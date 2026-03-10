@@ -150,6 +150,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Trigger.cpp" />
+    <ClCompile Include="TXanimated.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BGstatic.h" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Trigger.h" />
+    <ClInclude Include="TXanimated.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
