@@ -26,21 +26,8 @@ void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
 
 }
 
-void Pawn::render(sf::RenderWindow& window, Camera* camera) {
-    sf::RectangleShape screenRect = rect;
-
-    if (camera) {                                           // If a camera is linked to the player
-        screenRect = camera->worldToScreen(rect);           // Make the cam follow him
-    }
-
-    // Changing texture depending on is direction
-        if (direction == 1) {
-            texture.loadFromFile("");
-        }
-        else {
-        }
-
-    window.draw(screenRect);
+void Pawn::render(sf::RenderWindow& window) {
+    window.draw(rect);
 }
 
 bool Pawn::intersects(const sf::FloatRect& a, const sf::FloatRect& b)
@@ -112,6 +99,7 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
         if (velocityY > 0) {
             pos.y = blockTop - size.y;
             isGrounded = true;
+            isDoubleJumping = false;
         }
         else if (velocityY < 0) {
             pos.y = blockBottom;

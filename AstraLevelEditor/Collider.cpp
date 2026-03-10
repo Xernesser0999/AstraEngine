@@ -22,8 +22,7 @@ void Collider::update(float dt) {
 }
 
 void Collider::render(sf::RenderWindow& window, Camera& camera) {
-	sf::RectangleShape screenRect = camera.worldToScreen(rect);
-	window.draw(screenRect);
+	window.draw(rect);
 }
 
 Collider::~Collider() {

@@ -5,15 +5,21 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     // Level loader
     loader = new LevelLoader();
     loader->load(
-        "level/TestLevel/debug-map-01-coll.txt",  // Collision
-        "level/TestLevel/debug-map-01.png",  // Render
+        "level/LVL1.txt",  // Collision
+        "level/LVL1.png",  // Render
         window,
-        30,                         // Size (in tiles) X
-        20                          // Size (in tiles) Y
+        76,                         // Size (in tiles) X
+        60                          // Size (in tiles) Y
     );
 
     // Camera
-    cam = new Camera(1920, 1080, 50 * 38.4, 50 * 21.6, 0.005);
+    cam = new Camera(
+        1920,               // Taille X camera (a pas modif)
+        1080,               // Taille Y camera (a pas modif)
+        76*50,               // Taille X du niveau
+        60*50,               // Tailel Y du niveau
+        0.005               // Lag factor
+    );
 
     // Player
     player = new PlayerEX(
@@ -68,15 +74,17 @@ Level0::~Level0() {
 void Level0::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
-    cam->setCameraOnPlayer(*player);
+    cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
+    window.setView(*cam->view);
+
     parralax->render(window);
     loader->render(window, cam);
-    player->render(window, cam);
+    player->render(window);
     trig->render(window, *cam);
 }
 

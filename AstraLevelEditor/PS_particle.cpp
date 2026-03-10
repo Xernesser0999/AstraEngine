@@ -30,8 +30,7 @@ void PS_particle::update(float dt) {
 }
 
 void PS_particle::render(sf::RenderWindow& window, Camera& camera) {
-	sf::RectangleShape screenRect = camera.worldToScreen(rect);
-	window.draw(screenRect);
+	window.draw(rect);
 }
 
 bool PS_particle::isalive() const {

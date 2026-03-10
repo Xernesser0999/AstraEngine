@@ -60,7 +60,7 @@ EngineLevel::~EngineLevel() {
 void EngineLevel::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
-    cam->setCameraOnPlayer(*player);
+    cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
     if (trig->trigger) {
@@ -71,7 +71,7 @@ void EngineLevel::update(const bool* keys, float dt) {
 void EngineLevel::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
-    player->render(window, cam);
+    player->render(window);
     trig->render(window, *cam);
 }
 

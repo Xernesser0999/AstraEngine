@@ -23,39 +23,33 @@ void BG_parralax_Full::addlayer(std::string file, float speed_) {
 		r.setTexture(&l.TX);
 		l.rect.push_back(r);
 	}
-
 }
 
 void BG_parralax_Full::update(float dt, Camera& cam) {
-	for (auto& r : layer_) {
-		float ox = cam.pos.x * r.speed;
-		float oy = cam.pos.y * r.speed;
+    sf::Vector2f center = cam.view->getCenter();
 
-		// X
-		while (ox < 0) {
-			ox += 1920.f;
-		}
-		while (ox >= 1920.f) {
-			ox -= 1920.f;
-		}
-		// Y
-		while (oy < 0) {
-			oy += 1080.f;
-		}
-		while (oy >= 1080.f) {
-			oy -= 1080.f;
-		}
+    for (auto& r : layer_) {
+        float ox = center.x * r.speed;
+        float oy = center.y * r.speed;
 
-		int index = 0;
-		for (int y = -1; y <= 1; y++)
-		{
-			for (int x = -1; x <= 1; x++)
-			{
-				r.rect[index].setPosition({ x * 1920 - ox, y * 1080 - oy });
-				index++;
-			}
-		}
-	}
+        // Position de snap : la tuile "centrale" la plus proche
+        float snapX = std::round(ox / 1920.f) * 1920.f;
+        float snapY = std::round(oy / 1080.f) * 1080.f;
+
+        int index = 0;
+        for (int y = -1; y <= 1; y++)
+        {
+            for (int x = -1; x <= 1; x++)
+            {
+                // Position monde = snap + offset de grille - déplacement parallax
+                float px = (snapX + x * 1920.f) - ox + center.x;
+                float py = (snapY + y * 1080.f) - oy + center.y;
+
+                r.rect[index].setPosition({ px - 1920.f / 2.f, py - 1080.f / 2.f });
+                index++;
+            }
+        }
+    }
 }
 
 void BG_parralax_Full::render(sf::RenderWindow& window) {

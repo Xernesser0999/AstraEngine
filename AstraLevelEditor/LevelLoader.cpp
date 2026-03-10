@@ -1,12 +1,9 @@
 ﻿#include "LevelLoader.h"
-
 #include "Camera.h"
-
 
 void LevelLoader::load(const std::string& collider_path, const std::string& render_path, sf::RenderWindow& window, float tileX, float tileY)
 {
     std::ifstream file(collider_path);
-    if (!file.is_open()) return;
 
     actualX = 0;
     actualY = 0;
@@ -32,40 +29,39 @@ void LevelLoader::load(const std::string& collider_path, const std::string& rend
         actualY += size;
     }
 
-
     back = new BGstatic(window, render_path, tileX, tileY);
 }
 
-void LevelLoader::TileLoad(const std::string& path, sf::RenderWindow& window)
+void LevelLoader::TileLoad(const std::string& path, const std::string& collpath, sf::RenderWindow& window)
 {
+    // Load render
     std::ifstream file(path);
-    if (!file.is_open()) return;
 
     actualX = 0;
     actualY = 0;
 
     int size = 50;
 
-    int id;
-    while (file >> id)
+    char c;
+    while (file.get(c))
     {
-        switch (id)
+        switch (c)
         {
-        case 1: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest001.png")); break;
-        case 2: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest002.png")); break;
-        case 3: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest003.png")); break;
-        case 4: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest004.png")); break;
-        case 5: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest005.png")); break;
-        case 6: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest006.png")); break;
-        case 7: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest007.png")); break;
-        case 8: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest008.png")); break;
-        case 9: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest009.png")); break;
-        case 10: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest010.png")); break;
-        case 11: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest011.png")); break;
-        case 12: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest012.png")); break;
-        case 13: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest013.png")); break;
-        case 14: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest014.png")); break;
-        case 15: colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Testing/forest015.png")); break;
+        case 'A': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest001.png")); break;
+        case 'Z': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest002.png")); break;
+        case 'E': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest003.png")); break;
+        case 'R': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest004.png")); break;
+        case 'T': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest005.png")); break;
+        case 'Y': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest006.png")); break;
+        case 'U': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest007.png")); break;
+        case 'I': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest008.png")); break;
+        case 'O': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest009.png")); break;
+        case 'P': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest010.png")); break;
+        case 'Q': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest011.png")); break;
+        case 'S': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest012.png")); break;
+        case 'D': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest013.png")); break;
+        case 'F': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest014.png")); break;
+        case 'G': Display.push_back(new DisplayEntity(window, actualX, actualY, size, size, "sprite/Testing/forest015.png")); break;
 
         default:
             break;
@@ -82,6 +78,25 @@ void LevelLoader::TileLoad(const std::string& path, sf::RenderWindow& window)
             actualX = 0;
         }
     }
+
+    std::string line;
+    int id;
+    while (std::getline(file, line))
+    {
+        actualX = 0;
+
+        for (char c : line)
+        {
+            if (c == '1')
+            {
+                colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Debug/Collider_DebugTX.png"));
+            }
+
+            actualX += size;
+        }
+
+        actualY += size;
+    }
 }
 
 void LevelLoader::render(sf::RenderWindow& window, Camera* cam) {
@@ -93,12 +108,28 @@ void LevelLoader::render(sf::RenderWindow& window, Camera* cam) {
     }
 }
 
+void LevelLoader::TileRender(sf::RenderWindow& window, Camera* cam) {
+    for (auto& c : Display) {
+        c->render(window, *cam);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {
+        for (Collider* c : colliders) {
+            c->render(window, *cam);
+        }
+    }
+}
+
 void LevelLoader::update(float dt, PlayerEX& player) {
 
 }
 
-LevelLoader::~LevelLoader() {
+LevelLoader::~LevelLoader()  {
+    for (auto& c : colliders) {
+        delete c;
+        c = nullptr;
+    }
     colliders.clear();
+
     delete back;
     back = nullptr;
 }
