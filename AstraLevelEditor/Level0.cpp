@@ -71,9 +71,6 @@ Level0::~Level0() {
     player = nullptr;
     parralax = nullptr;
     trig = nullptr;
-
-    delete Machine;
-    Machine = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
