@@ -29,20 +29,6 @@ static bool pressJump() {
     return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space); 
 }
 
-static IState* transitionOnLand(Pawn& pawn) {
-    pawn.isJumping = false;
-    pawn.isDoubleJumping = false;
-    if (pressLeft()) {
-        return new MovingLeftState();
-    }
-    else if (pressRight()) {
-        return new MovingRightState();
-    }
-    else {
-        return new IdleState();
-    }
-}
-
 IdleState::IdleState() {}
 
 void IdleState::update(float dt, Pawn& pawn) {
@@ -87,7 +73,9 @@ void MovingLeftState::update(float dt, Pawn& pawn) {
     pawn.velocityX = -pawn.speed;
     pawn.direction = 1;
 
-    if (!pressJump()) pawn.isInpuConsume = false;
+    if (!pressJump()) {
+        pawn.isInpuConsume = false;
+    }
 
     if (!pawn.isGrounded) {
         nextState = new FallingLeft();
@@ -120,7 +108,9 @@ void MovingRightState::update(float dt, Pawn& pawn) {
     pawn.velocityX = pawn.speed;
     pawn.direction = 0;
 
-    if (!pressJump()) pawn.isInpuConsume = false;
+    if (!pressJump()) {
+        pawn.isInpuConsume = false;
+    }
 
     if (!pawn.isGrounded) {
         nextState = new FallingRight();
@@ -176,7 +166,9 @@ void JumpingLeftState::update(float dt, Pawn& pawn) {
     }
 
     if (pawn.isGrounded) {
-        nextState = transitionOnLand(pawn);
+        pawn.isJumping = false;
+        pawn.isDoubleJumping = false;
+        nextState = new IdleState();
         return;
     }
 }
@@ -211,7 +203,9 @@ void JumpingRightState::update(float dt, Pawn& pawn) {
     }
 
     if (pawn.isGrounded) {
-        nextState = transitionOnLand(pawn);
+        pawn.isJumping = false;
+        pawn.isDoubleJumping = false;
+        nextState = new IdleState();
         return;
     }
 }
@@ -247,7 +241,9 @@ void FallingLeft::update(float dt, Pawn& pawn) {
     }
 
     if (pawn.isGrounded) {
-        nextState = transitionOnLand(pawn);
+        pawn.isJumping = false;
+        pawn.isDoubleJumping = false;
+        nextState = new IdleState();
         return;
     }
 }
@@ -283,7 +279,9 @@ void FallingRight::update(float dt, Pawn& pawn) {
     }
 
     if (pawn.isGrounded) {
-        nextState = transitionOnLand(pawn);
+        pawn.isJumping = false;
+        pawn.isDoubleJumping = false;
+        nextState = new IdleState();
         return;
     }
 }
