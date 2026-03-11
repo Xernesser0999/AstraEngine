@@ -2,23 +2,21 @@
 #include "Global.h"
 
 Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
-    // Level loader
     loader = new LevelLoader();
     loader->load(
-        "level/LVL1.txt",  // Collision
-        "level/LVL1.png",  // Render
+        "level/LVL1.txt", 
+        "level/LVL1.png", 
         window,
-        76,                         // Size (in tiles) X
-        60                          // Size (in tiles) Y
+        76,              
+        60                
     );
 
-    // Camera
     cam = new Camera(
-        1920,               // Taille X camera (a pas modif)
-        1080,               // Taille Y camera (a pas modif)
-        76*50,               // Taille X du niveau
-        60*50,               // Tailel Y du niveau
-        0.005               // Lag factor
+        1920,               
+        1080,               
+        76*50,               
+        60*50,               
+        0.005              
     );
     Machine = new StateMachine(new IdleState());
 
@@ -48,7 +46,6 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     parralax = new BG_parralax_Full();
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
-    //Trigger
     trig = new Trigger(
         1475,
         350,

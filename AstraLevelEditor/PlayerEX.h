@@ -22,6 +22,6 @@ public:
 	void death() override;
 
 protected:
-	//void onStateChange(State from, State to) override;	// Callback pour r�agir aux changements d'�tat
-	//void updateState();									// M�thode pour mettre � jour l'�tat en fonction de la situation
+	//void onStateChange(State from, State to) override;	
+	//void updateState();									
 };

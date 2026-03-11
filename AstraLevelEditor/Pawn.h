@@ -1,6 +1,3 @@
-// STRUCT - PAWN
-// Permet de crée un objet capable de recevoir des input. Une camera peut etre lié a cette objet.
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
@@ -8,7 +5,6 @@
 
 #include "Collider.h"
 #include "StateMachine.h"
-
 
 class Camera;
 
@@ -58,16 +54,16 @@ struct Pawn {
 
 	//  |\=-_
 	//  FUNCTION
-	Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine state_);
-	virtual ~Pawn();
+    Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine& state_ );
+    virtual ~Pawn();
 
-	virtual void update(float dt, const std::vector<Collider*>& colliders);		// Update		// Can be Override
-	void render(sf::RenderWindow& window);			// Render
+    virtual void update(float dt, const std::vector<Collider*>& colliders);
+    void render(sf::RenderWindow& window);
 
-	void collisionVert(const std::vector<Collider*>& colliders);				// Vertical Collision
-	void collisionHori(const std::vector<Collider*>& colliders);				// Horizontal Collision
-	bool intersects(const sf::FloatRect& a, const sf::FloatRect& b);
+    void collisionVert(const std::vector<Collider*>& colliders);
+    void collisionHori(const std::vector<Collider*>& colliders);
+    bool intersects(const sf::FloatRect& a, const sf::FloatRect& b);
 
-	virtual void takedamage(int dmg);											// Takedamage	// Can be Override
-	virtual void death();														// Death		// Can be Override
+    virtual void takedamage(int dmg);
+    virtual void death();
 };

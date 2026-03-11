@@ -1,70 +1,63 @@
 #pragma once
-#include <iostream>	
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <thread>
 
-//STATE MACHINE
+struct Pawn;
+
 struct IState {
-	virtual ~IState() = default;
-	virtual void update(float dt) = 0;
-	virtual void render(sf::RenderWindow& window) = 0;
-	IState* nextState = nullptr;
+    virtual ~IState() = default;
+    virtual void update(float dt, Pawn& pawn) = 0;
+    virtual void render(sf::RenderWindow& window) = 0;
+    IState* nextState = nullptr;
 };
 
 struct StateMachine {
-	IState* currentState;
-	StateMachine(IState* startState);
-	virtual void update(float dt);
-	~StateMachine();
+    IState* currentState;
+    StateMachine(IState* startState);
+    virtual void update(float dt, Pawn& pawn);
+    ~StateMachine();
 };
 
-//ETAT
-struct IdleState : IState {
-	IdleState();
 
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
+struct IdleState : IState {
+    IdleState();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
 };
 
 struct MovingLeftState : IState {
-	MovingLeftState();
-
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
+    MovingLeftState();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
 };
 
 struct MovingRightState : IState {
-	MovingRightState();
-
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
-};	
+    MovingRightState();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
+};
 
 struct JumpingLeftState : IState {
-	JumpingLeftState();
-
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
+    JumpingLeftState();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
 };
 
 struct JumpingRightState : IState {
-	JumpingRightState();
-
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
-};	
+    JumpingRightState();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
+};
 
 struct FallingLeft : IState {
-	FallingLeft();
-
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
+    FallingLeft();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
 };
 
 struct FallingRight : IState {
-	FallingRight();
-
-	void update(float dt) override;
-	void render(sf::RenderWindow& window) override;
+    FallingRight();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
 };
-
