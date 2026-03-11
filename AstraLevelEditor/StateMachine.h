@@ -61,3 +61,15 @@ struct FallingRight : IState {
     void update(float dt, Pawn& pawn) override;
     void render(sf::RenderWindow& window) override;
 };
+
+struct DashingLeft : IState {
+    DashingLeft();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
+};
+
+struct DashingRight : IState {
+    DashingRight();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
+};

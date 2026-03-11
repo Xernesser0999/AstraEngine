@@ -29,6 +29,10 @@ static bool pressJump() {
     return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space); 
 }
 
+static bool pressShift() {
+    return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift);
+}
+
 IdleState::IdleState() {}
 
 void IdleState::update(float dt, Pawn& pawn) {
@@ -97,6 +101,10 @@ void MovingLeftState::update(float dt, Pawn& pawn) {
         nextState = new MovingRightState();
         return;
     }
+    if (pressShift()) {
+        nextState = new DashingRight();
+        return;
+    }
 }
 
 void MovingLeftState::render(sf::RenderWindow& window) {
@@ -132,6 +140,10 @@ void MovingRightState::update(float dt, Pawn& pawn) {
         nextState = new MovingLeftState();
         return;
     }
+    if (pressShift()) {
+        nextState = new DashingLeft();
+        return;
+    }
 }
 
 void MovingRightState::render(sf::RenderWindow& window) {
@@ -164,6 +176,11 @@ void JumpingLeftState::update(float dt, Pawn& pawn) {
             pawn.isDoubleJumping = false;
         }
         pawn.isInpuConsume = true;
+    }
+    
+    if (pressShift()) {
+        nextState = new DashingLeft();
+        return;
     }
 
     if (pawn.velocityY >= 0) {
@@ -209,6 +226,11 @@ void JumpingRightState::update(float dt, Pawn& pawn) {
             pawn.isDoubleJumping = false;
 		}   
         pawn.isInpuConsume = true;
+    }
+    
+    if (pressShift()) {
+        nextState = new DashingRight();
+        return;
     }
 
     if (pawn.velocityY >= 0) {
@@ -259,6 +281,11 @@ void FallingLeft::update(float dt, Pawn& pawn) {
         nextState = new JumpingLeftState();
         return;
     }
+    
+    if (pressShift()) {
+        nextState = new DashingLeft();
+        return;
+    }
 
     if (pawn.isGrounded) {
         pawn.isJumping = false;
@@ -303,6 +330,10 @@ void FallingRight::update(float dt, Pawn& pawn) {
         nextState = new JumpingRightState();
         return;
     }
+    else if (pressShift()) {
+        nextState = new DashingRight();
+        return;
+	}
 
     if (pawn.isGrounded) {
         pawn.isJumping = false;
@@ -313,4 +344,36 @@ void FallingRight::update(float dt, Pawn& pawn) {
 }
 
 void FallingRight::render(sf::RenderWindow& window) {
+}
+
+DashingLeft::DashingLeft() {}
+
+void DashingLeft::update(float dt, Pawn& pawn){
+    if (pressLeft()) {
+        pawn.velocityX = -pawn.speed * 2;
+        pawn.direction = 1;
+    }
+    else {
+        nextState = new MovingLeftState();
+        return;
+    }
+}
+
+void DashingLeft::render(sf::RenderWindow& window){
+}
+
+DashingRight::DashingRight() {}
+
+void DashingRight::update(float dt, Pawn& pawn){
+    if (pressRight()) {
+        pawn.velocityX = pawn.speed * 2;
+        pawn.direction = 0;
+    }
+    else {
+        nextState = new MovingRightState();
+        return;
+	}
+}
+
+void DashingRight::render(sf::RenderWindow& window){
 }
