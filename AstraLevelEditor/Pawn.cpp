@@ -64,12 +64,8 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
     for (auto c : colliders) {
         sf::FloatRect playerRect({ pos.x, pos.y }, { size.x, size.y });
         sf::FloatRect blockRect({ c->pos.x, c->pos.y }, { c->size.x, c->size.y });
-        float playerRight = pos.x + size.x, blockLeft = c->pos.x;
-        float playerLeft = pos.x, blockRight = c->pos.x + c->size.x;
 
-        if (!intersects(playerRect, blockRect) && !(playerRight > blockLeft && playerLeft < blockRight)) {
-            continue;
-        }
+        if (!intersects(playerRect, blockRect)) continue;
 
         if (velocityY > 0) {
             pos.y = c->pos.y - size.y;

@@ -142,9 +142,11 @@ JumpingLeftState::JumpingLeftState() {}
 void JumpingLeftState::update(float dt, Pawn& pawn) {
     if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
+        pawn.direction = 1;
     }
     else if (pressRight()) {
         pawn.velocityX = pawn.speed;
+        pawn.direction = 0;
     }
     else {
         pawn.velocityX = 0;
@@ -157,6 +159,10 @@ void JumpingLeftState::update(float dt, Pawn& pawn) {
     if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
         pawn.velocityY = -pawn.power_jump;
         pawn.isDoubleJumping = true;
+        if (pawn.isGrounded) {
+            pawn.isJumping = false;
+            pawn.isDoubleJumping = false;
+        }
         pawn.isInpuConsume = true;
     }
 
@@ -181,19 +187,27 @@ JumpingRightState::JumpingRightState() {}
 void JumpingRightState::update(float dt, Pawn& pawn) {
     if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
+        pawn.direction = 1;
     }
     else if (pressRight()) {
         pawn.velocityX = pawn.speed;
+        pawn.direction = 0;
     }
     else {
         pawn.velocityX = 0;
     }
 
-    if (!pressJump()) pawn.isInpuConsume = false;
+    if (!pressJump()) {
+        pawn.isInpuConsume = false;
+    }
 
     if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
         pawn.velocityY = -pawn.power_jump;
         pawn.isDoubleJumping = true;
+		if (pawn.isGrounded) {
+            pawn.isJumping = false;
+            pawn.isDoubleJumping = false;
+		}   
         pawn.isInpuConsume = true;
     }
 
@@ -220,9 +234,11 @@ void FallingLeft::update(float dt, Pawn& pawn) {
 
     if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
+        pawn.direction = 1;
     }
     else if (pressRight()) {
         pawn.velocityX = pawn.speed;
+        pawn.direction = 0;
     }
     else {
         pawn.velocityX = 0;
@@ -235,6 +251,10 @@ void FallingLeft::update(float dt, Pawn& pawn) {
     if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
         pawn.velocityY = -pawn.power_jump;
         pawn.isDoubleJumping = true;
+        if (pawn.isGrounded) {
+            pawn.isJumping = false;
+            pawn.isDoubleJumping = false;
+        }
         pawn.isInpuConsume = true;
         nextState = new JumpingLeftState();
         return;
@@ -258,9 +278,11 @@ void FallingRight::update(float dt, Pawn& pawn) {
 
     if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
+		pawn.direction = 1;
     }
     else if (pressRight()) {
         pawn.velocityX = pawn.speed;
+        pawn.direction = 0;
     }
     else {
         pawn.velocityX = 0;
@@ -273,6 +295,10 @@ void FallingRight::update(float dt, Pawn& pawn) {
     if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
         pawn.velocityY = -pawn.power_jump;
         pawn.isDoubleJumping = true;
+        if (pawn.isGrounded) {
+            pawn.isJumping = false;
+            pawn.isDoubleJumping = false;
+        }
         pawn.isInpuConsume = true;
         nextState = new JumpingRightState();
         return;

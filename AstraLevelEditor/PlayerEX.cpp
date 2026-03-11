@@ -6,26 +6,17 @@ PlayerEX::PlayerEX( sf::RenderWindow& window, int hp_, float posX_, float posY_,
 
 void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 
-    // |\=-_
-    // STATE MACHINE drives input + velocityX + jump initiation
     state.update(dt, *this);
 
-    // |\=-_
-    // HORIZONTAL PHYSICS + COLLISION
     pos.x += velocityX * dt;
     Pawn::collisionHori(colliders);
 
-    // |\=-_
-    // VERTICAL PHYSICS + COLLISION
-    velocityY += 2000.0f * dt;     // gravity
+    velocityY += 2000.0f * dt;     
     pos.y += velocityY * dt;
     Pawn::collisionVert(colliders);
 
-    // Sync rect
     rect.setPosition({ pos.x, pos.y });
 
-    // |\=-_
-    // IFRAME TIMER
     if (isInvincible) {
         IframeTimer -= dt;
         if (IframeTimer <= 0.0f) {
@@ -34,13 +25,13 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
         }
     }
 
-    // |\=-_
-    // DEATH
-    if (!isalive) death();
+    if (!isalive) {
+        death();
+    }
 }
 
 void PlayerEX::death() {
     rect.setPosition({ 200, 800 });
-    hp = 1;
+    hp = 1;                                
     isalive = true;
 }
