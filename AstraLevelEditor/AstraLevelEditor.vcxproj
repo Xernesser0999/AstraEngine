@@ -149,6 +149,7 @@
     <ClCompile Include="PS_particle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="Trigger.cpp" />
     <ClCompile Include="TXanimated.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="PS_particle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Trigger.h" />
     <ClInclude Include="TXanimated.h" />
   </ItemGroup>

@@ -14,6 +14,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
     // Camera
     cam = new Camera(1920, 1080, 50*60, 50*40, 0.005);
+    Machine = new StateMachine(new IdleState());
 
     // Player
     player = new PlayerEX (
@@ -26,7 +27,8 @@ EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
         1250,
         500,
         "sprite/Debug/PlaceHolder.png",
-        1
+        1,
+        *Machine
     );
 
     parralax = new BG_parralax_Full();
@@ -55,6 +57,9 @@ EngineLevel::~EngineLevel() {
     player = nullptr;
     parralax = nullptr;
     trig = nullptr;
+
+    delete Machine;
+    Machine = nullptr;
 }
 
 void EngineLevel::update(const bool* keys, float dt) {

@@ -7,7 +7,8 @@
 #include "PlayerEX.h"
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
-#include "TXanimated.h"
+
+#include "StateMachine.h"
 
 class Global;
 
@@ -23,7 +24,7 @@ public:
 
 public:
 
-	TXanimated* anim;
+	StateMachine* Machine;
 	Trigger* trig;
 	LevelLoader* loader;
 	PlayerEX* player;
