@@ -8,6 +8,7 @@
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 #include "BlobEnemy.h"
+#include "Spike.h"
 
 #include "StateMachine.h"
 
@@ -35,6 +36,7 @@ public:
 	BlobEnemy* blob;
 	BlobEnemy* blob1;
 	BlobEnemy* blob2;
+	Spike* spike;
 
 	Global& glob;
 };
