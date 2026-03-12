@@ -1,25 +1,27 @@
 #include "BlobEnemy.h"
 
-BlobEnemy::BlobEnemy(float posX, float posY, float timeMove, float speedMove){
+BlobEnemy::BlobEnemy(float posX, float posY, float timeMove, float speedMove)
+{
 	pos = { posX, posY };
 	size = { 50, 50 };
 	speed = speedMove;
-	time = timeMove;	
+	time = timeMove;
 	rect.setPosition(pos);
 	rect.setSize(size);
-	if (!texture.loadFromFile("sprite/Debug/PlaceHolder.png")) {
+	if (!texture.loadFromFile("sprite/Debug/PlaceHolder.png"))
+	{
 		rect.setFillColor(sf::Color::Red);
 	}
 	else {
 		rect.setTexture(&texture);
 	}
-	
+
 }
 
-BlobEnemy::~BlobEnemy(){
-}
+BlobEnemy::~BlobEnemy() {}
 
-void BlobEnemy::update(float dt){
+void BlobEnemy::update(float dt)
+{
 	actualTimeMove += dt;
 
 	if (moveRight) {
@@ -29,13 +31,13 @@ void BlobEnemy::update(float dt){
 		pos.x -= speed * dt;
 	}
 
-	if(actualTimeMove >= time) {
+	if (actualTimeMove >= time) {
 		moveRight = !moveRight;
 		actualTimeMove = 0;
 	}
 	rect.setPosition(pos);
 }
 
-void BlobEnemy::render(sf::RenderWindow& window){
+void BlobEnemy::render(sf::RenderWindow& window) {
 	window.draw(rect);
-}	
+}

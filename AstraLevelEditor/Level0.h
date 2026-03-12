@@ -9,8 +9,8 @@
 #include "BG_parralax_Full.h"
 #include "BlobEnemy.h"
 #include "Spike.h"
-
 #include "StateMachine.h"
+#include "projectiles.h"
 
 class Global;
 
@@ -37,6 +37,7 @@ public:
 	BlobEnemy* blob1;
 	BlobEnemy* blob2;
 	Spike* spike;
+	Projectile* proj1;
 
 	Global& glob;
 };
