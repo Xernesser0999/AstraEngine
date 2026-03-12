@@ -157,8 +157,7 @@ void JumpingLeftState::update(float dt, Pawn& pawn) {
         pawn.direction = 1;
     }
     else if (pressRight()) {
-        pawn.velocityX = pawn.speed;
-        pawn.direction = 0;
+        nextState = new JumpingRightState();
     }
     else {
         pawn.velocityX = 0;
@@ -203,9 +202,9 @@ JumpingRightState::JumpingRightState() {}
 
 void JumpingRightState::update(float dt, Pawn& pawn) {
     if (pressLeft()) {
-
-        pawn.velocityX = -pawn.speed;
-        pawn.direction = 1;
+		nextState = new JumpingLeftState();
+        //pawn.velocityX = -pawn.speed;
+        //pawn.direction = 1;
     }
     else if (pressRight()) {
         pawn.velocityX = pawn.speed;
@@ -260,8 +259,7 @@ void FallingLeft::update(float dt, Pawn& pawn) {
         pawn.direction = 1;
     }
     else if (pressRight()) {
-        pawn.velocityX = pawn.speed;
-        pawn.direction = 0;
+		nextState = new FallingRight();
     }
     else {
         pawn.velocityX = 0;
@@ -305,8 +303,7 @@ void FallingRight::update(float dt, Pawn& pawn) {
     pawn.isJumping = true;
 
     if (pressLeft()) {
-        pawn.velocityX = -pawn.speed;
-		pawn.direction = 1;
+		nextState = new FallingLeft();
     }
     else if (pressRight()) {
         pawn.velocityX = pawn.speed;
