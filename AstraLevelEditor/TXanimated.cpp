@@ -3,24 +3,28 @@
 TXanimated::TXanimated() {
 	Frameloc = {0, 0};
 	ActualFrame = 0;
+
+	startpoint = 0;
 }
 
 TXanimated::~TXanimated() {
 
 }
 
-void TXanimated::load(std::string file, std::string image, float sizeX, float sizeY, float posX, float posY) {
+void TXanimated::load(std::string file, float sizeX, float sizeY, float posX, float posY) {
 	std::ifstream f(file);
 
 	std::getline(f, filename);
-	f >> FrameSize.x, FrameSize.y;
+	f >> FrameSize.x;
+	f >> FrameSize.y;
 	f >> TotalFrame;
 	f >> FrameRate;
-	TotalFrame - 1;
+
+	TotalFrame -= 1;
 
 	offset = sf::IntRect({ 0, 0 }, {FrameSize});
 
-	TX.loadFromFile(file);
+	TX.loadFromFile(filename.c_str());
 
 	rect.setSize({ sizeX, sizeY });
 	rect.setPosition({ posX, posY });
@@ -30,17 +34,26 @@ void TXanimated::load(std::string file, std::string image, float sizeX, float si
 
 void TXanimated::update(float dt) {
 
-	Frameloc.x += 32;
-	offset = sf::IntRect({ Frameloc.x, 0 }, { 32, 32 });
+	elapsed = clock.getElapsedTime().asMilliseconds();
+	startpoint += dt;
 
-	ActualFrame += 1;
-	rect.setTextureRect(offset);
+	if (startpoint >= FrameRate) {
+		Frameloc.x += FrameSize.x;
+		offset = sf::IntRect({ Frameloc.x, 0 }, { 32, 32 });
+
+		ActualFrame += 1;
+		rect.setTextureRect(offset);
+
+		startpoint = 0;
+	}
 
 	if (ActualFrame == TotalFrame) {
 		ActualFrame = 0;
 		Frameloc.x = 0;
+		Frameloc.y = 0;
 	}
 
+	clock.reset();
 }
 
 void TXanimated::render(sf::RenderWindow& window) {

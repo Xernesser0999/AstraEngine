@@ -35,6 +35,9 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         1
     );
 
+    anim = new TXanimated();
+    anim->load("sprite/SpriteSheet/AnimDebug.txt", 200, 200, 200, 200);
+
     if (glob.Boot) {
         glob.Boot = false;
         player->pos = {250, 700};
@@ -77,7 +80,7 @@ void Level0::update(const bool* keys, float dt) {
     cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
-    anim.update(dt);
+    anim->update(dt);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -87,7 +90,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
     loader->render(window, cam);
     player->render(window);
     trig->render(window, *cam);
-    anim.render(window);
+    anim->render(window);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

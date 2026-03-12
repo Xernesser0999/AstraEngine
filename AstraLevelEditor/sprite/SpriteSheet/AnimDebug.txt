@@ -1,4 +1,9 @@
-AnimeDebug.png
+sprite/SpriteSheet/AnimeDebug.png
 32 32
 4
-12
+0.5
+
+// Chemin d'acces depuis le vcxproj
+// TailleX TailleY d'une frame en px
+// Nombre de frame
+// Durée d'une frame en seconde

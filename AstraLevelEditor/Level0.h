@@ -23,7 +23,7 @@ public:
 
 public:
 
-	TXanimated anim;
+	TXanimated* anim;
 	Trigger* trig;
 	LevelLoader* loader;
 	PlayerEX* player;

@@ -21,11 +21,17 @@ public:
 	sf::Texture TX;
 	sf::RectangleShape rect;
 
+	sf::Clock clock;
+
+	float startpoint;
+	float timer;
+	float elapsed;
+
 public:
 	TXanimated();
 	~TXanimated();
 
-	void load(std::string file, std::string image, float sizeX, float sizeY, float posX, float posY);
+	void load(std::string file, float sizeX, float sizeY, float posX, float posY);
 
 	void update(float dt);
 	void render(sf::RenderWindow& window);
