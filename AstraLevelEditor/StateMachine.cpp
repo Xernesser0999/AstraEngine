@@ -438,8 +438,6 @@ FlottingLeft::FlottingLeft() {}
 
 void FlottingLeft::update(float dt, Pawn& pawn)
 {
-    //pawn.isJumping = true;
-
     if (pressRight()) {
         nextState = new FlottingRight();
     }
@@ -453,15 +451,11 @@ void FlottingLeft::update(float dt, Pawn& pawn)
         nextState = new FallingLeft();
     }
 
-    /*if (pressJump() && pawn.isJumping) {
-        pawn.Gravity = 1000;
-    }*/
-
     if (pressJump && !pawn.isGrounded) {
         pawn.Gravity = 1000;
     }
     if (pressShift()) {
-        nextState = new DashingRight();
+        nextState = new DashingLeft();
         return;
     }
 
@@ -483,7 +477,6 @@ FlottingRight::FlottingRight() {}
 
 void FlottingRight::update(float dt, Pawn& pawn)
 {
-    //pawn.isJumping = true;
 
     if (pressLeft()) {
         nextState = new FlottingLeft;
@@ -501,10 +494,6 @@ void FlottingRight::update(float dt, Pawn& pawn)
         pawn.Gravity = 4000;
         nextState = new FallingRight();
     }
-
-    //if (pressJump() && pawn.isJumping) {
-    //    pawn.Gravity = 000;
-    //}
 
     if (pressJump && !pawn.isGrounded) {
         pawn.Gravity = 1000;
