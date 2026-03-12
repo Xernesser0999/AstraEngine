@@ -102,7 +102,7 @@ void MovingLeftState::update(float dt, Pawn& pawn) {
         return;
     }
     if (pressShift()) {
-        nextState = new DashingRight();
+        nextState = new DashingLeft();
         return;
     }
 }
@@ -141,7 +141,7 @@ void MovingRightState::update(float dt, Pawn& pawn) {
         return;
     }
     if (pressShift()) {
-        nextState = new DashingLeft();
+        nextState = new DashingRight();
         return;
     }
 }
@@ -203,6 +203,7 @@ JumpingRightState::JumpingRightState() {}
 
 void JumpingRightState::update(float dt, Pawn& pawn) {
     if (pressLeft()) {
+
         pawn.velocityX = -pawn.speed;
         pawn.direction = 1;
     }
@@ -330,7 +331,7 @@ void FallingRight::update(float dt, Pawn& pawn) {
         nextState = new JumpingRightState();
         return;
     }
-    else if (pressShift()) {
+    if (pressShift()) {
         nextState = new DashingRight();
         return;
 	}
@@ -376,4 +377,12 @@ void DashingRight::update(float dt, Pawn& pawn){
 }
 
 void DashingRight::render(sf::RenderWindow& window){
+}
+
+void IState::setState(IState* state){
+    if (nextState != nullptr)
+    {
+        delete nextState;
+    }
+    nextState = state;
 }

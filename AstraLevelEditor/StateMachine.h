@@ -9,6 +9,7 @@ struct IState {
     virtual ~IState() = default;
     virtual void update(float dt, Pawn& pawn) = 0;
     virtual void render(sf::RenderWindow& window) = 0;
+    void setState(IState* state);
     IState* nextState = nullptr;
 };
 

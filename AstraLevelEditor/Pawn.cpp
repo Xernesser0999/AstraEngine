@@ -36,45 +36,72 @@ bool Pawn::intersects(const sf::FloatRect& a, const sf::FloatRect& b) {
 }
 
 void Pawn::collisionHori(const std::vector<Collider*>& colliders) {
-    for (auto c : colliders) {
+    for (auto c : colliders) {                                                          
         sf::FloatRect playerRect({ pos.x, pos.y }, { size.x, size.y });
         sf::FloatRect blockRect({ c->pos.x, c->pos.y }, { c->size.x, c->size.y });
-        if (!intersects(playerRect, blockRect)) {
+        if (!intersects(playerRect, blockRect))
             continue;
-        }
 
-        float playerBottom = pos.y + size.y, blockTop = c->pos.y;
-        float playerTop = pos.y, blockBottom = c->pos.y + c->size.y;
-        if (!(playerBottom > blockTop && playerTop < blockBottom)) {
+        float playerTop = pos.y;                                                      
+        float playerBottom = pos.y + size.y;                                          
+        float blockTop = c->pos.y;                                                    
+        float blockBottom = c->pos.y + c->size.y;                                     
+
+        bool verticalOverlap = playerBottom > blockTop && playerTop < blockBottom;    
+        if (!verticalOverlap)                                                         
             continue;
-        }
+
+        float playerLeft = pos.x;
+        float playerRight = pos.x + size.x;
+        float blockLeft = c->pos.x;
+        float blockRight = c->pos.x + c->size.x;
 
         if (velocityX > 0) {
-            pos.x = c->pos.x - size.x;
+            pos.x = blockLeft - size.x;
         }
         else if (velocityX < 0) {
-            pos.x = c->pos.x + c->size.x;
+            pos.x = blockRight;
         }
+
         velocityX = 0;
     }
 }
 
 void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
     isGrounded = false;
+
     for (auto c : colliders) {
+
         sf::FloatRect playerRect({ pos.x, pos.y }, { size.x, size.y });
         sf::FloatRect blockRect({ c->pos.x, c->pos.y }, { c->size.x, c->size.y });
 
-        if (!intersects(playerRect, blockRect)) continue;
+        if (!intersects(playerRect, blockRect))
+            continue;
+
+
+        float playerLeft = pos.x;
+        float playerRight = pos.x + size.x;
+        float blockLeft = c->pos.x;
+        float blockRight = c->pos.x + c->size.x;
+
+        bool horizontalOverlap = playerRight > blockLeft && playerLeft < blockRight;
+        if (!horizontalOverlap)
+            continue;
+
+        float playerTop = pos.y;
+        float playerBottom = pos.y + size.y;
+        float blockTop = c->pos.y;
+        float blockBottom = c->pos.y + c->size.y;
 
         if (velocityY > 0) {
-            pos.y = c->pos.y - size.y;
+            pos.y = blockTop - size.y;
             isGrounded = true;
             isDoubleJumping = false;
         }
         else if (velocityY < 0) {
-            pos.y = c->pos.y + c->size.y;
+            pos.y = blockBottom;
         }
+
         velocityY = 0;
     }
 }
