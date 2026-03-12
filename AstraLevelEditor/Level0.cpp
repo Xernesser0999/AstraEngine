@@ -35,6 +35,16 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         *Machine
     );
 
+    // Spike
+    spike = new Spike(
+        window,
+        200,
+        2500,
+        200,
+        200,
+        "sprite/Environment/Spike.png"
+    );
+
     if (glob.Boot) {
         glob.Boot = false;
         player->pos = {250, 700};
@@ -76,6 +86,7 @@ void Level0::update(const bool* keys, float dt) {
     cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
+    spike->update(*player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -85,6 +96,8 @@ void Level0::displayScene(sf::RenderWindow& window) {
     loader->render(window, cam);
     player->render(window);
     trig->render(window, *cam);
+    spike->draw(window);
+
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
