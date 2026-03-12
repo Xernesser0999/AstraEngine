@@ -75,3 +75,15 @@ struct DashingRight : IState {
     void update(float dt, Pawn& pawn) override;
     void render(sf::RenderWindow& window) override;
 };
+
+struct FlottingLeft : IState {
+    FlottingLeft();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
+};
+
+struct FlottingRight : IState {
+    FlottingRight();
+    void update(float dt, Pawn& pawn) override;
+    void render(sf::RenderWindow& window) override;
+};

@@ -53,6 +53,8 @@ struct Pawn {
 	bool isDoubleJumping = false;
 	bool isInpuConsume = false;
 
+	float Gravity = 4000.0f;
+
 	//  |\=-_
 	//  SDL VARIABLE
 	// SDL_FlipMode flip = SDL_FLIP_NONE;

@@ -11,7 +11,7 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
     pos.x += velocityX * dt;
     Pawn::collisionHori(colliders);
 
-    velocityY += 4000.0f * dt;     
+    velocityY += Gravity * dt;     
     pos.y += velocityY * dt;
     Pawn::collisionVert(colliders);
 
