@@ -376,7 +376,7 @@ void DashingLeft::update(float dt, Pawn& pawn)
 		}
 		else
 		{
-			pawn.velocityX = -pawn.speed * 1.75f;
+			pawn.velocityX = -pawn.speed * 2.0f;
 			pawn.direction = 1;
 		}
 
@@ -405,7 +405,7 @@ void DashingRight::update(float dt, Pawn& pawn)
 		}
 		else
 		{
-			pawn.velocityX = pawn.speed * 1.75f;
+			pawn.velocityX = pawn.speed * 2.0f;
 			pawn.direction = 0;
 		}
 
