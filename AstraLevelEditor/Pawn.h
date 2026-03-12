@@ -17,8 +17,15 @@ struct Pawn {
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
-	float power_jump;				// Jump Height
+	float power_jump;				 // Jump Height
 	float speed;					// Speed of the player
+
+	//dash
+	float dashDuration = 0.2f; 		      // Duration of the dash
+	float cooldownDuration = 0.5f;		 // Time before the dash can be used again
+	float cooldownTimer = 0.0f;		    // Timer for the cooldown
+	float dashTimer = 0.2f;			   // Timer for the dash duration
+
 
 	float Iframe;					// Iframe (in second)
 	float IframeTimer;				// Actual Iframe acting as a timer
@@ -54,16 +61,16 @@ struct Pawn {
 
 	//  |\=-_
 	//  FUNCTION
-    Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine& state_ );
-    virtual ~Pawn();
+	Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine& state_);
+	virtual ~Pawn();
 
-    virtual void update(float dt, const std::vector<Collider*>& colliders);
-    void render(sf::RenderWindow& window);
+	virtual void update(float dt, const std::vector<Collider*>& colliders);
+	void render(sf::RenderWindow& window);
 
-    void collisionVert(const std::vector<Collider*>& colliders);
-    void collisionHori(const std::vector<Collider*>& colliders);
-    bool intersects(const sf::FloatRect& a, const sf::FloatRect& b);
+	void collisionVert(const std::vector<Collider*>& colliders);
+	void collisionHori(const std::vector<Collider*>& colliders);
+	bool intersects(const sf::FloatRect& a, const sf::FloatRect& b);
 
-    virtual void takedamage(int dmg);
-    virtual void death();
+	virtual void takedamage(int dmg);
+	virtual void death();
 };
