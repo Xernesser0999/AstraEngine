@@ -20,7 +20,6 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     );
     Machine = new StateMachine(new IdleState());
 
-    // Player
     player = new PlayerEX(
         window,
         1,
@@ -40,6 +39,15 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     blob = new BlobEnemy(1250, 1750, 1.85, 300);
 	blob1 = new BlobEnemy(1600, 550, 1.50, 250);
 	blob2 = new BlobEnemy(3125, 950, 1.50, 150);
+   
+    spike = new Spike(
+        window,
+        200,
+        2500,
+        200,
+        200,
+        "sprite/Environment/Spike.png"
+    );
 
     if (glob.Boot) {
         glob.Boot = false;
@@ -91,6 +99,7 @@ void Level0::update(const bool* keys, float dt) {
 	blob->update(dt);
 	blob1->update(dt);
 	blob2->update(dt);
+    spike->update(*player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -103,6 +112,8 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	blob->render(window);
 	blob1->render(window);
 	blob2->render(window);
+    spike->draw(window);
+
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
