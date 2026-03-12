@@ -30,7 +30,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
         glob.pos.y,
         50,
         50,
-        1250,
+        1400,
         500,
         "sprite/Debug/PlaceHolder.png",
         1,

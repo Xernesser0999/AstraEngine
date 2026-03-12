@@ -28,16 +28,22 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         0,
         50,
         50,
-        1000,
+        1400,
         700,
         "sprite/Debug/PlaceHolder.png",
         1,
         *Machine
+
+        
     );
+
+    blob = new BlobEnemy(1250, 1750, 1.85, 300);
+	blob1 = new BlobEnemy(1600, 550, 1.50, 250);
+	blob2 = new BlobEnemy(3125, 950, 1.50, 150);
 
     if (glob.Boot) {
         glob.Boot = false;
-        player->pos = {250, 700};
+        player->pos = {100, 2000};
     }
     else {
         player->pos = glob.pos;
@@ -62,12 +68,18 @@ Level0::~Level0() {
     delete player;
     delete parralax;
     delete trig;
+    delete blob;
+    delete blob1;
+    delete blob2;
 
     loader = nullptr;
     cam = nullptr;
     player = nullptr;
     parralax = nullptr;
     trig = nullptr;
+    blob = nullptr;
+	blob1 = nullptr;
+	blob2 = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -76,6 +88,9 @@ void Level0::update(const bool* keys, float dt) {
     cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
+	blob->update(dt);
+	blob1->update(dt);
+	blob2->update(dt);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -85,6 +100,9 @@ void Level0::displayScene(sf::RenderWindow& window) {
     loader->render(window, cam);
     player->render(window);
     trig->render(window, *cam);
+	blob->render(window);
+	blob1->render(window);
+	blob2->render(window);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

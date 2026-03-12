@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="BGstatic.cpp" />
     <ClCompile Include="BG_parralax_Full.cpp" />
+    <ClCompile Include="BlobEnemy.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="DisplayEntity.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="BGstatic.h" />
     <ClInclude Include="BG_parralax_Full.h" />
+    <ClInclude Include="BlobEnemy.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="DisplayEntity.h" />
