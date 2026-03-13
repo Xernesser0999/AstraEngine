@@ -12,7 +12,6 @@ public:
 	sf::Vector2f size;
 	sf::RectangleShape rect;
 	sf::Texture texture;
-	sf::Clock clock;
 	float time;
 	bool moveRight = true;
 	float actualTimeMove = 0;

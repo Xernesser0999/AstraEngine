@@ -13,8 +13,7 @@ Spike::Spike(sf::RenderWindow& window, float posX_, float posY_, float sizeX_, f
         rect.setFillColor(sf::Color::Red);
     }
     else {
-        //rect.setTexture(&texture);
-        rect.setFillColor(sf::Color::Red);
+        rect.setTexture(&texture);
     }
 }
 
