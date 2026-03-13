@@ -140,6 +140,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="DisplayEntity.cpp" />
     <ClCompile Include="EngineLevel.cpp" />
+    <ClCompile Include="FlottingElement.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="KeyStruct.cpp" />
     <ClCompile Include="Level0.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="DisplayEntity.h" />
     <ClInclude Include="EngineLevel.h" />
+    <ClInclude Include="FlottingElement.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="KeyStruct.h" />
     <ClInclude Include="Level0.h" />

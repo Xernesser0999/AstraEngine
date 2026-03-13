@@ -9,6 +9,7 @@
 #include "BG_parralax_Full.h"
 #include "BlobEnemy.h"
 #include "Spike.h"
+#include "FlottingElement.h"
 
 #include "StateMachine.h"
 
@@ -37,6 +38,15 @@ public:
 	BlobEnemy* blob1;
 	BlobEnemy* blob2;
 	Spike* spike;
+	FlottingElement* flot;
+	FlottingElement* flot2;
+	FlottingElement* flot3;
+	FlottingElement* flot4;
+	FlottingElement* flot5;
+	FlottingElement* flot6;
+	FlottingElement* flot7;
+	FlottingElement* flot8;
+	FlottingElement* flot9;
 
 	Global& glob;
 };

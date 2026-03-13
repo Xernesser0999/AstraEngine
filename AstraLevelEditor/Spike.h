@@ -1,6 +1,6 @@
 #pragma once
 #include <filesystem>
-#include <SFML/Graphics.hpp>
+#include <Sfml/Graphics.hpp>
 
 class Pawn;
 class Spike

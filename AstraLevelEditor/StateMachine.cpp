@@ -43,10 +43,10 @@ static bool pressShift()
 
 IdleState::IdleState() {}
 
-
 void IdleState::update(float dt, Pawn& pawn) {
     pawn.velocityX = 0;
     pawn.Gravity = 4000;
+	pawn.cooldownTimer -= dt;
 
     if (!pawn.isGrounded) {
         if (pawn.direction == 0) {
@@ -166,12 +166,12 @@ void MovingRightState::render(sf::RenderWindow& window) {}
 JumpingLeftState::JumpingLeftState() {}
 
 void JumpingLeftState::update(float dt, Pawn& pawn) {
-    if (pressRight()) {
-        nextState = new JumpingRightState;
-    }
-    else if (pressLeft()) {
+    if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
         pawn.direction = 1;
+    }
+    else if (pressRight()) {
+        nextState = new JumpingRightState();
     }
     else {
         pawn.velocityX = 0;
@@ -238,7 +238,6 @@ void JumpingRightState::update(float dt, Pawn& pawn) {
 	if (!pressJump()) {
 		pawn.isInpuConsume = false;
 	}
-
     if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
         pawn.Gravity = 4000;
         pawn.velocityY = -pawn.power_jump;
@@ -313,7 +312,6 @@ void FallingLeft::update(float dt, Pawn& pawn) {
         nextState = new FlottingLeft();
         return;
     }
-
 
     if (pawn.isGrounded) {
         pawn.isJumping = false;
@@ -449,7 +447,6 @@ FlottingLeft::FlottingLeft() {}
 
 void FlottingLeft::update(float dt, Pawn& pawn)
 {
-
     if (pressRight()) {
         nextState = new FlottingRight();
     }
