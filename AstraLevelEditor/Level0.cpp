@@ -37,9 +37,9 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         
     );
 
-    blob = new BlobEnemy(1250, 1750, 1.85, 300);
-	blob1 = new BlobEnemy(1600, 550, 1.50, 250);
-	blob2 = new BlobEnemy(3125, 950, 1.50, 150);
+    blob = new BlobEnemy(1250, 1750, 5.5, 100);
+	blob1 = new BlobEnemy(1600, 550, 5.0, 100);
+	blob2 = new BlobEnemy(3125, 950, 1.50, 100);
 
     spike = new Spike(
         window,
@@ -62,8 +62,8 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
     trig = new Trigger(
-        1475,
-        350,
+        3800,
+        650,
         50,
         150,
         true

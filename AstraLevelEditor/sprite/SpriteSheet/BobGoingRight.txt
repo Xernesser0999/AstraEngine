@@ -1,0 +1,4 @@
+sprite/SpriteSheet/Bob_Walk.png
+32 32
+4
+0.25

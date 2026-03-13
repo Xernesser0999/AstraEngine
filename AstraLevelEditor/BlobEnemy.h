@@ -1,5 +1,6 @@
 #pragma once
 #include <Sfml/Graphics.hpp>
+#include "TXanimated.h"
 
 class BlobEnemy{
 public:
@@ -10,9 +11,8 @@ public:
 
 	sf::Vector2f pos;
 	sf::Vector2f size;
-	sf::RectangleShape rect;
+	TXanimated* rect;
 	sf::Texture texture;
-	sf::Clock clock;
 	float time;
 	bool moveRight = true;
 	float actualTimeMove = 0;

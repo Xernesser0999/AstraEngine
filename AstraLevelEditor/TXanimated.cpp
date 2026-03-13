@@ -25,6 +25,7 @@ void TXanimated::load(std::string file, float sizeX, float sizeY, float posX, fl
 	offset = sf::IntRect({ 0, 0 }, {FrameSize});
 
 	TX.loadFromFile(filename.c_str());
+	size = { static_cast<int>(sizeX), static_cast<int>(sizeY) };
 
 	rect.setSize({ sizeX, sizeY });
 	rect.setPosition({ posX, posY });
@@ -39,7 +40,7 @@ void TXanimated::update(float dt) {
 
 	if (startpoint >= FrameRate) {
 		Frameloc.x += FrameSize.x;
-		offset = sf::IntRect({ Frameloc.x, 0 }, { 32, 32 });
+		offset = sf::IntRect({ Frameloc.x, 0 }, { FrameSize.x, FrameSize.y });
 
 		ActualFrame += 1;
 		rect.setTextureRect(offset);

@@ -22,6 +22,7 @@ public:
 	sf::RectangleShape rect;
 
 	sf::Clock clock;
+	sf::Vector2i size;
 
 	float startpoint;
 	float timer;

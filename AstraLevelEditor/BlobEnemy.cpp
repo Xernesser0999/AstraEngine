@@ -5,15 +5,8 @@ BlobEnemy::BlobEnemy(float posX, float posY, float timeMove, float speedMove){
 	size = { 50, 50 };
 	speed = speedMove;
 	time = timeMove;	
-	rect.setPosition(pos);
-	rect.setSize(size);
-	if (!texture.loadFromFile("sprite/Debug/PlaceHolder.png")) {
-		rect.setFillColor(sf::Color::Red);
-	}
-	else {
-		rect.setTexture(&texture);
-	}
-	
+	rect = new TXanimated();
+	rect->load("sprite/SpriteSheet/BobGoingRight.txt", 50, 50, pos.x, pos.y);
 }
 
 BlobEnemy::~BlobEnemy(){
@@ -30,12 +23,19 @@ void BlobEnemy::update(float dt){
 	}
 
 	if(actualTimeMove >= time) {
+		if (moveRight) {
+			rect->load("sprite/SpriteSheet/BobGoingLeft.txt", 50, 50, pos.x, pos.y);
+		}
+		else {
+			rect->load("sprite/SpriteSheet/BobGoingRight.txt", 50, 50, pos.x, pos.y);
+		}
 		moveRight = !moveRight;
 		actualTimeMove = 0;
 	}
-	rect.setPosition(pos);
+	rect->update(dt);
+	rect->rect.setPosition(pos);
 }
 
 void BlobEnemy::render(sf::RenderWindow& window){
-	window.draw(rect);
+	rect->render(window);
 }	
