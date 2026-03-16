@@ -75,6 +75,14 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         150,
         true
     );
+
+    pnjDoubleJump = new Pnj(
+        3500,
+        650,
+        50,
+        50,
+        "sprite/Debug/PlaceHolder.png"
+	);
 }
 
 Level0::~Level0() {
@@ -89,6 +97,7 @@ Level0::~Level0() {
     delete blob1;
     delete blob2;
     delete flot;
+    delete pnjDoubleJump;
 
     loader = nullptr;
     cam = nullptr;
@@ -100,6 +109,7 @@ Level0::~Level0() {
 	blob1 = nullptr;
 	blob2 = nullptr;
     flot = nullptr;
+	pnjDoubleJump = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -121,6 +131,7 @@ void Level0::update(const bool* keys, float dt) {
     flot7->update(*player, dt);
     flot8->update(*player, dt);
     flot9->update(*player, dt);
+	pnjDoubleJump->updatePnj(dt);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -143,6 +154,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
     flot7->draw(window);
     flot8->draw(window);
     flot9->draw(window);
+	pnjDoubleJump->renderPnj(window);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

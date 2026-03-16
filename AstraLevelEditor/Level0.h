@@ -10,6 +10,7 @@
 #include "BlobEnemy.h"
 #include "Spike.h"
 #include "FlottingElement.h"
+#include "Pnj.h"
 
 #include "StateMachine.h"
 
@@ -47,6 +48,7 @@ public:
 	FlottingElement* flot7;
 	FlottingElement* flot8;
 	FlottingElement* flot9;
+	Pnj* pnjDoubleJump;
 
 	Global& glob;
 };
