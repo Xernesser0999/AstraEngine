@@ -4,6 +4,7 @@ Shooter::Shooter(float posX, float posY, float speedMove, char _direction)
 {
 	pos = { posX, posY };
 	size = { 50, 50 };
+	direction = _direction;
 
 	rect.setPosition(pos);
 	rect.setSize(size);

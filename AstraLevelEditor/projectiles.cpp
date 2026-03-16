@@ -31,19 +31,20 @@ void Projectile::update(float dt, const Shooter& _shooter)
 		lifeTime = 5.0f;
 		pos = _shooter.pos;
 	}
-	else
+	else if (lifeTime > 0)
 	{
 
 		{
+			direction = _shooter.direction;
 			if (direction == 'l')
 			{
 				pos.x -= speed * dt;
-				rect.setPosition(pos);
 			}
 			else if (direction == 'r')
 			{
 				pos.x += speed * dt;
 			}
+			rect.setPosition(pos);
 		}
 	}
 
