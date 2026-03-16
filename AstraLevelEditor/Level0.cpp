@@ -131,7 +131,7 @@ void Level0::update(const bool* keys, float dt) {
     flot7->update(*player, dt);
     flot8->update(*player, dt);
     flot9->update(*player, dt);
-	pnjDoubleJump->updatePnj(dt);
+	pnjDoubleJump->updatePnj(dt, *player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
