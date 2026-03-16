@@ -141,6 +141,7 @@
     <ClCompile Include="KeyStruct.cpp" />
     <ClCompile Include="Level0.cpp" />
     <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Level2.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pawn.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="KeyStruct.h" />
     <ClInclude Include="Level0.h" />
     <ClInclude Include="Level1.h" />
+    <ClInclude Include="Level2.h" />
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="PlayerEX.h" />
