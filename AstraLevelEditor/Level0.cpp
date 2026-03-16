@@ -1,5 +1,7 @@
 #include "Level0.h"
 #include "Global.h"
+#include "shooter.h"
+#include "projectiles.h"
 
 Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	loader = new LevelLoader();
@@ -33,14 +35,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		"sprite/Debug/PlaceHolder.png",
 		1,
 		*Machine
-
-
 	);
 
 	blob = new BlobEnemy(1250, 1750, 1.85, 300);
 	blob1 = new BlobEnemy(1600, 550, 1.50, 250);
 	blob2 = new BlobEnemy(3125, 950, 1.50, 150);
-	proj1 = new Projectile(750, 2600, 400, 'l');
+	shooter1 = new Shooter(750, 2600, 1.5f, 'l');
+	projectile1 = new Projectile(*shooter1);
 
 	spike = new Spike(
 		window,
@@ -51,11 +52,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		"sprite/Environment/Spike.png"
 	);
 
-	if (glob.Boot) {
+	if (glob.Boot)
+	{
 		glob.Boot = false;
 		player->pos = { 100, 2000 };
 	}
-	else {
+	else
+	{
 		player->pos = glob.pos;
 	}
 
@@ -81,6 +84,8 @@ Level0::~Level0() {
 	delete blob;
 	delete blob1;
 	delete blob2;
+	delete shooter1;
+	delete projectile1;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -90,6 +95,8 @@ Level0::~Level0() {
 	blob = nullptr;
 	blob1 = nullptr;
 	blob2 = nullptr;
+	shooter1 = nullptr;
+	projectile1 = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -103,6 +110,8 @@ void Level0::update(const bool* keys, float dt) {
 	blob1->update(dt);
 	blob2->update(dt);
 	spike->update(*player);
+	projectile1->update(dt, *shooter1);
+
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -116,7 +125,8 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	blob1->render(window);
 	blob2->render(window);
 	spike->draw(window);
-	proj1->render(window);
+	shooter1->render(window);
+	projectile1->render(window);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

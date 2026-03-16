@@ -24,10 +24,12 @@ void BlobEnemy::update(float dt)
 {
 	actualTimeMove += dt;
 
-	if (moveRight) {
+	if (moveRight)
+	{
 		pos.x += speed * dt;
 	}
-	else {
+	else
+	{
 		pos.x -= speed * dt;
 	}
 

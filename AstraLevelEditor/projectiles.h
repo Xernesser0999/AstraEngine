@@ -1,24 +1,27 @@
 #pragma once
 #include <Sfml/Graphics.hpp>
-#include <vector>
+//#include <vector>
+
+// Forward declaration
+class Shooter;
 
 class Projectile
 {
 public:
-	Projectile(float posX, float posY, float speedMove, char _direction);
+	Projectile(const Shooter& _shooter);
 	~Projectile();
-	void update(float dt);
+	void update(float dt, const Shooter& _shooter);
 	void render(sf::RenderWindow& window);
-
 	sf::Vector2f pos;
 	sf::Vector2f size;
-	std::vector<Projectile*> projectiles;
+
+	//std::vector<Projectile> projectiles;
+
 	sf::RectangleShape rect;
 	sf::Texture texture;
 	sf::Clock clock;
-	char direction;			//bottom, left, right
+	char direction = 'l';				//left,right
 	bool isAlive = true;
-	float lifeTime = 15.0f;
+	float lifeTime = 5.0f;
 	float speed;
-
 };

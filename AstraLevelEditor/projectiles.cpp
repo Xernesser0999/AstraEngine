@@ -1,10 +1,13 @@
 #include "projectiles.h"
+#include "shooter.h"
 
-Projectile::Projectile(float posX, float posY, float speedMove, char _direction)
+Projectile::Projectile(const Shooter& _shooter)
 {
-	pos = { posX, posY };
-	size = { 50, 50 };
-	speed = speedMove;
+
+	direction = _shooter.direction;
+	speed = _shooter.speed;
+	pos = _shooter.pos;
+	size = { 40, 40 };
 	rect.setPosition(pos);
 	rect.setSize(size);
 	if (!texture.loadFromFile("sprite/Debug/PlaceHolder.png"))
@@ -20,25 +23,22 @@ Projectile::Projectile(float posX, float posY, float speedMove, char _direction)
 
 Projectile::~Projectile() {}
 
-void Projectile::update(float dt)
+void Projectile::update(float dt, const Shooter& _shooter)
 {
 	lifeTime -= dt;
 	if (lifeTime <= 0)
 	{
-		isAlive = false;
+		lifeTime = 5.0f;
+		pos = _shooter.pos;
 	}
 	else
 	{
-		while (isAlive)
+
 		{
-			rect.setPosition(pos);
-			if (direction == 'b')
-			{
-				pos.y += speed * dt;
-			}
-			else if (direction == 'l')
+			if (direction == 'l')
 			{
 				pos.x -= speed * dt;
+				rect.setPosition(pos);
 			}
 			else if (direction == 'r')
 			{

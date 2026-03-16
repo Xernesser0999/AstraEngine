@@ -37,7 +37,8 @@ public:
 	BlobEnemy* blob1;
 	BlobEnemy* blob2;
 	Spike* spike;
-	Projectile* proj1;
+	Shooter* shooter1;
+	Projectile* projectile1;
 
 	Global& glob;
 };
