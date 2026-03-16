@@ -17,21 +17,13 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 
     rect.setPosition({ pos.x, pos.y });
     std::cout << pos.x << "," << pos.y << std::endl;
-    if (isInvincible) {
-        IframeTimer -= dt;
-        if (IframeTimer <= 0.0f) {
-            isInvincible = false;
-            IframeTimer = 0.0f;
-        }
-    }
 
-    if (!isalive) {
+    if (isalive == false) {
         death();
     }
 }
 
 void PlayerEX::death() {
-    rect.setPosition({ 200, 800 });
-    hp = 1;                                
-    isalive = true;
+    rect.setPosition({ 830, 1850 });
+    hp = 1;
 }
