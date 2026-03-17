@@ -98,6 +98,14 @@ Level0::~Level0() {
     delete blob2;
     delete flot;
     delete pnjDoubleJump;
+    delete flot2;
+    delete flot3;
+    delete flot4;
+    delete flot5;
+    delete flot6;
+    delete flot7;
+    delete flot8;
+    delete flot9;
 
     loader = nullptr;
     cam = nullptr;
@@ -110,6 +118,14 @@ Level0::~Level0() {
 	blob2 = nullptr;
     flot = nullptr;
 	pnjDoubleJump = nullptr;
+    flot2 = nullptr;
+    flot3 = nullptr;
+    flot4 = nullptr;
+    flot5 = nullptr;
+    flot6 = nullptr;
+    flot7 = nullptr;
+    flot8 = nullptr;
+    flot9 = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {

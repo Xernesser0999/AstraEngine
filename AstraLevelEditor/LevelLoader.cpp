@@ -29,7 +29,7 @@ void LevelLoader::load(const std::string& collider_path, const std::string& rend
         actualY += size;
     }
 
-    back = new BGstatic(window, render_path, tileX, tileY);
+    back = new BGstatic(window, render_path, tileX * 50, tileY * 50);
 }
 
 void LevelLoader::TileLoad(const std::string& path, const std::string& collpath, sf::RenderWindow& window)

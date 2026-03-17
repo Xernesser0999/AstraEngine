@@ -37,6 +37,8 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
         *Machine
     );
 
+    cam->view->setCenter(player->pos);
+
     parralax = new BG_parralax_Full();
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
