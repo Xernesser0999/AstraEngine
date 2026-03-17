@@ -11,6 +11,7 @@
 #include "Spike.h"
 #include "FlottingElement.h"
 #include "Pnj.h"
+#include "projectiles.h"
 
 #include "StateMachine.h"
 
@@ -29,12 +30,14 @@ public:
 public:
 
 	StateMachine* Machine;
-	Trigger* trig;
+	Trigger* trig1;
+	Trigger* trig2;
 	LevelLoader* loader;
 	PlayerEX* player;
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
 	BG_parralax_Full* parralax;
+	Projectile* proj1;
 	BlobEnemy* blob;
 	BlobEnemy* blob1;
 	BlobEnemy* blob2;
@@ -49,6 +52,9 @@ public:
 	FlottingElement* flot8;
 	FlottingElement* flot9;
 	Pnj* pnjDoubleJump;
+
+	Shooter* shooter1;
+	Projectile* projectile1;
 
 	Global& glob;
 };

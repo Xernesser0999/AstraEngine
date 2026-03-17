@@ -1,14 +1,14 @@
-#include "Level1.h"
+#include "Level2.h"
 #include "Global.h"
 
-Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
+Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	// Level loader
 	loader = new LevelLoader();
 	loader->load(
-		"level/TestLevel/lvl2.txt",  // Collision
-		"level/TestLevel/lvl2.png",  // Render
+		"level/TestLevel/lvl3.txt",  // Collision
+		"level/TestLevel/lvl3.png",  // Render
 		window,
-		230,                         // Size (in tiles) X
+		120,                         // Size (in tiles) X
 		150                          // Size (in tiles) Y
 	);
 
@@ -16,8 +16,8 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	cam = new Camera(
 		1920,               // Taille X camera (a pas modif)
 		1080,               // Taille Y camera (a pas modif)
-		230 * 50,               // Taille X du niveau
-		150 * 50,               // Taille Y du niveau
+		120 * 50,               // Taille X du niveau
+		150 * 50,               // Tailel Y du niveau
 		0.005               // Lag factor
 	);
 	Machine = new StateMachine(new IdleState());
@@ -30,14 +30,12 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		glob.pos.y,
 		50,
 		50,
-		1400,
+		1250,
 		500,
 		"sprite/Debug/PlaceHolder.png",
 		1,
 		*Machine
 	);
-
-	cam->view->setCenter(player->pos);
 
 	parralax = new BG_parralax_Full();
 	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
@@ -52,7 +50,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 }
 
-Level1::~Level1() {
+Level2::~Level2() {
 	Colliderlist.clear();
 	delete loader;
 	delete cam;
@@ -67,7 +65,7 @@ Level1::~Level1() {
 	trig = nullptr;
 }
 
-void Level1::update(const bool* keys, float dt) {
+void Level2::update(const bool* keys, float dt) {
 	loader->update(dt, *player);
 	player->update(dt, loader->colliders);
 	cam->Update(*player);
@@ -75,18 +73,18 @@ void Level1::update(const bool* keys, float dt) {
 	trig->update(dt, *player);
 }
 
-void Level1::displayScene(sf::RenderWindow& window) {
+void Level2::displayScene(sf::RenderWindow& window) {
 	window.setView(*cam->view);
 
 	parralax->render(window);
 	loader->render(window, cam);
 	player->render(window);
-	trig->render(window);
+	trig->render(window/*, *cam*/);
 }
 
-void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
+void Level2::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig->trigger) {
-		glob.pos = { 1400, 450 };
-		currentScene = SceneState::Map1;
+		glob.pos = { 1500, 1450 };
+		currentScene = SceneState::Map3;
 	}
 }
