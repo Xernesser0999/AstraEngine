@@ -5,8 +5,8 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	// Level loader
 	loader = new LevelLoader();
 	loader->load(
-		"level/TestLevel/maptestv2.txt",  // Collision
-		"level/TestLevel/maplvl2.png",  // Render
+		"level/TestLevel/lvl3.txt",  // Collision
+		"level/TestLevel/lvl3.png",  // Render
 		window,
 		120,                         // Size (in tiles) X
 		150                          // Size (in tiles) Y
@@ -84,7 +84,7 @@ void Level2::displayScene(sf::RenderWindow& window) {
 
 void Level2::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig->trigger) {
-		glob.pos = { 1400, 450 };
-		currentScene = SceneState::Map1;
+		glob.pos = { 1500, 1450 };
+		currentScene = SceneState::Map3;
 	}
 }

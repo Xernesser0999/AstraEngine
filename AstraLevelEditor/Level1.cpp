@@ -46,7 +46,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
         350,
         50,
         150,
-        true
+        false
     );
 }
 

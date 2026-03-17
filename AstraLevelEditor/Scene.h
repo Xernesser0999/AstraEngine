@@ -6,7 +6,8 @@
 enum SceneState {
 	Elevel,
 	Map1,
-	Map2
+	Map2,
+	Map3
 };
 
 class Scene {

@@ -136,7 +136,7 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Level2.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Game\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +198,7 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Level2.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Game\Level</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

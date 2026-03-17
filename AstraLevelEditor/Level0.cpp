@@ -89,7 +89,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
     if (trig->trigger) {
-        glob.pos = { 50, 450 };
+        glob.pos = { 150,2700 };
         currentScene = SceneState::Map2;
     }
 }
