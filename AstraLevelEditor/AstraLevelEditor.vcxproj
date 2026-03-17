@@ -142,11 +142,13 @@
     <ClCompile Include="EngineLevel.cpp" />
     <ClCompile Include="FlottingElement.cpp" />
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="GUI_button.cpp" />
     <ClCompile Include="KeyStruct.cpp" />
     <ClCompile Include="Level0.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="PlayerEX.cpp" />
     <ClCompile Include="PS_burst.cpp" />
@@ -168,10 +170,12 @@
     <ClInclude Include="EngineLevel.h" />
     <ClInclude Include="FlottingElement.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="GUI_button.h" />
     <ClInclude Include="KeyStruct.h" />
     <ClInclude Include="Level0.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelLoader.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="PlayerEX.h" />
     <ClInclude Include="PS_burst.h" />

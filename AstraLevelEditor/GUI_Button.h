@@ -10,10 +10,10 @@ public:
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
-	sf::Texture* TX;
-	sf::Texture* TX2;
+	sf::Texture TX;
+	sf::Texture TX2;
 
-	sf::RectangleShape* rectangle;
+	sf::RectangleShape rectangle;
 
 public:
 
