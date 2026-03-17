@@ -15,9 +15,6 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
 
     Iframe = Iframe_;
     IframeTimer = Iframe;
-
-    texture.loadFromFile(image.c_str());
-    rect.setTexture(&texture);
 }
 
 void Pawn::update(float dt, const std::vector<Collider*>& colliders) {

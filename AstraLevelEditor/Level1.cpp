@@ -2,40 +2,39 @@
 #include "Global.h"
 
 Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
-    // Level loader
     loader = new LevelLoader();
     loader->load(
-        "level/TestLevel/maptestv2.txt",  // Collision
-        "level/TestLevel/maplvl2.png",  // Render
+        "level/TestLevel/maptestv2.txt",  
+        "level/TestLevel/maplvl2.png",  
         window,
-        230,                         // Size (in tiles) X
-        120                          // Size (in tiles) Y
+        230,                         
+        120                          
     );
-
-    // Camera
+   
     cam = new Camera(
-        1920,               // Taille X camera (a pas modif)
-        1080,               // Taille Y camera (a pas modif)
-        230*50,               // Taille X du niveau
-        120*50,               // Taille Y du niveau
-        0.005               // Lag factor
+        1920,              
+        1080,               
+        230*50,               
+        120*50,             
+        0.005             
     );
-    Machine = new StateMachine(new IdleState());
+    Machine = new StateMachine(new DummyState());
 
-    // Player
     player = new PlayerEX(
         window,
-        1,
+        3,
         glob.pos.x,
         glob.pos.y,
-        50,
-        50,
+        70,
+        97,
         1400,
-        500,
-        "sprite/Debug/PlaceHolder.png",
+        700,
+        "",
         1,
         *Machine
     );
+
+    Machine->currentState = new IdleStateRight(*player);
 
     cam->view->setCenter(player->pos);
 
@@ -81,6 +80,7 @@ void Level1::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window);
+    Machine->currentState->render(window);
     trig->render(window);
 }
 
