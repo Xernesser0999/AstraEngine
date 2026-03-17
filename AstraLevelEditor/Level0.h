@@ -25,7 +25,8 @@ public:
 public:
 
 	StateMachine* Machine;
-	Trigger* trig;
+	Trigger* trig1;
+	Trigger* trig2;
 	LevelLoader* loader;
 	PlayerEX* player;
 	Camera* cam;
