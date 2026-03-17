@@ -35,9 +35,9 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
         
     );
-    blob = new BlobEnemy(1250, 1750, 5.5, 100);
-	blob1 = new BlobEnemy(1600, 550, 5.0, 100);
-	blob2 = new BlobEnemy(3125, 950, 1.50, 100);
+    blob = new BlobEnemy(1250, 1750, 50, 50, 5.5, 100);
+	blob1 = new BlobEnemy(1600, 550, 50, 50, 5.0, 100);
+	blob2 = new BlobEnemy(3125, 950, 50, 50, 1.50, 100);
    
     spike = new Spike(
         window,
@@ -124,9 +124,9 @@ void Level0::update(const bool* keys, float dt) {
     cam->Update(*player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
-	blob->update(dt);
-	blob1->update(dt);
-	blob2->update(dt);
+	blob->update(dt, *player);
+	blob1->update(dt, *player);
+	blob2->update(dt, *player);
     spike->update(*player);
     flot->update(*player, dt);
     flot2->update(*player, dt);

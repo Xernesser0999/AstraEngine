@@ -24,6 +24,7 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void PlayerEX::death() {
-    rect.setPosition({ 830, 1850 });
+    pos = { 830, 1850 };
     hp = 1;
+    isalive = true;
 }
