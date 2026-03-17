@@ -79,7 +79,7 @@ void Level1::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window);
-    trig->render(window, *cam);
+    trig->render(window);
 }
 
 void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

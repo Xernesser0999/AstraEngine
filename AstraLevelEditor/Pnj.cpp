@@ -14,14 +14,23 @@ Pnj::~Pnj(){
 	trig = nullptr;	
 }
 
-void Pnj::updatePnj(float dt){
-	if (trig->trigger && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) {
-		std::cout << "Trigger" << std::endl;
-		trig->active = false;
+void Pnj::updatePnj(float dt, Pawn& pawn){ //rajouter un parametre d'une capacite
+	trig->update(dt, pawn);
+	if (trig->inside && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) {
+		if (!capacityGiven) {
+			//lance fonction pour dialogue a
+			//unloco la capacite en parametre
+			std::cout << "Trigger" << std::endl;
+			capacityGiven = true;
+		}
+		else if (capacityGiven) {
+			std::cout << "Done" << std::endl;
+			//lance fonction pour dialogue b
+		}
 	}
 }
 
 void Pnj::renderPnj(sf::RenderWindow& window){
 	window.draw(rect);
-	trig->render(window, *new Camera());
+	trig->render(window);
 }

@@ -77,8 +77,8 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
     );
 
     pnjDoubleJump = new Pnj(
-        3500,
-        650,
+        150,
+        2650,
         50,
         50,
         "sprite/Debug/PlaceHolder.png"
@@ -131,7 +131,7 @@ void Level0::update(const bool* keys, float dt) {
     flot7->update(*player, dt);
     flot8->update(*player, dt);
     flot9->update(*player, dt);
-	pnjDoubleJump->updatePnj(dt);
+	pnjDoubleJump->updatePnj(dt, *player);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -140,7 +140,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window);
-    trig->render(window, *cam);
+    trig->render(window);
 	blob->render(window);
 	blob1->render(window);
 	blob2->render(window);

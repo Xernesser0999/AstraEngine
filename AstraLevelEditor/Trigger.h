@@ -24,6 +24,6 @@ public :
 
 	bool Intersect(Pawn& p);
 	void update(float dt, Pawn& p);
-	void render(sf::RenderWindow& window, Camera& camera);
+	void render(sf::RenderWindow& window);
 };
 
