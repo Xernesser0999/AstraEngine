@@ -71,10 +71,10 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		true
 	);
 	trig2 = new Trigger(
-		100,
-		650,
-		50,
-		150,
+		1050,
+		0,
+		225,
+		55,
 		true
 	);
 	pnjDoubleJump = new Pnj(
@@ -186,11 +186,11 @@ void Level0::displayScene(sf::RenderWindow& window) {
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig1->trigger) {
-		glob.pos = { 415,6500 };
+		glob.pos = { 415,6400 };
 		currentScene = SceneState::Map2;
 	}
 	if (trig2->trigger) {
-		glob.pos = { 50, 450 };
+		glob.pos = { 2650, 6500 };
 		currentScene = SceneState::Map3;
 	}
 }
