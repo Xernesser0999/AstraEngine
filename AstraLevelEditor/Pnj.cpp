@@ -1,4 +1,5 @@
 #include "Pnj.h"
+#include "Pawn.h"
 
 Pnj::Pnj(float posX, float posY, float sizeX, float sizeY, std::string image){
 	trig = new Trigger(posX, posY, sizeX, sizeY, true);
