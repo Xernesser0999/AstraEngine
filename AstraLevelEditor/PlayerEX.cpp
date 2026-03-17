@@ -24,13 +24,13 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
         }
     }
 
-    if (!isalive) {
+    if (isalive == false) {
         death();
     }
 }
 
 void PlayerEX::death() {
-    rect.setPosition({ 200, 800 });
-    hp = 1;                                
+    pos = { 830, 1850 };
+    hp = 1;
     isalive = true;
 }

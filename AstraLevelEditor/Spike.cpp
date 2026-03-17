@@ -38,5 +38,4 @@ void Spike::update(Pawn& pawn)
     if (Intersect(pawn)) {
         pawn.takedamage(1);
     }
-
 }

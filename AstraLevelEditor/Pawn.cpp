@@ -107,11 +107,7 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
 }
 
 void Pawn::takedamage(int dmg) {
-    if (!isInvincible) {
-        hp -= dmg;
-        isInvincible = true;
-        IframeTimer = Iframe;
-    }
+    hp -= dmg;
     if (hp <= 0) {
         isalive = false;
     }
