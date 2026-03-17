@@ -22,7 +22,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
     player = new PlayerEX(
         window,
-        1,
+        2,
         0,
         0,
         50,
@@ -32,21 +32,11 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         "sprite/Debug/PlaceHolder.png",
         1,
         *Machine
-
-        
     );
     blob = new BlobEnemy(1250, 1750, 50, 50, 5.5, 100);
 	blob1 = new BlobEnemy(1600, 550, 50, 50, 5.0, 100);
 	blob2 = new BlobEnemy(3125, 950, 50, 50, 1.50, 100);
-   
-    spike = new Spike(
-        window,
-        200,
-        2500,
-        200,
-        200,
-        "sprite/Environment/Spike.png"
-    );
+
     flot = new FlottingElement(window, 830, 1850, 50, 50, 3.0, 150, "sprite/Debug/PlaceHolder.png");
     flot2 = new FlottingElement(window, 625, 1720, 50, 50, 3.0, 150, "sprite/Debug/PlaceHolder.png");
     flot3 = new FlottingElement(window, 2125, 1150, 50, 50, 1.25, 150, "sprite/Debug/PlaceHolder.png");
@@ -92,7 +82,6 @@ Level0::~Level0() {
     delete player;
     delete parralax;
     delete trig;
-    delete spike;
     delete blob;
     delete blob1;
     delete blob2;
@@ -112,7 +101,6 @@ Level0::~Level0() {
     player = nullptr;
     parralax = nullptr;
     trig = nullptr;
-    spike = nullptr;
     blob = nullptr;
 	blob1 = nullptr;
 	blob2 = nullptr;
@@ -137,7 +125,6 @@ void Level0::update(const bool* keys, float dt) {
 	blob->update(dt, *player);
 	blob1->update(dt, *player);
 	blob2->update(dt, *player);
-    spike->update(*player);
     flot->update(*player, dt);
     flot2->update(*player, dt);
     flot3->update(*player, dt);
@@ -160,7 +147,6 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	blob->render(window);
 	blob1->render(window);
 	blob2->render(window);
-    spike->draw(window);
     flot->draw(window);
     flot2->draw(window);
     flot3->draw(window);

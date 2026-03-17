@@ -22,6 +22,10 @@ void LevelLoader::load(const std::string& collider_path, const std::string& rend
             {
                 colliders.push_back(new Collider(window, actualX, actualY, size, size, "sprite/Debug/Collider_DebugTX.png"));
             }
+            if (c == '2')
+            {
+                spike.push_back(new Spike(window, actualX, actualY+25, size, 25, "sprite/Environment/Piques.png"));
+            }
 
             actualX += size;
         }
@@ -106,12 +110,16 @@ void LevelLoader::render(sf::RenderWindow& window, Camera* cam) {
             c->render(window, *cam);
         }
     }
+    for (Spike* z : spike) {
+        z->draw(window);
+    }
 }
 
 void LevelLoader::TileRender(sf::RenderWindow& window, Camera* cam) {
     for (auto& c : Display) {
         c->render(window, *cam);
     }
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {
         for (Collider* c : colliders) {
             c->render(window, *cam);
@@ -120,7 +128,9 @@ void LevelLoader::TileRender(sf::RenderWindow& window, Camera* cam) {
 }
 
 void LevelLoader::update(float dt, PlayerEX& player) {
-
+    for (Spike* z : spike) {
+        z->update(player);
+    }
 }
 
 LevelLoader::~LevelLoader()  {
@@ -128,7 +138,12 @@ LevelLoader::~LevelLoader()  {
         delete c;
         c = nullptr;
     }
+    for (auto& z : spike) {
+        delete z;
+        z = nullptr;
+    }
     colliders.clear();
+    spike.clear();
 
     delete back;
     back = nullptr;

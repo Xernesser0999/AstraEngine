@@ -9,6 +9,7 @@
 // Include everything we want to add in the level loader
 // Not the player or thing that can move. It is not supported yet just collider or thing like spike (environment)
 #include "Collider.h"
+#include "Spike.h"
 #include "DisplayEntity.h"
 #include "BGstatic.h"
 #include <iostream>
@@ -19,6 +20,7 @@ class Camera;
 
 class LevelLoader {
 public:
+    std::vector<Spike*> spike;
     std::vector<Collider*> colliders;
     std::vector<DisplayEntity*> Display;
 
