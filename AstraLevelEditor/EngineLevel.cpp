@@ -77,7 +77,7 @@ void EngineLevel::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window);
-    trig->render(window, *cam);
+    trig->render(window);
 }
 
 void EngineLevel::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

@@ -5,6 +5,7 @@
 #include "EngineLevel.h"
 #include "Level0.h"
 #include "Level1.h"
+#include "Menu.h"
 
 class SceneManager {
 public:
@@ -16,6 +17,7 @@ public:
 	Scene* MyLevel;
 	Scene* MyLevel0;
 	Scene* MyLevel1;
+	Scene* MyMenu;
 
 	sf::Vector2f playerpos;
 

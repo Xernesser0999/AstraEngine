@@ -43,7 +43,7 @@ void Trigger::update(float dt, Pawn& p) {
     }
 }
 
-void Trigger::render(sf::RenderWindow& window, Camera& camera) {
+void Trigger::render(sf::RenderWindow& window) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N)) {
         window.draw(rect);
     }

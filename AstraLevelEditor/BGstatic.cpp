@@ -2,7 +2,7 @@
 #include "Camera.h"
 
 BGstatic::BGstatic(sf::RenderWindow& window, std::string file, float sizeX, float sizeY) {
-    size = {sizeX * 50, sizeY * 50};
+    size = {sizeX, sizeY};
     rect.setPosition({ 0, 0 });
     rect.setSize(size);
 

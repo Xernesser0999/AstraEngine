@@ -37,6 +37,8 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
         *Machine
     );
 
+    cam->view->setCenter(player->pos);
+
     parralax = new BG_parralax_Full();
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
@@ -79,7 +81,7 @@ void Level1::displayScene(sf::RenderWindow& window) {
     parralax->render(window);
     loader->render(window, cam);
     player->render(window);
-    trig->render(window, *cam);
+    trig->render(window);
 }
 
 void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
