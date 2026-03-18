@@ -21,6 +21,7 @@ Life::Life(){
 	sizeHeart = { 80, 80 };
 	heart.setSize(sizeHeart);
 	luneBlanche.loadFromFile("sprite/SpriteSheet/lune_blanche.png");
+	luneGrise.loadFromFile("sprite/SpriteSheet/lune_grise.png");
 	heart.setTexture(&luneBlanche);
 }
 
