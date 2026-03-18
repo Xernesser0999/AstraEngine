@@ -16,7 +16,6 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
     Pawn::collisionVert(colliders);
 
     rect.setPosition({ pos.x, pos.y });
-    std::cout << pos.x << ", " << pos.y << std::endl;
     if (isInvincible) {
         IframeTimer -= dt;
         if (IframeTimer <= 0.0f) {
