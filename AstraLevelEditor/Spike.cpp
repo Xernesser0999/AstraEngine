@@ -36,6 +36,6 @@ bool Spike::Intersect(Pawn& p) {
 void Spike::update(Pawn& pawn)
 {
     if (Intersect(pawn)) {
-        pawn.takedamage(1);
+        pawn.takedamage(2);
     }
 }

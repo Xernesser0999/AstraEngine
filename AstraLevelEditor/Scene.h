@@ -7,6 +7,7 @@ enum SceneState {
 	Elevel,
 	Map1,
 	Map2,
+	Map3,
 	MenuS
 };
 

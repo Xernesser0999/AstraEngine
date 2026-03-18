@@ -21,6 +21,9 @@ SceneManager::~SceneManager() {
 	if (MyLevel1) {
 		delete MyLevel1;
 	}
+	if (MyLevel2) {
+		delete MyLevel2;
+	}
 	if (MyMenu) {
 		delete MyMenu;
 	}
@@ -29,6 +32,7 @@ SceneManager::~SceneManager() {
 	MyLevel = nullptr;
 	MyLevel0 = nullptr;
 	MyLevel1 = nullptr;
+	MyLevel2 = nullptr;
 }
 
 void SceneManager::manageState(keys* _myKeys, sf::RenderWindow& window) {
@@ -44,6 +48,9 @@ void SceneManager::manageState(keys* _myKeys, sf::RenderWindow& window) {
 	else if (currentState == SceneState::Map2) {
 		MyLevel1->nextScene(currentState, _myKeys, window);
 	}
+	else if (currentState == SceneState::Map3) {
+		MyLevel2->nextScene(currentState, _myKeys, window);
+	}
 	else if (currentState == SceneState::MenuS) {
 		MyMenu->nextScene(currentState, _myKeys, window);
 	}
@@ -58,6 +65,10 @@ void SceneManager::manageState(keys* _myKeys, sf::RenderWindow& window) {
 			delete MyLevel1;
 			MyLevel1 = nullptr;
 		}
+		if (previousState == SceneState::Map3) {
+			delete MyLevel2;
+			MyLevel2 = nullptr;
+		}
 		if (previousState == SceneState::MenuS) {
 			delete MyMenu;
 			MyMenu = nullptr;
@@ -68,6 +79,9 @@ void SceneManager::manageState(keys* _myKeys, sf::RenderWindow& window) {
 
 		else if (currentState == SceneState::Map2)
 			MyLevel1 = new Level1(window, var);
+
+		else if (currentState == SceneState::Map3)
+			MyLevel2 = new Level2(window, var);
 
 		else if (currentState == SceneState::MenuS)
 			MyMenu = new Menu(window, var);
@@ -86,6 +100,9 @@ void SceneManager::displayState(sf::RenderWindow& window) {
 	case SceneState::Map2:
 		MyLevel1->displayScene(window);
 		break;
+	case SceneState::Map3:
+		MyLevel2->displayScene(window);
+		break;
 	case SceneState::MenuS:
 		MyMenu->displayScene(window);
 		break;
@@ -101,6 +118,9 @@ void SceneManager::updateState(const bool* keys, float dt, sf::RenderWindow& win
 	}
 	else if (currentState == SceneState::Map2) {
 		static_cast<Level1*>(MyLevel1)->update(keys, dt);
+	}
+	else if (currentState == SceneState::Map3) {
+		static_cast<Level2*>(MyLevel2)->update(keys, dt);
 	}
 	else if (currentState == SceneState::MenuS) {
 		static_cast<Menu*>(MyMenu)->update(keys, dt);
