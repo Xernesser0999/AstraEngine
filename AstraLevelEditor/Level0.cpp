@@ -13,29 +13,32 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		60
 	);
 
-	cam = new Camera(
-		1920,
-		1080,
-		76 * 50,
-		60 * 50,
-		0.005
-	);
-	Machine = new StateMachine(new IdleState());
+    cam = new Camera(
+        1920,               
+        1080,               
+        76*50,               
+        60*50,               
+        0.005              
+    );
+    Machine = new StateMachine(new DummyState());
 
-	player = new PlayerEX(
-		window,
-		2,
-		0,
-		0,
-		50,
-		50,
-		1400,
-		700,
-		"sprite/Debug/PlaceHolder.png",
-		1,
-		*Machine
-	);
-	blob = new BlobEnemy(1250, 1750, 50, 50, 5.5, 100);
+    player = new PlayerEX(
+        window,
+        3,
+        0,
+        0,
+        70,
+        97,
+        1400,
+        700,
+        "",
+        1,
+        *Machine
+    );
+
+    Machine->currentState = new IdleStateRight(*player);
+
+    blob = new BlobEnemy(1250, 1750, 50, 50, 5.5, 100);
 	blob1 = new BlobEnemy(1600, 550, 50, 50, 5.0, 100);
 	blob2 = new BlobEnemy(3125, 950, 50, 50, 1.50, 100);
 
@@ -168,6 +171,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	parralax->render(window);
 	loader->render(window, cam);
 	player->render(window);
+	Machine->currentState->render(window);
 	trig1->render(window);
 	trig2->render(window);
 	blob->render(window);
