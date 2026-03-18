@@ -31,10 +31,9 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         700,
         "sprite/Debug/PlaceHolder.png",
         1,
-        *Machine
-
-        
+        *Machine        
     );
+
     blob = new BlobEnemy(1250, 1750, 50, 50, 5.5, 100);
 	blob1 = new BlobEnemy(1600, 550, 50, 50, 5.0, 100);
 	blob2 = new BlobEnemy(3125, 950, 50, 50, 1.50, 100);
@@ -83,6 +82,8 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         50,
         "sprite/Debug/PlaceHolder.png"
 	);
+
+    hud = new Hud();
 }
 
 Level0::~Level0() {
@@ -106,6 +107,7 @@ Level0::~Level0() {
     delete flot7;
     delete flot8;
     delete flot9;
+    delete hud;
 
     loader = nullptr;
     cam = nullptr;
@@ -126,6 +128,7 @@ Level0::~Level0() {
     flot7 = nullptr;
     flot8 = nullptr;
     flot9 = nullptr;
+    hud = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -171,6 +174,9 @@ void Level0::displayScene(sf::RenderWindow& window) {
     flot8->draw(window);
     flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
+	
+    window.setView(window.getDefaultView());
+    hud->draw(window, 3);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

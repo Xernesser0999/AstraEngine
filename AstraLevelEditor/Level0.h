@@ -11,6 +11,7 @@
 #include "Spike.h"
 #include "FlottingElement.h"
 #include "Pnj.h"
+#include "Hud.h"
 
 #include "StateMachine.h"
 
@@ -49,6 +50,7 @@ public:
 	FlottingElement* flot8;
 	FlottingElement* flot9;
 	Pnj* pnjDoubleJump;
+	Hud* hud;
 
 	Global& glob;
 };
