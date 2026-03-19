@@ -1,0 +1,4 @@
+sprite/SpriteSheet/idleRight.png
+39 54
+15
+0.1

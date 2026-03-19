@@ -1,7 +1,6 @@
 #include "Level0.h"
 #include "Global.h"
-#include "shooter.h"
-#include "projectiles.h"
+
 
 Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	loader = new LevelLoader();
@@ -12,7 +11,6 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		76,
 		60
 	);
-
 	cam = new Camera(
 		1920,
 		1080,
@@ -20,21 +18,23 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		60 * 50,
 		7
 	);
-	Machine = new StateMachine(new IdleState());
+    Machine = new StateMachine(new DummyState());
 
-	player = new PlayerEX(
-		window,
-		3,
-		0,
-		0,
-		50,
-		50,
-		1400,
-		700,
-		"sprite/Debug/PlaceHolder.png",
-		1,
-		*Machine
-	);
+    player = new PlayerEX(
+        window,
+        3,
+        0,
+        0,
+        70,
+        97,
+        1400,
+        700,
+        "",
+        1,
+        *Machine
+    );
+
+    Machine->currentState = new IdleStateRight(*player);
 
 	point = new SavePoint(
 		2200,
@@ -56,8 +56,11 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	flot8 = new FlottingElement(window, 1268, 450, 50, 50, 4, 150, "sprite/Debug/PlaceHolder.png");
 	flot9 = new FlottingElement(window, 771, 450, 50, 50, 3, 300, "sprite/Debug/PlaceHolder.png");
 
-	shooter1 = new Shooter(750, 2600, 1.5f, 'l');
+	shooter1 = new Shooter(2300, 2050, 350.0f, 'l');
+	shooter2 = new Shooter(800, 1550, 250.0f, 'r');
+
 	projectile1 = new Projectile(*shooter1);
+	projectile2 = new Projectile(*shooter2);
 
 	if (glob.Boot) {
 		glob.Boot = false;
@@ -95,32 +98,38 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		50,
 		"sprite/Debug/PlaceHolder.png"
 	);
+
+    hud = new Hud();
 }
 
 Level0::~Level0() {
-	Colliderlist.clear();
-	delete loader;
-	delete cam;
-	delete player;
-	delete parralax;
-	delete trig1;
+    Colliderlist.clear();
+    delete loader;
+    delete cam;
+    delete player;
+    delete parralax;
+    delete trig1;
 	delete trig2;
-	delete blob;
-	delete blob1;
-	delete blob2;
-	delete flot;
-	delete pnjDoubleJump;
-	delete flot2;
-	delete flot3;
-	delete flot4;
-	delete flot5;
-	delete flot6;
-	delete flot7;
-	delete flot8;
-	delete flot9;
+    delete spike;
+    delete blob;
+    delete blob1;
+    delete blob2;
+    delete flot;
+    delete pnjDoubleJump;
+    delete flot2;
+    delete flot3;
+    delete flot4;
+    delete flot5;
+    delete flot6;
+    delete flot7;
+    delete flot8;
+    delete flot9;
+    delete hud;
 	delete shooter1;
+	delete shooter2;
 	delete projectile1;
 	delete point;
+	delete projectile2;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -133,18 +142,20 @@ Level0::~Level0() {
 	blob2 = nullptr;
 	flot = nullptr;
 	pnjDoubleJump = nullptr;
-	flot2 = nullptr;
-	flot3 = nullptr;
-	flot4 = nullptr;
-	flot5 = nullptr;
-	flot6 = nullptr;
-	flot7 = nullptr;
-	flot8 = nullptr;
-	flot9 = nullptr;
+    flot2 = nullptr;
+    flot3 = nullptr;
+    flot4 = nullptr;
+    flot5 = nullptr;
+    flot6 = nullptr;
+    flot7 = nullptr;
+    flot8 = nullptr;
+    flot9 = nullptr;
+    hud = nullptr;
 	point = nullptr;
-
 	shooter1 = nullptr;
+	shooter2 = nullptr;
 	projectile1 = nullptr;
+	projectile2 = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -167,14 +178,18 @@ void Level0::update(const bool* keys, float dt) {
 	flot8->update(*player, dt);
 	flot9->update(*player, dt);
 	pnjDoubleJump->updatePnj(dt, *player);
+	
+	projectile1->update(dt, *player, 2.0f);
+	projectile2->update(dt, *player, 2.0f);
 
-	projectile1->update(dt, *shooter1);
 
 	point->update(dt, *player, glob);
 
 	//if (player->pos.y > 10000) {
 	//	player->pos.y = glob.pos.y;
 	//}
+	shooter1->update(dt, 5.0f, projectile1);
+	shooter2->update(dt, 5.0f, projectile2);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -183,6 +198,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	parralax->render(window);
 	loader->render(window, cam);
 	player->render(window);
+	Machine->currentState->render(window);
 	trig1->render(window);
 	trig2->render(window);
 	blob->render(window);
@@ -199,11 +215,17 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot8->draw(window);
 	flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
+	
+	projectile1->render(window);
+	projectile2->render(window);
 
 	shooter1->render(window);
 	projectile1->render(window);
-
 	point->render(window);
+	shooter2->render(window);
+
+	window.setView(window.getDefaultView());
+	hud->draw(window, *player);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

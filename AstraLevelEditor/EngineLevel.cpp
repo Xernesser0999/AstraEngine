@@ -14,7 +14,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
     // Camera
     cam = new Camera(1920, 1080, 50*60, 50*40, 0.005);
-    Machine = new StateMachine(new IdleState());
+    Machine = new StateMachine(new IdleStateRight(*player));
 
     // Player
     player = new PlayerEX (
