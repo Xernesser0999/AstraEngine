@@ -1,26 +1,31 @@
 #pragma once
 #include <Sfml/Graphics.hpp>
 
-//forward declaration
 class Shooter;
+class Pawn;
 
 class Projectile
 {
 public:
+	Projectile() = default;
 	Projectile(const Shooter& _shooter);
 	~Projectile();
-	void update(float dt, const Shooter& _shooter);
+
+	void update(float dt, Pawn& pawn,float _lifetime);
 	void render(sf::RenderWindow& window);
+
+	// initialize or (re)spawn the projectile
+	void spawn(const Shooter& _shooter);
+
 	sf::Vector2f pos;
 	sf::Vector2f size;
-
-	//std::vector<Projectile> projectiles;
-
 	sf::RectangleShape rect;
 	sf::Texture texture;
 	sf::Clock clock;
-	char direction = 'l';				//left,right
-	bool isAlive = true;
-	float lifeTime = 5.0f;
-	float speed;
+	bool Intersect(Pawn& p);
+	char direction = 'l';	// left,right
+	bool isAlive = false;
+	float lifeTime = 0.0f;
+	float maxLife = 5.0f;
+	float speed = 0.0f;
 };

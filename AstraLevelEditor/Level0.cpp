@@ -1,7 +1,6 @@
 #include "Level0.h"
 #include "Global.h"
-#include "shooter.h"
-#include "projectiles.h"
+
 
 Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	loader = new LevelLoader();
@@ -52,8 +51,8 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	flot8 = new FlottingElement(window, 1268, 450, 50, 50, 4, 150, "sprite/Debug/PlaceHolder.png");
 	flot9 = new FlottingElement(window, 771, 450, 50, 50, 3, 300, "sprite/Debug/PlaceHolder.png");
 
-	shooter1 = new Shooter(750, 2600, 1.5f, 'l');
-	projectile1 = new Projectile(*shooter1);
+	/*lvl1shooterN1 = new Shooter(750, 2600, 1.5f, 'l');
+	lvl1projectileN1 = new Projectile(*lvl1shooterN1);*/
 
 	if (glob.Boot) {
 		glob.Boot = false;
@@ -114,8 +113,6 @@ Level0::~Level0() {
     delete flot8;
     delete flot9;
     delete hud;
-	delete shooter1;
-	delete projectile1;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -137,8 +134,6 @@ Level0::~Level0() {
     flot8 = nullptr;
     flot9 = nullptr;
     hud = nullptr;
-	shooter1 = nullptr;
-	projectile1 = nullptr;
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -161,8 +156,6 @@ void Level0::update(const bool* keys, float dt) {
 	flot8->update(*player, dt);
 	flot9->update(*player, dt);
 	pnjDoubleJump->updatePnj(dt, *player);
-
-	projectile1->update(dt, *shooter1);
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -187,11 +180,6 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot8->draw(window);
 	flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
-	shooter1->render(window);
-	projectile1->render(window);
-	
-    window.setView(window.getDefaultView());
-    hud->draw(window, 3);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

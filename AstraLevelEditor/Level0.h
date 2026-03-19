@@ -13,7 +13,7 @@
 #include "Pnj.h"
 #include "Hud.h"
 #include "projectiles.h"
-
+//#include "shooter.h"
 #include "StateMachine.h"
 
 class Global;
@@ -55,8 +55,8 @@ public:
 	Pnj* pnjDoubleJump;
 	Hud* hud;
 
-	Shooter* shooter1;
-	Projectile* projectile1;
+	/*Shooter* lvl1shooterN1;
+	Projectile* lvl1projectileN1;*/
 
 	Global& glob;
 };
