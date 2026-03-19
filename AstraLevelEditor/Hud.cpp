@@ -65,7 +65,7 @@ void DashCapa::draw(sf::RenderWindow& window, Global& glob) {
 }
 
 DbCapa::DbCapa(){
-	posCapacity = { 1780, 1000 };
+	posCapacity = { 1760, 1000 };
 	sizeCapacity = { 50, 50 };
 	capacity.setPosition(posCapacity);
 	capacity.setSize(sizeCapacity);
@@ -80,7 +80,7 @@ void DbCapa::draw(sf::RenderWindow& window, Global& glob) {
 }
 
 FloatingCapa::FloatingCapa(){
-	posCapacity = { 1720, 1000 };
+	posCapacity = { 1700, 1000 };
 	sizeCapacity = { 50, 50 };
 	capacity.setPosition(posCapacity);
 	capacity.setSize(sizeCapacity);
