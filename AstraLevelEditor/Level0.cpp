@@ -156,6 +156,10 @@ void Level0::update(const bool* keys, float dt) {
 	pnjDoubleJump->updatePnj(dt, *player);
 
 	projectile1->update(dt, *shooter1);
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M)) {
+        glob.save(*player, 0);
+    }
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -169,6 +173,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	blob->render(window);
 	blob1->render(window);
 	blob2->render(window);
+
 	flot->draw(window);
 	flot2->draw(window);
 	flot3->draw(window);

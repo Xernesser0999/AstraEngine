@@ -17,6 +17,8 @@ Menu::Menu(sf::RenderWindow& window, Global& var_) : glob(var_) {
     rect.setPosition({1920 - 145*2, 0});
     TX.loadFromFile("sprite/Menu/Control.png");
     rect.setTexture(&TX);
+
+    glob.load();
 }
 
 Menu::~Menu() {
@@ -46,12 +48,23 @@ void Menu::displayScene(sf::RenderWindow& window) {
 
     trash->hovered(window);
     trash->render(window);
+    if (trash->clicked(window)) {
+        glob.reset();
+    }
 
     window.draw(rect);
 }
 
 void Menu::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
     if (play->clicked(window)) {
-        currentScene = SceneState::Map1;
+        if (glob.actualLevel == 1) {
+            currentScene = SceneState::Map1;
+        }
+        if (glob.actualLevel == 2) {
+            currentScene = SceneState::Map2;
+        }
+        if (glob.actualLevel == 3) {
+            currentScene = SceneState::Map1;
+        }
     }
 }
