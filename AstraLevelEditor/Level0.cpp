@@ -49,7 +49,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	flot8 = new FlottingElement(window, 1268, 450, 50, 50, 4, 150, "sprite/Debug/PlaceHolder.png");
 	flot9 = new FlottingElement(window, 771, 450, 50, 50, 3, 300, "sprite/Debug/PlaceHolder.png");
 
-	shooter1 = new Shooter(750, 2600, 1.5f, 'l');
+	shooter1 = new Shooter(2300, 2050, 1.5f, 'l');
 	projectile1 = new Projectile(*shooter1);
 
 	if (glob.Boot) {
