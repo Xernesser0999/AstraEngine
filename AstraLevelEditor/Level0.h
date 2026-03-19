@@ -56,8 +56,10 @@ public:
 	Hud* hud;
 	Shooter* shooter1;
 	Shooter* shooter2;
+	Shooter* shooter3;
 	Projectile* projectile1;
 	Projectile* projectile2;
+	Projectile* projectile3;
 
 	Global& glob;
 };
