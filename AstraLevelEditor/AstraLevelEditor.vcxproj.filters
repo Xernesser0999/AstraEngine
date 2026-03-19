@@ -147,9 +147,6 @@
     <ClCompile Include="TXanimated.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Level2.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Pnj.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -167,6 +164,8 @@
     </ClCompile>
     <ClCompile Include="Win.cpp">
       <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Fichiers sources\Game\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

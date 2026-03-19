@@ -21,7 +21,7 @@ Shooter::Shooter(float posX, float posY, float speedMove, char _direction)
 Shooter::~Shooter() {
 }
 
-void Shooter::update(float dt, float _timeShoot, Projectile* _projectile )
+void Shooter::update(float dt, float _timeShoot, Projectile* _projectile)
 {
 	projectile = _projectile;
 	shootTimer += dt;

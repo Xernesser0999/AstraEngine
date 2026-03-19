@@ -2,23 +2,23 @@
 #include "Global.h"
 
 Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
-    loader = new LevelLoader();
-    loader->load(
-        "level/TestLevel/lvl2.txt",  
-        "level/TestLevel/lvl2.png",  
-        window,
-        230,                         
-        150                          
-    );
-   
-	cam = new Camera(
-		1920,               // Taille X camera (a pas modif)
-		1080,               // Taille Y camera (a pas modif)
-		230 * 50,               // Taille X du niveau
-		150 * 50,               // Taille Y du niveau
-		7               // Lag factor
+	loader = new LevelLoader();
+	loader->load(
+		"level/TestLevel/lvl2.txt",
+		"level/TestLevel/lvl2.png",
+		window,
+		230,
+		150
 	);
-    Machine = new StateMachine(new DummyState());
+
+	cam = new Camera(
+		1920,					 // Taille X camera (a pas modif)
+		1080,					// Taille Y camera (a pas modif)
+		230 * 50,              // Taille X du niveau
+		150 * 50,             // Taille Y du niveau
+		7					 // Lag factor
+	);
+	Machine = new StateMachine(new DummyState());
 
 	// Player
 	player = new PlayerEX(
@@ -40,11 +40,14 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	player->canFloat = glob.FloatUnlock;
 	player->hp = glob.hp;
 
-	lvl2ShooterN1 = new Shooter(10810.0f, 4030.0f, 1.5f, 'r');
-	lvl2ProjectileN1 = new Projectile(*lvl2ShooterN1);
+	lvl2Blob1 = new BlobEnemy(2700, 7003, 50, 50, 5.5, 100);
+	lvl2Blob2 = new BlobEnemy(6700, 4653, 50, 50, 2.5, 100);
+	lvl2Shooter1 = new Shooter(10810.0f, 4030.0f, 400.0f, 'r');
+	lvl2Shooter2 = new Shooter(11400.0f, 3750, 300.0f, 'l');
 
-	lvl2ShooterN2 = new Shooter(11400.0f, 3750, 1.5f, 'l');
-	lvl2ProjectileN2 = new Projectile(*lvl2ShooterN2);
+	lvl2Projectile1 = new Projectile(*lvl2Shooter1);
+	lvl2Projectile2 = new Projectile(*lvl2Shooter2);
+	flot = new FlottingElement(window, 9700, 3103, 50, 50, 3.0, 150, "sprite/Debug/PlaceHolder.png");
 
 
 	cam->view->setCenter(player->pos);
@@ -54,10 +57,10 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	//Trigger
 	trig = new Trigger(
-		-25,
-		350,
+		0,
+		7053,
 		50,
-		150,
+		200,
 		true
 	);
 
@@ -100,16 +103,20 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	music.play();
 }
 
-Level1::~Level1()
-{
+Level1::~Level1() {
 	Colliderlist.clear();
 	delete loader;
 	delete cam;
 	delete player;
 	delete parralax;
 	delete trig;
-	delete lvl2ShooterN1;
-	delete lvl2ProjectileN1;
+	delete lvl2Shooter1;
+	delete lvl2Shooter2;
+	delete lvl2Projectile1;
+	delete lvl2Projectile2;
+	delete lvl2Blob1;
+	delete lvl2Blob2;
+	delete flot;
 	delete hud;
 
 	loader = nullptr;
@@ -117,13 +124,17 @@ Level1::~Level1()
 	player = nullptr;
 	parralax = nullptr;
 	trig = nullptr;
-	lvl2ShooterN1 = nullptr;
-	lvl2ProjectileN1 = nullptr;
+	lvl2Shooter1 = nullptr;
+	lvl2Shooter2 = nullptr;
+	lvl2Projectile1 = nullptr;
+	lvl2Projectile1 = nullptr;
+	lvl2Blob1 = nullptr;
+	lvl2Blob2 = nullptr;
+	flot = nullptr;
 	hud = nullptr;
 }
 
-void Level1::update(const bool* keys, float dt)
-{
+void Level1::update(const bool* keys, float dt) {
 	loader->update(dt, *player);
 	player->update(dt, loader->colliders);
 	cam->Update(dt, *player);
@@ -136,15 +147,22 @@ void Level1::update(const bool* keys, float dt)
 
 	pnjJump->updatePnj(dt, *player, 1, 2, glob);
 	pnjFloat->updatePnj(dt, *player, 2, 2, glob);
+	flot->update(*player, dt);
 
 	if (player->pos.y > 10000) {
 		player->pos.y = glob.pos.y;
 	}
+	lvl2Projectile1->update(dt, *player, 1.5f);
+	lvl2Projectile2->update(dt, *player, 1.5f);
+
+	lvl2Shooter1->update(dt, 1.5f, lvl2Projectile1);
+	lvl2Shooter2->update(dt, 1.5f, lvl2Projectile2);
+	lvl2Blob1->update(dt, *player);
+	lvl2Blob2->update(dt, *player);
 
 }
 
-void Level1::displayScene(sf::RenderWindow& window)
-{
+void Level1::displayScene(sf::RenderWindow& window) {
 	window.setView(*cam->view);
 
 	parralax->render(window);
@@ -160,11 +178,13 @@ void Level1::displayScene(sf::RenderWindow& window)
 	pnjFloat->renderPnj(window);
 	pnjJump->renderPnj(window);
 
-	lvl2ShooterN1->render(window);
-	lvl2ShooterN2->render(window);
-	lvl2ProjectileN1->render(window);
-	lvl2ProjectileN2->render(window);
-
+	lvl2Shooter1->render(window);
+	lvl2Shooter2->render(window);
+	lvl2Projectile1->render(window);
+	lvl2Projectile2->render(window);
+	lvl2Blob1->render(window);	
+	lvl2Blob2->render(window);
+	flot->draw(window);
 	window.setView(window.getDefaultView());
 	hud->draw(window, *player, glob);
 }

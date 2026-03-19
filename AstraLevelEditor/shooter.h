@@ -2,8 +2,7 @@
 #include <Sfml/Graphics.hpp>
 #include "projectiles.h"
 
-class Shooter
-{
+class Shooter {
 public:
 	Shooter(float posX, float posY, float speedMove, char _direction);
 	~Shooter();
