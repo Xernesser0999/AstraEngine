@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 
+#include <SFML/Audio.hpp>
+
 #include "LevelLoader.h"
 #include "Collider.h"
 #include "Camera.h"
@@ -26,6 +28,8 @@ public:
 	void nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) override;
 
 public:
+
+	sf::Music music;
 
 	StateMachine* Machine;
 	Trigger* trig;

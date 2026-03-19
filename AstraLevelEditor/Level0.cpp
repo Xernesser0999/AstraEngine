@@ -108,6 +108,11 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 
     hud = new Hud();
+
+	music.openFromFile("Audio/Mai.mp3");
+	music.setLooping(true);
+	music.setVolume(100.f);
+	music.play();
 }
 
 Level0::~Level0() {
@@ -244,12 +249,14 @@ void Level0::displayScene(sf::RenderWindow& window) {
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig1->trigger) {
+		music.stop();
 		glob.pos = { 415, 6400 };
 		glob.RezPos = { 415, 6400 };
 		glob.hp = player->hp;
 		currentScene = SceneState::Map2;
 	}
 	if (trig2->trigger) {
+		music.stop();
 		glob.pos = { 2650, 6500 };
 		glob.RezPos = { 2650, 6500 };
 		glob.hp = player->hp;
@@ -257,6 +264,7 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
 	{
+		music.stop();
 		currentScene = SceneState::MenuS;
 	}
 }

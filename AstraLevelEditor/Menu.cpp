@@ -19,6 +19,12 @@ Menu::Menu(sf::RenderWindow& window, Global& var_) : glob(var_) {
     rect.setTexture(&TX);
 
     glob.load();
+
+    music.openFromFile("Audio/MorningDew.mp3");
+    music.setLooping(true);
+    music.setVolume(100.f);
+    music.play();
+
 }
 
 Menu::~Menu() {
@@ -64,6 +70,7 @@ void Menu::displayScene(sf::RenderWindow& window) {
 
 void Menu::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
     if (play->clicked(window)) {
+        music.stop();
         if (glob.actualLevel == 1) {
             currentScene = SceneState::Map1;
         }

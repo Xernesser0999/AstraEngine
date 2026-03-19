@@ -1,5 +1,8 @@
 #pragma once
 #include "Scene.h"
+
+#include <SFML/Audio.hpp>
+
 #include "projectiles.h"
 #include "shooter.h"
 #include "LevelLoader.h"
@@ -25,6 +28,8 @@ public:
 	void nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) override;
 
 public:
+
+	sf::Music music;
 
 	StateMachine* Machine;
 	Trigger* trig;

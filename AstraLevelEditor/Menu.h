@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 
+#include <SFML/Audio.hpp>
+
 #include "Camera.h"
 #include "BGstatic.h"
 #include "GUI_Button.h"
@@ -24,9 +26,13 @@ public:
 	sf::RectangleShape rect;
 	sf::Texture TX;
 
+	sf::Music music;
+
 	GUI_button* play;
 	GUI_button* quit;
 	GUI_button* trash;
+
+	
 
 	Global& glob;
 };
