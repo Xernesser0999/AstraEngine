@@ -209,6 +209,11 @@ void Level0::update(const bool* keys, float dt) {
 	shooter1->update(dt, 5.0f, projectile1);
 	shooter2->update(dt, 5.0f, projectile2);
 	shooter3->update(dt, 5.0f, projectile3);
+	
+	if (player->pos.y > 5000) {
+		player->pos = { 100, 2600 };
+		player->velocityY = 0;
+	}
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -257,8 +262,8 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 	}
 	if (trig2->trigger) {
 		music.stop();
-		glob.pos = { 2650, 6500 };
-		glob.RezPos = { 2650, 6500 };
+		glob.pos = { 2650, 6800 };
+		glob.RezPos = { 2650, 6800 };
 		glob.hp = player->hp;
 		currentScene = SceneState::Map3;
 	}
