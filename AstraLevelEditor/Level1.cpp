@@ -85,10 +85,10 @@ void Level1::update(const bool* keys, float dt)
 	cam->Update(*player);
 	parralax->update(dt, *cam);
 	trig->update(dt, *player);
-	lvl2ProjectileN1->update(dt, *player, 3.0f);
+	/*lvl2ProjectileN1->update(dt, *player);
 	lvl2ProjectileN2->update(dt, *player, 2.0f);
 	lvl2ShooterN1->update(dt, 5.0f, lvl2ProjectileN1);
-	lvl2ShooterN2->update(dt, 5.0f, lvl2ProjectileN2);
+	lvl2ShooterN2->update(dt, 5.0f, lvl2ProjectileN2);*/
 
 }
 

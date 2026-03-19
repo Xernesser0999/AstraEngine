@@ -41,43 +41,32 @@ bool Projectile::Intersect(Pawn& p)
 }
 
 
-void Projectile::update(float dt, Pawn& pawn, float _lifetime)
+void Projectile::update(float dt, const Shooter& _shooter)
 {
-
-	if (isAlive)
+	lifeTime -= dt;
+	if (lifeTime <= 0)
 	{
-		if (_lifetime > 0.0f && lifeTime <= 0.0f)
+		lifeTime = 5.0f;
+		pos = _shooter.pos;
+	}
+	else if (lifeTime > 0)
+	{
+
 		{
-			lifeTime = _lifetime;
-		}
-		if (lifeTime > 0.0f)
-		{
-			lifeTime -= dt;
-			if (lifeTime <= 0.0f)
+			direction = _shooter.direction;
+			if (direction == 'l')
 			{
-				isAlive = false;
+				pos.x -= speed * dt;
 			}
+			else if (direction == 'r')
+			{
+				pos.x += speed * dt;
+			}
+			rect.setPosition(pos);
 		}
 	}
 
-	// movement
-	if (direction == 'l')
-	{
-		pos.x -= speed * dt;
-	}
-	else if (direction == 'r')
-	{
-		pos.x += speed * dt;
-	}
-	rect.setPosition(pos);
-
-	if (Intersect(pawn))
-	{
-		pawn.takedamage(1);
-		isAlive = false;
-	}
 }
-
 void Projectile::render(sf::RenderWindow& window)
 {
 

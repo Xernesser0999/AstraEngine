@@ -11,7 +11,7 @@ public:
 	Projectile(const Shooter& _shooter);
 	~Projectile();
 
-	void update(float dt, Pawn& pawn,float _lifetime);
+	void update(float dt, const Shooter& _shooter);
 	void render(sf::RenderWindow& window);
 
 	// initialize or (re)spawn the projectile
