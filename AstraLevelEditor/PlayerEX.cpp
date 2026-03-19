@@ -14,7 +14,6 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
     velocityY += Gravity * dt;     
     pos.y += velocityY * dt;
     Pawn::collisionVert(colliders);
-    std::cout << pos.x << ", " << pos.y << std::endl;
     system("CLS");
     //rect.setPosition({ pos.x, pos.y });
     if (isInvincible) {

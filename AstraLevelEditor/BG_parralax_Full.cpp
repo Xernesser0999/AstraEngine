@@ -10,27 +10,28 @@ BG_parralax_Full::~BG_parralax_Full() {
 }
 
 void BG_parralax_Full::addlayer(std::string file, float speed_) {
-	layer_.emplace_back();
-	Layer& l = layer_.back();
+	/*layer_.emplace_back();*/
+	Layer* l = new Layer();
 
-	l.speed = speed_;
-	l.TX.loadFromFile(file);
+	l->speed = speed_;
+	auto result = l->TX.loadFromFile(file);
 
 	for (int i = 0; i < 9; i++)
 	{
-		sf::RectangleShape r;
-		r.setSize({ 1920, 1080 });
-		r.setTexture(&l.TX);
-		l.rect.push_back(r);
+		sf::RectangleShape* r = new sf::RectangleShape();
+		r->setSize({ 1920, 1080 });
+		r->setTexture(&l->TX);
+		l->rect.push_back(r);
 	}
+    layer_.push_back(l);
 }
 
 void BG_parralax_Full::update(float dt, Camera& cam) {
     sf::Vector2f center = cam.view->getCenter();
 
-    for (auto& r : layer_) {
-        float ox = center.x * r.speed;
-        float oy = center.y * r.speed;
+    for (auto r : layer_) {
+        float ox = center.x * r->speed;
+        float oy = center.y * r->speed;
 
         // Position de snap : la tuile "centrale" la plus proche
         float snapX = std::round(ox / 1920.f) * 1920.f;
@@ -45,7 +46,7 @@ void BG_parralax_Full::update(float dt, Camera& cam) {
                 float px = (snapX + x * 1920.f) - ox + center.x;
                 float py = (snapY + y * 1080.f) - oy + center.y;
 
-                r.rect[index].setPosition({ px - 1920.f / 2.f, py - 1080.f / 2.f });
+                r->rect[index]->setPosition({ px - 1920.f / 2.f, py - 1080.f / 2.f });
                 index++;
             }
         }
@@ -54,8 +55,8 @@ void BG_parralax_Full::update(float dt, Camera& cam) {
 
 void BG_parralax_Full::render(sf::RenderWindow& window) {
 	for (auto& z : layer_) {
-		for (auto& x : z.rect) {
-			window.draw(x);
+		for (auto& x : z->rect) {
+			window.draw(*x);
 		}
 	}
 }

@@ -9,7 +9,7 @@ class Camera;
 
 struct Layer {
     sf::Texture TX;
-    std::vector<sf::RectangleShape> rect;
+    std::vector<sf::RectangleShape*> rect;
 
     float speed;
 };
@@ -17,7 +17,7 @@ struct Layer {
 class BG_parralax_Full
 {
 public:
-    std::vector<Layer> layer_;
+    std::vector<Layer*> layer_;
 
     BG_parralax_Full();
     ~BG_parralax_Full();

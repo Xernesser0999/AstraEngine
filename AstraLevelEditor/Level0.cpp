@@ -77,7 +77,12 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	}
 
 	parralax = new BG_parralax_Full();
-	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
+	parralax->addlayer("sprite/Background/ground.png", 0.0);
+	parralax->addlayer("sprite/Background/building2.png", 0.1);
+	parralax->addlayer("sprite/Background/building1.png", 0.3);
+	parralax->addlayer("sprite/Background/background3.png", 0.5);
+	parralax->addlayer("sprite/Background/background2.png", 0.7);
+	parralax->addlayer("sprite/Background/background1.png", 0.9);
 
 	trig1 = new Trigger(
 		3800,
@@ -95,10 +100,10 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 	pnjDoubleJump = new Pnj(
 		150,
-		2650,
-		50,
-		50,
-		"sprite/Debug/PlaceHolder.png"
+		2628,
+		60,
+		78,
+		"sprite/SpriteSheet/pnj.png"
 	);
 
     hud = new Hud();
