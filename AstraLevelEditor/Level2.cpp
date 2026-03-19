@@ -58,12 +58,20 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	//Trigger
 	trig = new Trigger(
-		-25,
-		350,
+		2750,
+		7200,
+		200,
 		50,
-		150,
 		true
 	);
+	wintrig = new Trigger(
+		2500,
+		800,
+		100,
+		100,
+		true
+	);
+
 	hud = new Hud();
 
 	music.openFromFile("Audio/Mai.mp3");
@@ -113,8 +121,9 @@ void Level2::update(const bool* keys, float dt) {
 	trig->update(dt, *player);
 
 	if (player->pos.y > 10000) {
-		player->pos.y = glob.pos.y;
+		player->pos = {2650, 6800};
 	}
+
 	blob1->update(dt, *player);
 	blob3->update(dt, *player);
 	blob4->update(dt, *player);
@@ -124,6 +133,11 @@ void Level2::update(const bool* keys, float dt) {
 	flot1->update(*player, dt);
 	flot2->update(*player, dt);
 	flot3->update(*player, dt);
+
+	wintrig->update(dt, *player);
+	if (wintrig->trigger) {
+		aswon = true;
+	}
 }
 
 void Level2::displayScene(sf::RenderWindow& window) {
@@ -148,12 +162,18 @@ void Level2::displayScene(sf::RenderWindow& window) {
 	window.setView(window.getDefaultView());
 
 	hud->draw(window, *player, glob);
+
+	if (aswon) {
+		win->render(window);
+	}
 }
 
 void Level2::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig->trigger) {
 		music.stop();
+
 		glob.pos = { 1500, 1450 };
+
 		currentScene = SceneState::Map1;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))

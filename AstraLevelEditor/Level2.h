@@ -14,6 +14,7 @@
 #include "Hud.h"
 
 #include "StateMachine.h"
+#include "Win.h"
 
 class Global;
 
@@ -50,5 +51,10 @@ public:
 
 	Hud* hud;
 
+	Trigger* wintrig;
+	Win* win;
+
 	Global& glob;
+
+	bool aswon = false;
 };
