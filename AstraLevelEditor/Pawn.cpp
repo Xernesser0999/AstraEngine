@@ -16,8 +16,9 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
     Iframe = Iframe_;
     IframeTimer = Iframe;
 
-    texture.loadFromFile(image.c_str());
-    rect.setTexture(&texture);
+    //texture.loadFromFile(image.c_str());
+    //rect.setTexture(&texture);
+    rect.setFillColor(sf::Color::Green);
 
     canDB = false;
     canFloat = false;
@@ -28,6 +29,7 @@ void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void Pawn::render(sf::RenderWindow& window) {
+    
 }
 
 bool Pawn::intersects(const sf::FloatRect& a, const sf::FloatRect& b) {

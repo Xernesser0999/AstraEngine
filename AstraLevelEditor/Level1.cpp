@@ -65,6 +65,31 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		6500,
 		2
 	);
+	point1 = new SavePoint(
+		8500,
+		4450,
+		2
+	);
+	point2 = new SavePoint(
+		7900,
+		3850,
+		2
+	);
+
+	pnjJump = new Pnj(
+		8600,
+		4430,
+		70,
+		70,
+		"sprite/Debug/Baker.png"
+	);
+	pnjFloat = new Pnj(
+		8000,
+		3830,
+		70,
+		70,
+		"sprite/Debug/Baker.png"
+	);
 }
 
 Level1::~Level1()
@@ -94,7 +119,13 @@ void Level1::update(const bool* keys, float dt)
 	cam->Update(dt, *player);
 	parralax->update(dt, *cam);
 	trig->update(dt, *player);
+
 	point->update(dt, *player, glob);
+	point1->update(dt, *player, glob);
+	point2->update(dt, *player, glob);
+
+	pnjJump->updatePnj(dt, *player, 1, 2, glob);
+	pnjFloat->updatePnj(dt, *player, 2, 2, glob);
 
 	if (player->pos.y > 10000) {
 		player->pos.y = glob.pos.y;
@@ -115,7 +146,14 @@ void Level1::displayScene(sf::RenderWindow& window)
 	player->render(window);
 	Machine->currentState->render(window);
 	trig->render(window);
+
 	point->render(window);
+	point1->render(window);
+	point2->render(window);
+
+	pnjFloat->renderPnj(window);
+	pnjJump->renderPnj(window);
+
 	lvl2ShooterN1->render(window);
 	lvl2ShooterN2->render(window);
 	lvl2ProjectileN1->render(window);

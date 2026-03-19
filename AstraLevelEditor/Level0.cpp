@@ -93,10 +93,10 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 	pnjDoubleJump = new Pnj(
 		150,
-		2650,
-		50,
-		50,
-		"sprite/Debug/PlaceHolder.png"
+		2630,
+		70,
+		70,
+		"sprite/Debug/Baker.png"
 	);
 
     hud = new Hud();
@@ -177,7 +177,7 @@ void Level0::update(const bool* keys, float dt) {
 	flot7->update(*player, dt);
 	flot8->update(*player, dt);
 	flot9->update(*player, dt);
-	pnjDoubleJump->updatePnj(dt, *player);
+	pnjDoubleJump->updatePnj(dt, *player, 1, 1, glob);
 	
 	projectile1->update(dt, *player, 2.0f);
 	projectile2->update(dt, *player, 2.0f);

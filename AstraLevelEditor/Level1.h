@@ -9,6 +9,7 @@
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 #include "SavePoint.h"
+#include "Pnj.h"
 
 class Global;
 
@@ -31,7 +32,6 @@ public:
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
 	BG_parralax_Full* parralax;
-	SavePoint* point;
 
 	Shooter* lvl2ShooterN1;
 	Shooter* lvl2ShooterN2;
@@ -43,5 +43,13 @@ public:
 	Projectile* lvl2ProjectileN3;
 	Projectile* lvl2ProjectileN4;
 	Projectile* lvl2ProjectileN5;
+
+	SavePoint* point;
+	SavePoint* point1;
+	SavePoint* point2;
+
+	Pnj* pnjJump;
+	Pnj* pnjFloat;
+
 	Global& glob;
 };
