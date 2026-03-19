@@ -2,28 +2,25 @@
 #include "Global.h"
 
 Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
-	// Level loader
 	loader = new LevelLoader();
 	loader->load(
-		"level/TestLevel/lvl3.txt",  // Collision
-		"level/TestLevel/lvl3.png",  // Render
+		"level/TestLevel/lvl3.txt",  
+		"level/TestLevel/lvl3.png",  
 		window,
-		120,                         // Size (in tiles) X
-		150                          // Size (in tiles) Y
+		120,                         
+		150                          
 	);
 
-	// Camera
 	cam = new Camera(
-		1920,               // Taille X camera (a pas modif)
-		1080,               // Taille Y camera (a pas modif)
-		120 * 50,               // Taille X du niveau
-		150 * 50,               // Tailel Y du niveau
-		7               // Lag factor
+		1920,              
+		1080,              
+		120 * 50,               
+		150 * 50,              
+		7               
 	);
 	
 	Machine = new StateMachine(new DummyState());
 
-	// Player
 	player = new PlayerEX(
 		window,
 		1,
@@ -56,7 +53,6 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	parralax = new BG_parralax_Full();
 	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
-	//Trigger
 	trig = new Trigger(
 		2750,
 		7200,

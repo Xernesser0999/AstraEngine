@@ -87,14 +87,14 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	pnjJump = new Pnj(
 		8600,
-		4435,
+		4430,
 		60,
 		78,
 		"sprite/SpriteSheet/pnj.png"
 	);
 	pnjFloat = new Pnj(
 		8000,
-		3835,
+		3830,
 		60,
 		78,
 		"sprite/SpriteSheet/pnj.png"
