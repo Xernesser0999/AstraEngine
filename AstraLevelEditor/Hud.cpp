@@ -52,9 +52,10 @@ void Life::draw(sf::RenderWindow& window, Pawn& pawn){
 DashCapa::DashCapa(){
 	posCapacity = { 1820, 1000 };
 	sizeCapacity = { 50, 50 };
-	capacity.setPosition(posCapacity);
 	capacity.setSize(sizeCapacity);
-	capacity.setFillColor(sf::Color::Blue);
+	capacity.setPosition(posCapacity);
+	dash.loadFromFile("sprite/SpriteSheet/dash.png");
+	capacity.setTexture(&dash);
 }
 
 DashCapa::~DashCapa() {
@@ -67,9 +68,10 @@ void DashCapa::draw(sf::RenderWindow& window, Global& glob) {
 DbCapa::DbCapa(){
 	posCapacity = { 1760, 1000 };
 	sizeCapacity = { 50, 50 };
-	capacity.setPosition(posCapacity);
 	capacity.setSize(sizeCapacity);
-	capacity.setFillColor(sf::Color::Red);
+	capacity.setPosition(posCapacity);
+	db.loadFromFile("sprite/SpriteSheet/doublejump.png");
+	capacity.setTexture(&db);
 }
 
 DbCapa::~DbCapa() {
@@ -82,9 +84,10 @@ void DbCapa::draw(sf::RenderWindow& window, Global& glob) {
 FloatingCapa::FloatingCapa(){
 	posCapacity = { 1700, 1000 };
 	sizeCapacity = { 50, 50 };
-	capacity.setPosition(posCapacity);
 	capacity.setSize(sizeCapacity);
-	capacity.setFillColor(sf::Color::Green);
+	capacity.setPosition(posCapacity);
+	floating.loadFromFile("sprite/SpriteSheet/float.png");
+	capacity.setTexture(&floating);
 }
 
 FloatingCapa::~FloatingCapa() {

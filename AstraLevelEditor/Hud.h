@@ -10,7 +10,6 @@ public:
 	sf::Vector2f posHeart;
 	sf::Vector2f sizeHeart;
 	sf::Texture luneBlanche;
-	sf::Texture luneGrise;
 
 	Life();
 	~Life();
@@ -23,6 +22,7 @@ public:
 	sf::RectangleShape capacity;
 	sf::Vector2f posCapacity;
 	sf::Vector2f sizeCapacity;
+	sf::Texture dash;
 
 	DashCapa();
 	~DashCapa();
@@ -35,6 +35,7 @@ public:
 	sf::RectangleShape capacity;
 	sf::Vector2f posCapacity;
 	sf::Vector2f sizeCapacity;
+	sf::Texture db;
 
 	DbCapa();
 	~DbCapa();
@@ -47,6 +48,7 @@ public:
 	sf::RectangleShape capacity;
 	sf::Vector2f posCapacity;
 	sf::Vector2f sizeCapacity;
+	sf::Texture floating;
 
 	FloatingCapa();
 	~FloatingCapa();
