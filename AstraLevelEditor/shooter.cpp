@@ -18,7 +18,10 @@ Shooter::Shooter(float posX, float posY, float speedMove, char _direction)
 		rect.setTexture(&texture);
 	}
 }
-Shooter::~Shooter() {}
+Shooter::~Shooter() {
+	delete projectile;
+	projectile = nullptr;
+}
 
 void Shooter::update(float dt, float _timeShoot, Projectile* _projectile )
 {

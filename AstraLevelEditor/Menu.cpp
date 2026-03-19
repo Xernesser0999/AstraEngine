@@ -24,7 +24,13 @@ Menu::Menu(sf::RenderWindow& window, Global& var_) : glob(var_) {
 Menu::~Menu() {
     delete Background;
     delete play;
+    delete quit;
+    delete trash;
+    delete cam;
     
+    quit = nullptr;
+    trash = nullptr;
+    cam = nullptr;
     play = nullptr;
     Background = nullptr;
 }

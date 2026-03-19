@@ -111,6 +111,10 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 }
 
 Level0::~Level0() {
+	for (auto r : Colliderlist) {
+		delete r;
+		r = nullptr;
+	}
     Colliderlist.clear();
     delete loader;
     delete cam;
@@ -189,7 +193,7 @@ void Level0::update(const bool* keys, float dt) {
 	flot7->update(*player, dt);
 	flot8->update(*player, dt);
 	flot9->update(*player, dt);
-	pnjDoubleJump->updatePnj(dt, *player);
+	pnjDoubleJump->updatePnj(dt, *player, 1, 1, glob);
 	
 	projectile1->update(dt, *player, 5.0f);
 	projectile2->update(dt, *player, 5.0f);
@@ -251,5 +255,9 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 		glob.RezPos = { 2650, 6500 };
 		glob.hp = player->hp;
 		currentScene = SceneState::Map3;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+	{
+		currentScene = SceneState::MenuS;
 	}
 }

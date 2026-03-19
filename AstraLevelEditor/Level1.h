@@ -10,6 +10,7 @@
 #include "BG_parralax_Full.h"
 #include "SavePoint.h"
 #include "Hud.h"
+#include "Pnj.h"
 
 class Global;
 
@@ -45,5 +46,13 @@ public:
 	Projectile* lvl2ProjectileN3;
 	Projectile* lvl2ProjectileN4;
 	Projectile* lvl2ProjectileN5;
+
+	SavePoint* point;
+	SavePoint* point1;
+	SavePoint* point2;
+
+	Pnj* pnjJump;
+	Pnj* pnjFloat;
+
 	Global& glob;
 };

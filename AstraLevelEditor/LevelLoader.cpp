@@ -142,8 +142,14 @@ LevelLoader::~LevelLoader()  {
         delete z;
         z = nullptr;
     }
+    for (auto& y : Display) {
+        delete y;
+        y = nullptr;
+    }
+
     colliders.clear();
     spike.clear();
+    Display.clear();
 
     delete back;
     back = nullptr;

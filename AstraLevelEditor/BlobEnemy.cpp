@@ -12,7 +12,10 @@ BlobEnemy::BlobEnemy(float posX, float posY, float SizeX, float SizeY, float tim
 }
 
 BlobEnemy::~BlobEnemy(){
+	delete rect;
+	rect = nullptr;
 }
+
 bool BlobEnemy::Intersect(Pawn& p) {
 	return p.pos.x < pos.x + size.x &&
 		p.pos.x + p.size.x > pos.x &&

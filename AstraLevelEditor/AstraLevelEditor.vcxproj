@@ -155,8 +155,6 @@
     <ClCompile Include="PlayerEX.cpp" />
     <ClCompile Include="Pnj.cpp" />
     <ClCompile Include="projectiles.cpp" />
-    <ClCompile Include="PS_burst.cpp" />
-    <ClCompile Include="PS_particle.cpp" />
     <ClCompile Include="SavePoint.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -188,8 +186,6 @@
     <ClInclude Include="PlayerEX.h" />
     <ClInclude Include="Pnj.h" />
     <ClInclude Include="projectiles.h" />
-    <ClInclude Include="PS_burst.h" />
-    <ClInclude Include="PS_particle.h" />
     <ClInclude Include="SavePoint.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />

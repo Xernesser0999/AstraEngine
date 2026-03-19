@@ -6,6 +6,10 @@ BG_parralax_Full::BG_parralax_Full() {
 }
 
 BG_parralax_Full::~BG_parralax_Full() {
+    for (auto r : layer_) {
+        delete r;
+        r = nullptr;
+    }
 	layer_.clear();
 }
 

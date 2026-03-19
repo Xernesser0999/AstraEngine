@@ -372,7 +372,7 @@ void FallingLeft::update(float dt, Pawn& pawn) {
         return;
     }
 
-    if (pressJump()) {
+    if (pressJump() && pawn.canFloat) {
         nextState = new FlottingLeft(pawn);
         return;
     }
@@ -425,7 +425,7 @@ void FallingRight::update(float dt, Pawn& pawn) {
         return;
 	}
 
-    if (pressJump()) {
+    if (pressJump() && pawn.canFloat) {
          nextState = new FlottingRight(pawn);
         return;
     }

@@ -32,6 +32,7 @@ void SavePoint::update(float dt, Pawn& pawn, Global& glob) {
 	trig->update(dt, pawn);
 	if (trig->inside && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) {
 		pawn.Rez = RezPos;
+		pawn.hp = 3;
 		glob.save(pawn, actual);
 	}
 	trig->active = true;
