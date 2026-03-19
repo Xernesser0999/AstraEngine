@@ -199,7 +199,6 @@ void Level0::update(const bool* keys, float dt) {
 	projectile2->update(dt, *player, 5.0f);
 	projectile3->update(dt, *player, 3.0f);
 
-
 	point->update(dt, *player, glob);
 
 	shooter1->update(dt, 5.0f, projectile1);
@@ -232,12 +231,12 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	pnjDoubleJump->renderPnj(window);
 	point->render(window);
 	
-	shooter1->render(window);
 	projectile1->render(window);
-	shooter2->render(window);
 	projectile2->render(window);
-	shooter3->render(window);
 	projectile3->render(window);
+	shooter1->render(window);
+	shooter2->render(window);
+	shooter3->render(window);
 
 	window.setView(window.getDefaultView());
 	hud->draw(window, *player, glob);

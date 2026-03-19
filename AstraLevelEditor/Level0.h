@@ -62,7 +62,6 @@ public:
 	Projectile* projectile1;
 	Projectile* projectile2;
 	Projectile* projectile3;
-
 	SavePoint* point;
 
 	Global& glob;
