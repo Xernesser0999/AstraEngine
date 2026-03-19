@@ -49,10 +49,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	flot8 = new FlottingElement(window, 1268, 450, 50, 50, 4, 150, "sprite/Debug/PlaceHolder.png");
 	flot9 = new FlottingElement(window, 771, 450, 50, 50, 3, 300, "sprite/Debug/PlaceHolder.png");
 
-	shooter1 = new Shooter(2300, 2050, 350.0f, 'l');
-	shooter2 = new Shooter(800, 1550, 250.0f, 'r');
-	projectile1 = new Projectile(*shooter1);
-	projectile2 = new Projectile(*shooter2);
+
 
 	if (glob.Boot) {
 		glob.Boot = false;
@@ -161,8 +158,7 @@ void Level0::update(const bool* keys, float dt) {
 	flot9->update(*player, dt);
 	pnjDoubleJump->updatePnj(dt, *player);
 
-	projectile1->update(dt, *shooter1);
-	projectile2->update(dt, *shooter2);
+	
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -187,10 +183,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
 
-	shooter1->render(window);
-	shooter2->render(window);
-	projectile1->render(window);
-	projectile2->render(window);
+	
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
