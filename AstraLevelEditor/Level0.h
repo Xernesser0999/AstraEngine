@@ -12,7 +12,7 @@
 #include "FlottingElement.h"
 #include "Pnj.h"
 #include "projectiles.h"
-
+//#include "shooter.h"
 #include "StateMachine.h"
 
 class Global;
@@ -53,8 +53,8 @@ public:
 	FlottingElement* flot9;
 	Pnj* pnjDoubleJump;
 
-	Shooter* shooter1;
-	Projectile* projectile1;
+	/*Shooter* lvl1shooterN1;
+	Projectile* lvl1projectileN1;*/
 
 	Global& glob;
 };
