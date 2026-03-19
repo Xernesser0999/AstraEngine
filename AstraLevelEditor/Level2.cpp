@@ -20,8 +20,7 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		150 * 50,               // Tailel Y du niveau
 		0.005               // Lag factor
 	);
-	
-	Machine = new StateMachine(new DummyState());
+	Machine = new StateMachine(new IdleState());
 
 	// Player
 	player = new PlayerEX(
@@ -37,7 +36,6 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1,
 		*Machine
 	);
-	Machine->currentState = new IdleStateRight(*player);
 
 	parralax = new BG_parralax_Full();
 	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
@@ -81,8 +79,7 @@ void Level2::displayScene(sf::RenderWindow& window) {
 	parralax->render(window);
 	loader->render(window, cam);
 	player->render(window);
-	Machine->currentState->render(window);
-	trig->render(window);
+	trig->render(window/*, *cam*/);
 }
 
 void Level2::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

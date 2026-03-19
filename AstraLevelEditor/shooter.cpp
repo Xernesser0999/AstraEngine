@@ -5,8 +5,6 @@ Shooter::Shooter(float posX, float posY, float speedMove, char _direction)
 	pos = { posX, posY };
 	size = { 50, 50 };
 	direction = _direction;
-	speed = speedMove;
-
 	rect.setPosition(pos);
 	rect.setSize(size);
 	if (!texture.loadFromFile("sprite/Debug/Trigger_DebugTX.png"))

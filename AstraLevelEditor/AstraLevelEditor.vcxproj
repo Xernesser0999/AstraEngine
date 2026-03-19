@@ -143,7 +143,6 @@
     <ClCompile Include="FlottingElement.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="GUI_button.cpp" />
-    <ClCompile Include="Hud.cpp" />
     <ClCompile Include="KeyStruct.cpp" />
     <ClCompile Include="Level0.cpp" />
     <ClCompile Include="Level1.cpp" />
@@ -176,7 +175,6 @@
     <ClInclude Include="FlottingElement.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="GUI_button.h" />
-    <ClInclude Include="Hud.h" />
     <ClInclude Include="KeyStruct.h" />
     <ClInclude Include="Level0.h" />
     <ClInclude Include="Level1.h" />

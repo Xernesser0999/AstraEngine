@@ -7,9 +7,15 @@ FlottingElement::FlottingElement(sf::RenderWindow& window, float posX_, float po
     time = timeMove;
     speed = speedMove;
 
-    rect = new TXanimated();
-    rect->load("sprite/SpriteSheet/bombnut.txt", 50, 50, pos.x, pos.y);
+    rect.setPosition(pos);
+    rect.setSize(size);
 
+    if (!texture.loadFromFile(image)) {
+        rect.setFillColor(sf::Color::Red);
+    }
+    else {
+        rect.setTexture(&texture);
+    }
 }
 
 FlottingElement::~FlottingElement()
@@ -17,7 +23,7 @@ FlottingElement::~FlottingElement()
 }
 
 void FlottingElement::draw(sf::RenderWindow& window) {
-    rect->render(window);
+    window.draw(rect);
 }
 
 bool FlottingElement::intersept(Pawn& p)
@@ -43,10 +49,9 @@ void FlottingElement::update(Pawn& pawn, float dt) {
         moveHeight = !moveHeight;
         actualTimeMove = 0;
     }
-    rect->update(dt);
-    rect->rect.setPosition(pos);
+    rect.setPosition(pos);
 
     if (intersept(pawn)) {
-        pawn.takedamage(2);
+        pawn.takedamage(1);
     }
 }

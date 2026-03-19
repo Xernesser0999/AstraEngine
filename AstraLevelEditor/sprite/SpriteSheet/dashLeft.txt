@@ -1,4 +1,0 @@
-sprite/SpriteSheet/dashLeft.png
-84 23
-3
-0.1

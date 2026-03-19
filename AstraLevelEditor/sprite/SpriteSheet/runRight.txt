@@ -1,4 +1,0 @@
-sprite/SpriteSheet/runRight.png
-43 55
-8
-0.1

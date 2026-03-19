@@ -1,4 +1,0 @@
-sprite/SpriteSheet/bombnut.png
-18 18
-3
-0.2

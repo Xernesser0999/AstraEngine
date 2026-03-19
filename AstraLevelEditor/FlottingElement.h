@@ -1,6 +1,5 @@
 #pragma once
 #include <Sfml/Graphics.hpp>
-#include "TXanimated.h"
 
 class Pawn;
 class FlottingElement
@@ -8,8 +7,8 @@ class FlottingElement
 public:
 	sf::Vector2f pos;
 	sf::Vector2f size;
-	
-	TXanimated* rect;
+
+	sf::RectangleShape rect;
 	sf::Texture texture;
 
 	sf::RectangleShape rectangle;
