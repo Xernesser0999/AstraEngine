@@ -103,6 +103,10 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 }
 
 Level0::~Level0() {
+	for (auto r : Colliderlist) {
+		delete r;
+		r = nullptr;
+	}
     Colliderlist.clear();
     delete loader;
     delete cam;
@@ -156,6 +160,39 @@ Level0::~Level0() {
 	shooter2 = nullptr;
 	projectile1 = nullptr;
 	projectile2 = nullptr;
+
+	/*
+	StateMachine* Machine;
+	Trigger* trig1;
+	Trigger* trig2;
+	LevelLoader* loader;
+	PlayerEX* player;
+	Camera* cam;
+	std::vector<Collider*> Colliderlist;
+	BG_parralax_Full* parralax;
+	Projectile* proj1;
+	BlobEnemy* blob;
+	BlobEnemy* blob1;
+	BlobEnemy* blob2;
+	Spike* spike;
+	FlottingElement* flot;
+	FlottingElement* flot2;
+	FlottingElement* flot3;
+	FlottingElement* flot4;
+	FlottingElement* flot5;
+	FlottingElement* flot6;
+	FlottingElement* flot7;
+	FlottingElement* flot8;
+	FlottingElement* flot9;
+	Pnj* pnjDoubleJump;
+	Hud* hud;
+	Shooter* shooter1;
+	Shooter* shooter2;
+	Projectile* projectile1;
+	Projectile* projectile2;
+
+	SavePoint* point;
+	*/
 }
 
 void Level0::update(const bool* keys, float dt) {
@@ -238,5 +275,9 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 		glob.pos = { 2650, 6500 };
 		glob.RezPos = { 2650, 6500 };
 		currentScene = SceneState::Map3;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+	{
+		currentScene = SceneState::MenuS;
 	}
 }

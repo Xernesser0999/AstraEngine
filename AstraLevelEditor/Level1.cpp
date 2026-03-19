@@ -168,4 +168,8 @@ void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 		glob.RezPos = { 1400, 450 };
 		currentScene = SceneState::Map1;
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+	{
+		currentScene = SceneState::MenuS;
+	}
 }

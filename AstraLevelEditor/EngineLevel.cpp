@@ -45,6 +45,10 @@ EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
 }
 
 EngineLevel::~EngineLevel() {
+    for (auto& r : Colliderlist) {
+        delete r;
+        r = nullptr;
+    }
     Colliderlist.clear();
     delete loader;
     delete cam;

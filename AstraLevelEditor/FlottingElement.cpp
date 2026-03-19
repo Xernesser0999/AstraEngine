@@ -12,8 +12,9 @@ FlottingElement::FlottingElement(sf::RenderWindow& window, float posX_, float po
 
 }
 
-FlottingElement::~FlottingElement()
-{
+FlottingElement::~FlottingElement() {
+    delete rect;
+    rect = nullptr;
 }
 
 void FlottingElement::draw(sf::RenderWindow& window) {

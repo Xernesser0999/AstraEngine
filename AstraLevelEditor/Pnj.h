@@ -14,7 +14,6 @@ public:
 	sf::RectangleShape rect;
 	sf::Texture texture;
 	bool capacityGiven = false ;
-	Pawn* pawn;
 
 	Pnj(float posX, float posY, float sizeX, float sizeY, std::string image);
 	~Pnj();
