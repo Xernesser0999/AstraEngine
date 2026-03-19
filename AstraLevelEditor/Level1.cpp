@@ -12,15 +12,14 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 
 	cam = new Camera(
-		1920,					 // Taille X camera (a pas modif)
-		1080,					// Taille Y camera (a pas modif)
-		230 * 50,              // Taille X du niveau
-		150 * 50,             // Taille Y du niveau
-		7					 // Lag factor
+		1920,					 
+		1080,					
+		230 * 50,              
+		150 * 50,             
+		7					 
 	);
 	Machine = new StateMachine(new DummyState());
 
-	// Player
 	player = new PlayerEX(
 		window,
 		3,
@@ -53,9 +52,13 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	cam->view->setCenter(player->pos);
 
 	parralax = new BG_parralax_Full();
-	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
+	parralax->addlayer("sprite/Background/fond.png", 0);
+	parralax->addlayer("sprite/Background/building2.png", 0.1);
+	parralax->addlayer("sprite/Background/building1.png", 0.3);
+	parralax->addlayer("sprite/Background/background3.png", 0.5);
+	parralax->addlayer("sprite/Background/background2.png", 0.7);
+	parralax->addlayer("sprite/Background/background1.png", 0.9);
 
-	//Trigger
 	trig = new Trigger(
 		0,
 		7053,
@@ -84,17 +87,17 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	pnjJump = new Pnj(
 		8600,
-		4430,
-		70,
-		70,
-		"sprite/Debug/Baker.png"
+		4435,
+		60,
+		78,
+		"sprite/SpriteSheet/pnj.png"
 	);
 	pnjFloat = new Pnj(
 		8000,
-		3830,
-		70,
-		70,
-		"sprite/Debug/Baker.png"
+		3835,
+		60,
+		78,
+		"sprite/SpriteSheet/pnj.png"
 	);
 
 	music.openFromFile("Audio/Mai.mp3");

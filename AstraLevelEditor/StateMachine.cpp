@@ -345,10 +345,15 @@ void JumpingRightState::render(sf::RenderWindow& window) {
     rect->render(window);
 }
 
-FallingLeft::FallingLeft(Pawn& pawn) {}
+FallingLeft::FallingLeft(Pawn& pawn) {
+    rect = new TXanimated();
+    rect->load("sprite/SpriteSheet/fallingLeft.txt", 70, 97, pawn.pos.x, pawn.pos.y);
+}
 
 void FallingLeft::update(float dt, Pawn& pawn) {
 	pawn.isJumping = true;
+    rect->update(dt);
+    rect->rect.setPosition(pawn.pos);
 
 	if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
@@ -397,12 +402,18 @@ void FallingLeft::update(float dt, Pawn& pawn) {
 }
 
 void FallingLeft::render(sf::RenderWindow& window) {
+    rect->render(window);
 }
 
-FallingRight::FallingRight(Pawn& pawn) {}
+FallingRight::FallingRight(Pawn& pawn) {
+    rect = new TXanimated();
+    rect->load("sprite/SpriteSheet/fallingRight.txt", 70, 97, pawn.pos.x, pawn.pos.y);
+}
 
 void FallingRight::update(float dt, Pawn& pawn) {
 	pawn.isJumping = true;
+	rect->update(dt);
+	rect->rect.setPosition(pawn.pos);
 
     if (pressLeft()) {
         nextState = new FallingLeft(pawn);
@@ -450,6 +461,7 @@ void FallingRight::update(float dt, Pawn& pawn) {
 }
 
 void FallingRight::render(sf::RenderWindow& window) {
+	rect->render(window);
 }
 
 DashingLeft::DashingLeft(Pawn& pawn) {
@@ -524,10 +536,14 @@ void IState::setState(IState* state) {
 	nextState = state;
 }
 
-FlottingLeft::FlottingLeft(Pawn& pawn) {}
+FlottingLeft::FlottingLeft(Pawn& pawn) {
+    rect = new TXanimated();
+    rect->load("sprite/SpriteSheet/hoverLeft.txt", 70, 97, pawn.pos.x, pawn.pos.y);
+}
 
-void FlottingLeft::update(float dt, Pawn& pawn)
-{
+void FlottingLeft::update(float dt, Pawn& pawn){
+	rect->update(dt);
+	rect->rect.setPosition(pawn.pos);
     if (pressRight()) {
         nextState = new FlottingRight(pawn);
     }
@@ -559,14 +575,18 @@ void FlottingLeft::update(float dt, Pawn& pawn)
 
 }
 
-void FlottingLeft::render(sf::RenderWindow& window)
-{
+void FlottingLeft::render(sf::RenderWindow& window){
+	rect->render(window);
 }
 
-FlottingRight::FlottingRight(Pawn& pawn) {}
+FlottingRight::FlottingRight(Pawn& pawn) {
+    rect = new TXanimated();
+	rect->load("sprite/SpriteSheet/hoverRight.txt", 70, 97, pawn.pos.x, pawn.pos.y);
+}
 
-void FlottingRight::update(float dt, Pawn& pawn)
-{
+void FlottingRight::update(float dt, Pawn& pawn){
+	rect->update(dt);
+	rect->rect.setPosition(pawn.pos);   
     if (pressLeft()) {
         nextState = new FlottingLeft(pawn);
     }
@@ -602,6 +622,6 @@ void FlottingRight::update(float dt, Pawn& pawn)
     }
 }
 
-void FlottingRight::render(sf::RenderWindow& window)
-{
+void FlottingRight::render(sf::RenderWindow& window){
+	rect->render(window);
 }
