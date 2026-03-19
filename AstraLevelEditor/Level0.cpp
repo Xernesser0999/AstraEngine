@@ -24,7 +24,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	player = new PlayerEX(
 		window,
-		2,
+		3,
 		0,
 		0,
 		50,
