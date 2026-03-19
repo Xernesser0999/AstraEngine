@@ -9,6 +9,8 @@
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 #include "SavePoint.h"
+#include "BlobEnemy.h"
+#include "FlottingElement.h"
 
 class Global;
 
@@ -33,13 +35,18 @@ public:
 	BG_parralax_Full* parralax;
 	SavePoint* point;
 
-	Shooter* lvl2ShooterN1;
-	Shooter* lvl2ShooterN2;
+	BlobEnemy* lvl2Blob1;
+	BlobEnemy* lvl2Blob2;
+
+	FlottingElement* flot;
+
+	Shooter* lvl2Shooter1;
+	Shooter* lvl2Shooter2;
 	Shooter* lvl2ShooterN3;
 	Shooter* lvl2ShooterN4;
 	Shooter* lvl2ShooterN5;
-	Projectile* lvl2ProjectileN1;
-	Projectile* lvl2ProjectileN2;
+	Projectile* lvl2Projectile1;
+	Projectile* lvl2Projectile2;
 	Projectile* lvl2ProjectileN3;
 	Projectile* lvl2ProjectileN4;
 	Projectile* lvl2ProjectileN5;
