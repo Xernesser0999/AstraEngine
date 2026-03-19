@@ -7,6 +7,7 @@
 #include "PlayerEX.h"
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
+#include "SavePoint.h"
 
 class Global;
 
@@ -29,6 +30,7 @@ public:
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
 	BG_parralax_Full* parralax;
+	SavePoint* point;
 
 	Global& glob;
 };

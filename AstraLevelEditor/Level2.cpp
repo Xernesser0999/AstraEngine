@@ -36,6 +36,9 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1,
 		*Machine
 	);
+	player->canDB = glob.DBUnlock;
+	player->canFloat = glob.FloatUnlock;
+
 
 	parralax = new BG_parralax_Full();
 	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
@@ -71,6 +74,10 @@ void Level2::update(const bool* keys, float dt) {
 	cam->Update(*player);
 	parralax->update(dt, *cam);
 	trig->update(dt, *player);
+
+	if (player->pos.y > 10000) {
+		player->pos.y = glob.pos.y;
+	}
 }
 
 void Level2::displayScene(sf::RenderWindow& window) {

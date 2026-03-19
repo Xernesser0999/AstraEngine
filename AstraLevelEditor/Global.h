@@ -16,6 +16,10 @@ public:
 	bool Boot;
 	sf::Vector2f pos;
 	int actualLevel;
+	sf::Vector2f RezPos;
+
+	bool DBUnlock;
+	bool FloatUnlock;
 
 public:
 	Global();

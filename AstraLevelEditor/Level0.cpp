@@ -35,6 +35,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1,
 		*Machine
 	);
+
+	point = new SavePoint(
+		2200,
+		1450,
+		1
+	);
+
 	blob = new BlobEnemy(1250, 1750, 50, 50, 5.5, 100);
 	blob1 = new BlobEnemy(1600, 550, 50, 50, 5.0, 100);
 	blob2 = new BlobEnemy(3125, 950, 50, 50, 1.50, 100);
@@ -55,9 +62,13 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	if (glob.Boot) {
 		glob.Boot = false;
 		player->pos = { 100, 2000 };
+		player->Rez = { 100, 2600 };
 	}
 	else {
 		player->pos = glob.pos;
+		player->Rez = glob.RezPos;
+		player->canDB = glob.DBUnlock;
+		player->canFloat = glob.FloatUnlock;
 	}
 
 	parralax = new BG_parralax_Full();
@@ -109,6 +120,7 @@ Level0::~Level0() {
 	delete flot9;
 	delete shooter1;
 	delete projectile1;
+	delete point;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -129,6 +141,7 @@ Level0::~Level0() {
 	flot7 = nullptr;
 	flot8 = nullptr;
 	flot9 = nullptr;
+	point = nullptr;
 
 	shooter1 = nullptr;
 	projectile1 = nullptr;
@@ -157,9 +170,11 @@ void Level0::update(const bool* keys, float dt) {
 
 	projectile1->update(dt, *shooter1);
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M)) {
-        glob.save(*player, 1);
-    }
+	point->update(dt, *player, glob);
+
+	if (player->pos.y > 10000) {
+		player->pos.y = glob.pos.y;
+	}
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -187,15 +202,19 @@ void Level0::displayScene(sf::RenderWindow& window) {
 
 	shooter1->render(window);
 	projectile1->render(window);
+
+	point->render(window);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig1->trigger) {
-		glob.pos = { 415,6400 };
+		glob.pos = { 415, 6400 };
+		glob.RezPos = { 415, 6400 };
 		currentScene = SceneState::Map2;
 	}
 	if (trig2->trigger) {
 		glob.pos = { 2650, 6500 };
+		glob.RezPos = { 2650, 6500 };
 		currentScene = SceneState::Map3;
 	}
 }

@@ -18,6 +18,9 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
 
     texture.loadFromFile(image.c_str());
     rect.setTexture(&texture);
+
+    canDB = false;
+    canFloat = false;
 }
 
 void Pawn::update(float dt, const std::vector<Collider*>& colliders) {

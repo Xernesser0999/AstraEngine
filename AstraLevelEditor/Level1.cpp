@@ -18,7 +18,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1080,               // Taille Y camera (a pas modif)
 		230 * 50,               // Taille X du niveau
 		150 * 50,               // Taille Y du niveau
-		0.005               // Lag factor
+		1               // Lag factor
 	);
 	Machine = new StateMachine(new IdleState());
 
@@ -36,6 +36,8 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1,
 		*Machine
 	);
+	player->canDB = glob.DBUnlock;
+	player->canFloat = glob.FloatUnlock;
 
 	cam->view->setCenter(player->pos);
 
@@ -49,6 +51,12 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		50,
 		150,
 		true
+	);
+
+	point = new SavePoint(
+		3600,
+		6500,
+		2
 	);
 }
 
@@ -73,6 +81,11 @@ void Level1::update(const bool* keys, float dt) {
 	cam->Update(*player);
 	parralax->update(dt, *cam);
 	trig->update(dt, *player);
+	point->update(dt, *player, glob);
+
+	if (player->pos.y > 10000) {
+		player->pos.y = glob.pos.y;
+	}
 }
 
 void Level1::displayScene(sf::RenderWindow& window) {
@@ -82,11 +95,13 @@ void Level1::displayScene(sf::RenderWindow& window) {
 	loader->render(window, cam);
 	player->render(window);
 	trig->render(window);
+	point->render(window);
 }
 
 void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig->trigger) {
 		glob.pos = { 1400, 450 };
+		glob.RezPos = { 1400, 450 };
 		currentScene = SceneState::Map1;
 	}
 }

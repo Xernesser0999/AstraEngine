@@ -12,6 +12,7 @@
 #include "FlottingElement.h"
 #include "Pnj.h"
 #include "projectiles.h"
+#include "SavePoint.h"
 
 #include "StateMachine.h"
 
@@ -55,6 +56,8 @@ public:
 
 	Shooter* shooter1;
 	Projectile* projectile1;
+
+	SavePoint* point;
 
 	Global& glob;
 };

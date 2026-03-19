@@ -17,6 +17,8 @@ struct Pawn {
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
+	sf::Vector2f Rez;
+
 	float power_jump;				 // Jump Height
 	float speed;					// Speed of the player
 
@@ -55,6 +57,8 @@ struct Pawn {
 
 	float Gravity = 4000.0f;
 
+	bool canDB;
+	bool canFloat;
 	//  |\=-_
 	//  SDL VARIABLE
 	// SDL_FlipMode flip = SDL_FLIP_NONE;

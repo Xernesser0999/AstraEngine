@@ -50,6 +50,7 @@ void Menu::displayScene(sf::RenderWindow& window) {
     trash->render(window);
     if (trash->clicked(window)) {
         glob.reset();
+        glob.load();
     }
 
     window.draw(rect);

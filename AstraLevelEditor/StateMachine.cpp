@@ -180,7 +180,7 @@ void JumpingLeftState::update(float dt, Pawn& pawn) {
 		pawn.isInpuConsume = false;
 	}
 
-    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
+    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume && pawn.canDB) {
         pawn.Gravity = 4000;
         pawn.velocityY = -pawn.power_jump;
         pawn.isDoubleJumping = true;
@@ -237,7 +237,7 @@ void JumpingRightState::update(float dt, Pawn& pawn) {
 	if (!pressJump()) {
 		pawn.isInpuConsume = false;
 	}
-    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
+    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume && pawn.canDB) {
         pawn.Gravity = 4000;
         pawn.velocityY = -pawn.power_jump;
         pawn.isDoubleJumping = true;
@@ -289,7 +289,7 @@ void FallingLeft::update(float dt, Pawn& pawn) {
 		pawn.isInpuConsume = false;
 	}
 
-    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
+    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume && pawn.canDB) {
         pawn.velocityY = -pawn.power_jump;
         pawn.Gravity = 4000;
         pawn.isDoubleJumping = true;
@@ -307,7 +307,7 @@ void FallingLeft::update(float dt, Pawn& pawn) {
         return;
     }
 
-    if (pressJump()) {
+    if (pressJump() && pawn.canFloat) {
         nextState = new FlottingLeft();
         return;
     }
@@ -343,7 +343,7 @@ void FallingRight::update(float dt, Pawn& pawn) {
         pawn.isInpuConsume = false;
     }
 
-    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume) {
+    if (pressJump() && pawn.isJumping && !pawn.isDoubleJumping && !pawn.isInpuConsume && pawn.canDB) {
         pawn.velocityY = -pawn.power_jump;
         pawn.Gravity = 4000;
         pawn.isDoubleJumping = true;
@@ -360,7 +360,7 @@ void FallingRight::update(float dt, Pawn& pawn) {
         return;
 	}
 
-    if (pressJump()) {
+    if (pressJump() && pawn.canFloat) {
          nextState = new FlottingRight();
         return;
     }

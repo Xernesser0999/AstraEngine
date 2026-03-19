@@ -17,6 +17,7 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 
     rect.setPosition({ pos.x, pos.y });
     std::cout << pos.x << ", " << pos.y << std::endl;
+    system("CLS");
     if (isInvincible) {
         IframeTimer -= dt;
         if (IframeTimer <= 0.0f) {
@@ -31,7 +32,8 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void PlayerEX::death() {
-    pos = { 100, 2650 };
+    pos = { Rez };
+    //pos = { 100, 2650 };
     hp = 3;
     isalive = true;
 }
