@@ -74,6 +74,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		player->Rez = glob.RezPos;
 		player->canDB = glob.DBUnlock;
 		player->canFloat = glob.FloatUnlock;
+		player->hp = glob.hp;
 	}
 
 	parralax = new BG_parralax_Full();
@@ -197,9 +198,6 @@ void Level0::update(const bool* keys, float dt) {
 
 	point->update(dt, *player, glob);
 
-	//if (player->pos.y > 10000) {
-	//	player->pos.y = glob.pos.y;
-	//}
 	shooter1->update(dt, 5.0f, projectile1);
 	shooter2->update(dt, 5.0f, projectile2);
 	shooter3->update(dt, 5.0f, projectile3);
@@ -245,11 +243,13 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 	if (trig1->trigger) {
 		glob.pos = { 415, 6400 };
 		glob.RezPos = { 415, 6400 };
+		glob.hp = player->hp;
 		currentScene = SceneState::Map2;
 	}
 	if (trig2->trigger) {
 		glob.pos = { 2650, 6500 };
 		glob.RezPos = { 2650, 6500 };
+		glob.hp = player->hp;
 		currentScene = SceneState::Map3;
 	}
 }

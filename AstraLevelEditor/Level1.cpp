@@ -38,6 +38,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	player->canDB = glob.DBUnlock;
 	player->canFloat = glob.FloatUnlock;
+	player->hp = glob.hp;
 
 	lvl2ShooterN1 = new Shooter(10810.0f, 4030.0f, 1.5f, 'r');
 	lvl2ProjectileN1 = new Projectile(*lvl2ShooterN1);
@@ -65,6 +66,8 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		6500,
 		2
 	);
+
+	hud = new Hud();
 }
 
 Level1::~Level1()
@@ -77,6 +80,7 @@ Level1::~Level1()
 	delete trig;
 	delete lvl2ShooterN1;
 	delete lvl2ProjectileN1;
+	delete hud;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -85,6 +89,7 @@ Level1::~Level1()
 	trig = nullptr;
 	lvl2ShooterN1 = nullptr;
 	lvl2ProjectileN1 = nullptr;
+	hud = nullptr;
 }
 
 void Level1::update(const bool* keys, float dt)
@@ -99,10 +104,6 @@ void Level1::update(const bool* keys, float dt)
 	if (player->pos.y > 10000) {
 		player->pos.y = glob.pos.y;
 	}
-	/*lvl2ProjectileN1->update(dt, *player);
-	lvl2ProjectileN2->update(dt, *player, 2.0f);
-	lvl2ShooterN1->update(dt, 5.0f, lvl2ProjectileN1);
-	lvl2ShooterN2->update(dt, 5.0f, lvl2ProjectileN2);*/
 
 }
 
@@ -120,6 +121,9 @@ void Level1::displayScene(sf::RenderWindow& window)
 	lvl2ShooterN2->render(window);
 	lvl2ProjectileN1->render(window);
 	lvl2ProjectileN2->render(window);
+
+	window.setView(window.getDefaultView());
+	hud->draw(window, *player, glob);
 }
 
 void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window)
@@ -128,6 +132,7 @@ void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 	{
 		glob.pos = { 1400, 450 };
 		glob.RezPos = { 1400, 450 };
+		glob.hp = player->hp;
 		currentScene = SceneState::Map1;
 	}
 }

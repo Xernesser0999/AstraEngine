@@ -20,6 +20,7 @@ public:
 
 	bool DBUnlock;
 	bool FloatUnlock;
+	int hp;
 
 public:
 	Global();

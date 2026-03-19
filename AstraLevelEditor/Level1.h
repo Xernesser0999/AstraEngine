@@ -9,6 +9,7 @@
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
 #include "SavePoint.h"
+#include "Hud.h"
 
 class Global;
 
@@ -32,6 +33,7 @@ public:
 	std::vector<Collider*> Colliderlist;
 	BG_parralax_Full* parralax;
 	SavePoint* point;
+	Hud* hud;
 
 	Shooter* lvl2ShooterN1;
 	Shooter* lvl2ShooterN2;
