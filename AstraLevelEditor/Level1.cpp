@@ -93,6 +93,11 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		70,
 		"sprite/Debug/Baker.png"
 	);
+
+	music.openFromFile("Audio/Mai.mp3");
+	music.setLooping(true);
+	music.setVolume(100.f);
+	music.play();
 }
 
 Level1::~Level1()
@@ -168,6 +173,7 @@ void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 {
 	if (trig->trigger)
 	{
+		music.stop();
 		glob.pos = { 1400, 450 };
 		glob.RezPos = { 1400, 450 };
 		glob.hp = player->hp;
@@ -175,6 +181,7 @@ void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
 	{
+		music.stop();
 		currentScene = SceneState::MenuS;
 	}
 }

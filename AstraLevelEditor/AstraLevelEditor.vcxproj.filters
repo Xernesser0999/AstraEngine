@@ -111,12 +111,6 @@
     <ClCompile Include="BG_parralax_Full.cpp">
       <Filter>Fichiers sources\Engine\BGsystem</Filter>
     </ClCompile>
-    <ClCompile Include="PS_burst.cpp">
-      <Filter>Fichiers sources\Engine\Particle system</Filter>
-    </ClCompile>
-    <ClCompile Include="PS_particle.cpp">
-      <Filter>Fichiers sources\Engine\Particle system</Filter>
-    </ClCompile>
     <ClCompile Include="Trigger.cpp">
       <Filter>Fichiers sources\Engine\Actor</Filter>
     </ClCompile>
@@ -168,6 +162,9 @@
     <ClCompile Include="SavePoint.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Hud.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -202,12 +199,6 @@
     </ClInclude>
     <ClInclude Include="Trigger.h">
       <Filter>Fichiers d%27en-tête\Engine\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="PS_burst.h">
-      <Filter>Fichiers d%27en-tête\Engine\Particle system</Filter>
-    </ClInclude>
-    <ClInclude Include="PS_particle.h">
-      <Filter>Fichiers d%27en-tête\Engine\Particle system</Filter>
     </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Fichiers d%27en-tête\Engine\SceneManager\Engine</Filter>
@@ -258,6 +249,9 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="SavePoint.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Hud.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,4 @@
+sprite/SpriteSheet/jumpLeft.png
+40 55
+8
+0.1

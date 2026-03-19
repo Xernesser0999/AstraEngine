@@ -227,9 +227,14 @@ void MovingRightState::render(sf::RenderWindow& window) {
 	rect->render(window);   
 }
 
-JumpingLeftState::JumpingLeftState(Pawn& pawn) {}
+JumpingLeftState::JumpingLeftState(Pawn& pawn) {
+    rect = new TXanimated();
+    rect->load("sprite/SpriteSheet/jumpLeft.txt", 70, 97, pawn.pos.x, pawn.pos.y);
+}
 
 void JumpingLeftState::update(float dt, Pawn& pawn) {
+    rect->update(dt);
+    rect->rect.setPosition(pawn.pos);
     if (pressLeft()) {
         pawn.velocityX = -pawn.speed;
         pawn.direction = 1;
@@ -275,12 +280,17 @@ void JumpingLeftState::update(float dt, Pawn& pawn) {
 }
 
 void JumpingLeftState::render(sf::RenderWindow& window) {
+    rect->render(window);
 }
 
-JumpingRightState::JumpingRightState(Pawn& pawn) {}
+JumpingRightState::JumpingRightState(Pawn& pawn) {
+    rect = new TXanimated();
+    rect->load("sprite/SpriteSheet/jumpRight.txt", 70, 97, pawn.pos.x, pawn.pos.y);
+}
 
 void JumpingRightState::update(float dt, Pawn& pawn) {
-
+    rect->update(dt);
+    rect->rect.setPosition(pawn.pos);
     if (pressLeft()) {
         nextState = new JumpingLeftState(pawn);
     }
@@ -332,6 +342,7 @@ void JumpingRightState::update(float dt, Pawn& pawn) {
 }
 
 void JumpingRightState::render(sf::RenderWindow& window) {
+    rect->render(window);
 }
 
 FallingLeft::FallingLeft(Pawn& pawn) {}
