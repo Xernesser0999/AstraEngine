@@ -1,4 +1,4 @@
 sprite/SpriteSheet/dashLeft.png
-252 55
+84 22
 3
 0.1
