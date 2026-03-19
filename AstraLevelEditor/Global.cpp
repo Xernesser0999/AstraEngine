@@ -16,9 +16,13 @@ void Global::load() {
 
 	file >> pos.x;
 	file >> pos.y;
-	pos.y += 50;
+	pos.y -= 50;
 	file >> actualLevel;
 	file >> Boot;
+
+	if (actualLevel != 1, 2, 3) {
+		actualLevel = 1;
+	}
 }
 
 

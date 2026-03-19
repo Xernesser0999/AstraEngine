@@ -158,7 +158,7 @@ void Level0::update(const bool* keys, float dt) {
 	projectile1->update(dt, *shooter1);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M)) {
-        glob.save(*player, 0);
+        glob.save(*player, 1);
     }
 }
 
