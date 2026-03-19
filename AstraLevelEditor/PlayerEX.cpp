@@ -14,7 +14,7 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
     velocityY += Gravity * dt;     
     pos.y += velocityY * dt;
     Pawn::collisionVert(colliders);
-
+    std::cout << pos.x << ", " << pos.y << std::endl;
     rect.setPosition({ pos.x, pos.y });
     if (isInvincible) {
         IframeTimer -= dt;
@@ -30,7 +30,7 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void PlayerEX::death() {
-    pos = { 100, 2650 };
+    pos = { 100, 2600 };
     hp = 3;
     isalive = true;
 }
