@@ -56,10 +56,10 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 
 	//Trigger
 	trig = new Trigger(
-		-25,
-		350,
+		0,
+		7053,
 		50,
-		150,
+		200,
 		true
 	);
 
@@ -146,7 +146,7 @@ void Level1::displayScene(sf::RenderWindow& window) {
 void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
 	if (trig->trigger) {
 
-		glob.pos = { 1400, 450 };
+		glob.pos = { 3650, 670 };
 		glob.RezPos = { 1400, 450 };
 		currentScene = SceneState::Map1;
 	}

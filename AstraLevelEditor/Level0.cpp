@@ -18,23 +18,23 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		60 * 50,
 		7
 	);
-    Machine = new StateMachine(new DummyState());
+	Machine = new StateMachine(new DummyState());
 
-    player = new PlayerEX(
-        window,
-        3,
-        0,
-        0,
-        70,
-        97,
-        1400,
-        700,
-        "",
-        1,
-        *Machine
-    );
+	player = new PlayerEX(
+		window,
+		3,
+		0,
+		0,
+		70,
+		97,
+		1400,
+		700,
+		"",
+		1,
+		*Machine
+	);
 
-    Machine->currentState = new IdleStateRight(*player);
+	Machine->currentState = new IdleStateRight(*player);
 
 	point = new SavePoint(
 		2200,
@@ -101,31 +101,31 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		"sprite/Debug/PlaceHolder.png"
 	);
 
-    hud = new Hud();
+	hud = new Hud();
 }
 
 Level0::~Level0() {
-    Colliderlist.clear();
-    delete loader;
-    delete cam;
-    delete player;
-    delete parralax;
-    delete trig1;
+	Colliderlist.clear();
+	delete loader;
+	delete cam;
+	delete player;
+	delete parralax;
+	delete trig1;
 	delete trig2;
-    delete spike;
-    delete blob;
-    delete blob1;
-    delete blob2;
-    delete flot;
-    delete pnjDoubleJump;
-    delete flot2;
-    delete flot3;
-    delete flot4;
-    delete flot5;
-    delete flot6;
-    delete flot7;
-    delete flot8;
-    delete flot9;
+	delete spike;
+	delete blob;
+	delete blob1;
+	delete blob2;
+	delete flot;
+	delete pnjDoubleJump;
+	delete flot2;
+	delete flot3;
+	delete flot4;
+	delete flot5;
+	delete flot6;
+	delete flot7;
+	delete flot8;
+	delete flot9;
 	delete hud;
 	delete point;
 	delete shooter1;
@@ -146,15 +146,15 @@ Level0::~Level0() {
 	blob2 = nullptr;
 	flot = nullptr;
 	pnjDoubleJump = nullptr;
-    flot2 = nullptr;
-    flot3 = nullptr;
-    flot4 = nullptr;
-    flot5 = nullptr;
-    flot6 = nullptr;
-    flot7 = nullptr;
-    flot8 = nullptr;
-    flot9 = nullptr;
-    hud = nullptr;
+	flot2 = nullptr;
+	flot3 = nullptr;
+	flot4 = nullptr;
+	flot5 = nullptr;
+	flot6 = nullptr;
+	flot7 = nullptr;
+	flot8 = nullptr;
+	flot9 = nullptr;
+	hud = nullptr;
 	point = nullptr;
 	shooter1 = nullptr;
 	shooter2 = nullptr;
@@ -184,7 +184,7 @@ void Level0::update(const bool* keys, float dt) {
 	flot8->update(*player, dt);
 	flot9->update(*player, dt);
 	pnjDoubleJump->updatePnj(dt, *player);
-	
+
 	projectile1->update(dt, *player, 5.0f);
 	projectile2->update(dt, *player, 5.0f);
 	projectile3->update(dt, *player, 3.0f);
@@ -224,7 +224,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
 	point->render(window);
-	
+
 	shooter1->render(window);
 	projectile1->render(window);
 	shooter2->render(window);
