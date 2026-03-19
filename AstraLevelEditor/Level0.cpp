@@ -224,7 +224,7 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 		currentScene = SceneState::Map2;
 	}
 	if (trig2->trigger) {
-		glob.pos = { 2650, 6500 };
+		glob.pos = { 2650, 6000 };
 		currentScene = SceneState::Map3;
 	}
 }

@@ -7,6 +7,9 @@
 #include "PlayerEX.h"
 #include "Trigger.h"
 #include "BG_parralax_Full.h"
+#include "BlobEnemy.h"
+#include "FlottingElement.h"
+#include "Hud.h"
 
 #include "StateMachine.h"
 
@@ -31,6 +34,17 @@ public:
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
 	BG_parralax_Full* parralax;
+	BlobEnemy* blob1;
+	BlobEnemy* blob3;
+	BlobEnemy* blob4;
+	BlobEnemy* blob5;
+	BlobEnemy* blob6;
+
+	FlottingElement* flot1;
+	FlottingElement* flot2;
+	FlottingElement* flot3;
+
+	Hud* hud;
 
 	Global& glob;
 };
