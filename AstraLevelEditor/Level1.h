@@ -33,7 +33,6 @@ public:
 	Camera* cam;
 	std::vector<Collider*> Colliderlist;
 	BG_parralax_Full* parralax;
-	SavePoint* point;
 	Hud* hud;
 
 	Shooter* lvl2ShooterN1;
