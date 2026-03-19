@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
-
+#include "projectiles.h"
+#include "shooter.h"
 #include "LevelLoader.h"
 #include "Collider.h"
 #include "Camera.h"
@@ -32,5 +33,15 @@ public:
 	BG_parralax_Full* parralax;
 	SavePoint* point;
 
+	Shooter* lvl2ShooterN1;
+	Shooter* lvl2ShooterN2;
+	Shooter* lvl2ShooterN3;
+	Shooter* lvl2ShooterN4;
+	Shooter* lvl2ShooterN5;
+	Projectile* lvl2ProjectileN1;
+	Projectile* lvl2ProjectileN2;
+	Projectile* lvl2ProjectileN3;
+	Projectile* lvl2ProjectileN4;
+	Projectile* lvl2ProjectileN5;
 	Global& glob;
 };

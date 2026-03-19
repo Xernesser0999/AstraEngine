@@ -1,55 +1,89 @@
 #include "projectiles.h"
 #include "shooter.h"
+#include "Pawn.h"
 
 Projectile::Projectile(const Shooter& _shooter)
 {
-
-	direction = _shooter.direction;
-	speed = _shooter.speed;
-	pos = _shooter.pos;
-	size = { 40, 40 };
-	rect.setPosition(pos);
-	rect.setSize(size);
-	if (!texture.loadFromFile("sprite/Debug/PlaceHolder.png"))
-	{
-		rect.setFillColor(sf::Color::Red);
-	}
-	else
-	{
-		rect.setTexture(&texture);
-	}
-
+    spawn(_shooter);
 }
 
 Projectile::~Projectile() {}
 
-void Projectile::update(float dt, const Shooter& _shooter)
+void Projectile::spawn(const Shooter& _shooter)
 {
-	lifeTime -= dt;
-	if (lifeTime <= 0)
-	{
-		lifeTime = 5.0f;
-		pos = _shooter.pos;
-	}
-	else if (lifeTime > 0)
-	{
+    direction = _shooter.direction;
+    speed = _shooter.speed;
+    pos = _shooter.pos;
+    size = { 40, 40 };
 
-		{
-			direction = _shooter.direction;
-			if (direction == 'l')
-			{
-				pos.x -= speed * dt;
-			}
-			else if (direction == 'r')
-			{
-				pos.x += speed * dt;
-			}
-			rect.setPosition(pos);
-		}
-	}
+    rect.setPosition(pos);
+    rect.setSize(size);
 
+    if (!texture.loadFromFile("sprite/Debug/PlaceHolder.png"))
+    {
+        rect.setFillColor(sf::Color::Red);
+    }
+    else
+    {
+        rect.setTexture(&texture);
+    }
+
+    isAlive = true;
+    lifeTime = 0.0f;
 }
+
+bool Projectile::Intersect(Pawn& p)
+{
+    return p.pos.x < pos.x + size.x &&
+        p.pos.x + p.size.x > pos.x &&
+        p.pos.y < pos.y + size.y &&
+        p.pos.y + p.size.y > pos.y;
+}
+
+
+void Projectile::update(float dt, Pawn& pawn, float _lifetime)
+{
+
+    if (isAlive)
+    {
+        if (_lifetime > 0.0f && lifeTime <= 0.0f)
+        {
+            lifeTime = _lifetime;
+        }
+        if (lifeTime > 0.0f)
+        {
+            lifeTime -= dt;
+            if (direction == 'l')
+            {
+                pos.x -= speed * dt;
+            }
+            else if (direction == 'r')
+            {
+                pos.x += speed * dt;
+            }
+            rect.setPosition(pos);
+
+            if (Intersect(pawn))
+            {
+                pawn.takedamage(1);
+                isAlive = false;
+            }
+            if (lifeTime <= 0.0f)
+            {
+                isAlive = false;
+            }
+        }
+    }
+
+    // movement
+    
+}
+
 void Projectile::render(sf::RenderWindow& window)
 {
-	window.draw(rect);
+
+    if (isAlive)
+    {
+        window.draw(rect);
+    }
 }

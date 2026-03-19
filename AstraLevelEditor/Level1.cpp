@@ -2,17 +2,15 @@
 #include "Global.h"
 
 Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
-	// Level loader
-	loader = new LevelLoader();
-	loader->load(
-		"level/TestLevel/lvl2.txt",  // Collision
-		"level/TestLevel/lvl2.png",  // Render
-		window,
-		230,                         // Size (in tiles) X
-		150                          // Size (in tiles) Y
-	);
-
-	// Camera
+    loader = new LevelLoader();
+    loader->load(
+        "level/TestLevel/lvl2.txt",  
+        "level/TestLevel/lvl2.png",  
+        window,
+        230,                         
+        150                          
+    );
+   
 	cam = new Camera(
 		1920,               // Taille X camera (a pas modif)
 		1080,               // Taille Y camera (a pas modif)
@@ -20,24 +18,33 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		150 * 50,               // Taille Y du niveau
 		10               // Lag factor
 	);
-	Machine = new StateMachine(new IdleState());
+    Machine = new StateMachine(new DummyState());
 
 	// Player
 	player = new PlayerEX(
 		window,
-		1,
+		3,
 		glob.pos.x,
 		glob.pos.y,
-		50,
-		50,
+		70,
+		97,
 		1400,
-		500,
-		"sprite/Debug/PlaceHolder.png",
+		700,
+		"",
 		1,
 		*Machine
 	);
+	Machine->currentState = new IdleStateRight(*player);
+
 	player->canDB = glob.DBUnlock;
 	player->canFloat = glob.FloatUnlock;
+
+	lvl2ShooterN1 = new Shooter(10810.0f, 4030.0f, 1.5f, 'r');
+	lvl2ProjectileN1 = new Projectile(*lvl2ShooterN1);
+
+	lvl2ShooterN2 = new Shooter(11400.0f, 3750, 1.5f, 'l');
+	lvl2ProjectileN2 = new Projectile(*lvl2ShooterN2);
+
 
 	cam->view->setCenter(player->pos);
 
@@ -60,22 +67,28 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 }
 
-Level1::~Level1() {
+Level1::~Level1()
+{
 	Colliderlist.clear();
 	delete loader;
 	delete cam;
 	delete player;
 	delete parralax;
 	delete trig;
+	delete lvl2ShooterN1;
+	delete lvl2ProjectileN1;
 
 	loader = nullptr;
 	cam = nullptr;
 	player = nullptr;
 	parralax = nullptr;
 	trig = nullptr;
+	lvl2ShooterN1 = nullptr;
+	lvl2ProjectileN1 = nullptr;
 }
 
-void Level1::update(const bool* keys, float dt) {
+void Level1::update(const bool* keys, float dt)
+{
 	loader->update(dt, *player);
 	player->update(dt, loader->colliders);
 	cam->Update(dt, *player);
@@ -86,20 +99,33 @@ void Level1::update(const bool* keys, float dt) {
 	if (player->pos.y > 10000) {
 		player->pos.y = glob.pos.y;
 	}
+	/*lvl2ProjectileN1->update(dt, *player);
+	lvl2ProjectileN2->update(dt, *player, 2.0f);
+	lvl2ShooterN1->update(dt, 5.0f, lvl2ProjectileN1);
+	lvl2ShooterN2->update(dt, 5.0f, lvl2ProjectileN2);*/
+
 }
 
-void Level1::displayScene(sf::RenderWindow& window) {
+void Level1::displayScene(sf::RenderWindow& window)
+{
 	window.setView(*cam->view);
 
 	parralax->render(window);
 	loader->render(window, cam);
 	player->render(window);
+	Machine->currentState->render(window);
 	trig->render(window);
 	point->render(window);
+	lvl2ShooterN1->render(window);
+	lvl2ShooterN2->render(window);
+	lvl2ProjectileN1->render(window);
+	lvl2ProjectileN2->render(window);
 }
 
-void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
-	if (trig->trigger) {
+void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window)
+{
+	if (trig->trigger)
+	{
 		glob.pos = { 1400, 450 };
 		glob.RezPos = { 1400, 450 };
 		currentScene = SceneState::Map1;
