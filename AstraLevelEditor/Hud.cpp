@@ -1,20 +1,34 @@
 #include "Hud.h"
 #include "Pawn.h"
+#include "Global.h"
 
 Hud::Hud() {
 	life = new Life();
-	capacities = new Capacities();
+	dash = new DashCapa();
+	db = new DbCapa();
+	floating = new FloatingCapa();
 }
 
 Hud::~Hud() {
 	delete life;
-	delete capacities;
+	delete dash;
+	delete db;
+	delete floating;
+
 	life = nullptr;
-	capacities = nullptr;
+	dash = nullptr;
+	db = nullptr;
+	floating = nullptr;
 }
-void Hud::draw(sf::RenderWindow& window, Pawn& pawn) {
+void Hud::draw(sf::RenderWindow& window, Pawn& pawn, Global& glob) {
 	life->draw(window, pawn);
-	capacities->draw(window);
+	if (glob.DBUnlock) {
+		db->draw(window, glob);
+	}
+	if (glob.FloatUnlock) {
+		floating->draw(window, glob);
+	}
+	dash->draw(window, glob);
 }
 
 Life::Life(){
@@ -22,7 +36,6 @@ Life::Life(){
 	sizeHeart = { 80, 80 };
 	heart.setSize(sizeHeart);
 	luneBlanche.loadFromFile("sprite/SpriteSheet/lune_blanche.png");
-	luneGrise.loadFromFile("sprite/SpriteSheet/lune_grise.png");
 	heart.setTexture(&luneBlanche);
 }
 
@@ -36,7 +49,7 @@ void Life::draw(sf::RenderWindow& window, Pawn& pawn){
 	}
 }
 
-Capacities::Capacities(){
+DashCapa::DashCapa(){
 	posCapacity = { 1820, 1000 };
 	sizeCapacity = { 50, 50 };
 	capacity.setPosition(posCapacity);
@@ -44,9 +57,39 @@ Capacities::Capacities(){
 	capacity.setFillColor(sf::Color::Blue);
 }
 
-Capacities::~Capacities() {
+DashCapa::~DashCapa() {
 }
 
-void Capacities::draw(sf::RenderWindow& window) {
+void DashCapa::draw(sf::RenderWindow& window, Global& glob) {
+	window.draw(capacity);
+}
+
+DbCapa::DbCapa(){
+	posCapacity = { 1780, 1000 };
+	sizeCapacity = { 50, 50 };
+	capacity.setPosition(posCapacity);
+	capacity.setSize(sizeCapacity);
+	capacity.setFillColor(sf::Color::Red);
+}
+
+DbCapa::~DbCapa() {
+}
+
+void DbCapa::draw(sf::RenderWindow& window, Global& glob) {
+	window.draw(capacity);
+}
+
+FloatingCapa::FloatingCapa(){
+	posCapacity = { 1720, 1000 };
+	sizeCapacity = { 50, 50 };
+	capacity.setPosition(posCapacity);
+	capacity.setSize(sizeCapacity);
+	capacity.setFillColor(sf::Color::Green);
+}
+
+FloatingCapa::~FloatingCapa() {
+}
+
+void FloatingCapa::draw(sf::RenderWindow& window, Global& glob) {
 	window.draw(capacity);
 }

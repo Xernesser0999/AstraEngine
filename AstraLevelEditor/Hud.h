@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 class Pawn;
+class Global;
 
 class Life {
 public:
@@ -17,26 +18,52 @@ public:
 	void draw(sf::RenderWindow& window, Pawn& pawn);
 };
 
-class Capacities {
+class DashCapa {
 public:
 	sf::RectangleShape capacity;
 	sf::Vector2f posCapacity;
 	sf::Vector2f sizeCapacity;
 
-	Capacities();
-	~Capacities();
+	DashCapa();
+	~DashCapa();
 	void update();
-	void draw(sf::RenderWindow& window);
+	void draw(sf::RenderWindow& window, Global& glob);
+};
+
+class DbCapa {
+public:
+	sf::RectangleShape capacity;
+	sf::Vector2f posCapacity;
+	sf::Vector2f sizeCapacity;
+
+	DbCapa();
+	~DbCapa();
+	void update();
+	void draw(sf::RenderWindow& window, Global& glob);
+};
+
+class FloatingCapa {
+public:
+	sf::RectangleShape capacity;
+	sf::Vector2f posCapacity;
+	sf::Vector2f sizeCapacity;
+
+	FloatingCapa();
+	~FloatingCapa();
+	void update();
+	void draw(sf::RenderWindow& window, Global& glob);
 };
 
 class Hud{
 public:
 	Life* life;
-	Capacities* capacities;
+	DashCapa* dash;
+	DbCapa* db;
+	FloatingCapa* floating;
 
 	Hud();
 	~Hud();
-	void draw(sf::RenderWindow& window, Pawn& pawn);
+	void draw(sf::RenderWindow& window, Pawn& pawn, Global& glob);
 };
 
 

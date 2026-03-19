@@ -225,7 +225,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	shooter2->render(window);
 
 	window.setView(window.getDefaultView());
-	hud->draw(window, *player);
+	hud->draw(window, *player, glob);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
