@@ -216,6 +216,7 @@ void Level0::displayScene(sf::RenderWindow& window) {
 
 	parralax->render(window);
 	loader->render(window, cam);
+	point->render(window);
 	player->render(window);
 	Machine->currentState->render(window);
 	trig1->render(window);
@@ -234,7 +235,6 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot8->draw(window);
 	flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
-	point->render(window);
 	
 	projectile1->render(window);
 	projectile2->render(window);
