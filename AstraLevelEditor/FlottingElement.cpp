@@ -47,6 +47,6 @@ void FlottingElement::update(Pawn& pawn, float dt) {
     rect->rect.setPosition(pos);
 
     if (intersept(pawn)) {
-        pawn.takedamage(1);
+        pawn.takedamage(2);
     }
 }

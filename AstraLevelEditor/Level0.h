@@ -13,7 +13,7 @@
 #include "Pnj.h"
 #include "Hud.h"
 #include "projectiles.h"
-//#include "shooter.h"
+#include "shooter.h"
 #include "StateMachine.h"
 
 class Global;
@@ -54,9 +54,10 @@ public:
 	FlottingElement* flot9;
 	Pnj* pnjDoubleJump;
 	Hud* hud;
-
-	/*Shooter* lvl1shooterN1;
-	Projectile* lvl1projectileN1;*/
+	Shooter* shooter1;
+	Shooter* shooter2;
+	Projectile* projectile1;
+	Projectile* projectile2;
 
 	Global& glob;
 };

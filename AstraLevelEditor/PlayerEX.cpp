@@ -30,7 +30,7 @@ void PlayerEX::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void PlayerEX::death() {
-    pos = { 830, 1850 };
+    pos = { 100, 2650 };
     hp = 3;
     isalive = true;
 }
