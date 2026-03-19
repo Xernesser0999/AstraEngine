@@ -5,6 +5,7 @@ Win::Win() {
 	rect.setSize({ 1920, 1080 });
 
 	TX.loadFromFile("sprite/Menu/win.png");
+	rect.setTexture(&TX);
 }
 
 Win::~Win() {

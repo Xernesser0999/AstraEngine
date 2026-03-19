@@ -31,7 +31,7 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1250,
 		500,
 		"sprite/Debug/PlaceHolder.png",
-		1,
+		3,
 		*Machine
 	);
 
@@ -51,7 +51,12 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	player->canFloat = glob.FloatUnlock;
 
 	parralax = new BG_parralax_Full();
-	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
+	parralax->addlayer("sprite/Background/fond.png", 0);
+	parralax->addlayer("sprite/Background/building2.png", 0.1);
+	parralax->addlayer("sprite/Background/building1.png", 0.3);
+	parralax->addlayer("sprite/Background/background3.png", 0.5);
+	parralax->addlayer("sprite/Background/background2.png", 0.7);
+	parralax->addlayer("sprite/Background/background1.png", 0.9);
 
 	trig = new Trigger(
 		2750,
@@ -69,6 +74,7 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 
 	hud = new Hud();
+	win = new Win();
 
 	music.openFromFile("Audio/Mai.mp3");
 	music.setLooping(true);
@@ -92,6 +98,7 @@ Level2::~Level2() {
 	delete flot2;
 	delete flot3;
 	delete hud;
+	delete win;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -107,6 +114,7 @@ Level2::~Level2() {
 	flot2 = nullptr;
 	flot3 = nullptr;
 	hud = nullptr;
+	win = nullptr;
 }
 
 void Level2::update(const bool* keys, float dt) {

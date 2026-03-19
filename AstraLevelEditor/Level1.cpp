@@ -170,13 +170,13 @@ void Level1::displayScene(sf::RenderWindow& window) {
 
 	parralax->render(window);
 	loader->render(window, cam);
+	point->render(window);
+	point1->render(window);
+	point2->render(window);
 	player->render(window);
 	Machine->currentState->render(window);
 	trig->render(window);
 
-	point->render(window);
-	point1->render(window);
-	point2->render(window);
 
 	pnjFloat->renderPnj(window);
 	pnjJump->renderPnj(window);
@@ -188,6 +188,7 @@ void Level1::displayScene(sf::RenderWindow& window) {
 	lvl2Blob1->render(window);	
 	lvl2Blob2->render(window);
 	flot->draw(window);
+
 	window.setView(window.getDefaultView());
 	hud->draw(window, *player, glob);
 }
@@ -197,7 +198,7 @@ void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 	if (trig->trigger)
 	{
 		music.stop();
-		glob.pos = { 1400, 450 };
+		glob.pos = { 3650, 670 };
 		glob.RezPos = { 1400, 450 };
 		glob.hp = player->hp;
 		currentScene = SceneState::Map1;

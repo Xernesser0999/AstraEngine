@@ -2,21 +2,21 @@
 #include "Global.h"
 
 EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
-    // Level loader
+   
     loader = new LevelLoader();
     loader->load (
-        "level/TestLevel/map.txt",  // Collision
-        "level/TestLevel/map.png",  // Render
+        "level/TestLevel/map.txt",  
+        "level/TestLevel/map.png",  
         window,
-        60,                         // Size (in tiles) X
-        40                          // Size (in tiles) Y
+        60,                         
+        40                        
     );
 
-    // Camera
+   
     cam = new Camera(1920, 1080, 50*60, 50*40, 0.005);
     Machine = new StateMachine(new IdleStateRight(*player));
 
-    // Player
+   
     player = new PlayerEX (
         window,
         1,
@@ -34,7 +34,7 @@ EngineLevel::EngineLevel(sf::RenderWindow& window, Global& var_) : glob(var_) {
     parralax = new BG_parralax_Full();
     parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
-    //Triggernn
+   
     trig = new Trigger(
         500,
         800,
@@ -85,8 +85,4 @@ void EngineLevel::displayScene(sf::RenderWindow& window) {
 }
 
 void EngineLevel::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {
-    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scan::Escape)) {
-    //    currentScene = SceneState::menu;
-    //    EngineLevel::~EngineLevel();
-    //}
 }

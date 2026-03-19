@@ -9,48 +9,40 @@
 class Camera;
 
 struct Pawn {
-	//  |\=-_
-	//  VARIABLE
-	int hp;							// Player health
-	int maxhp;						// Player MaxHP
+	int hp;							
+	int maxhp;						
 
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
 	sf::Vector2f Rez;
 
-	float power_jump;				 // Jump Height
-	float speed;					// Speed of the player
+	float power_jump;				 
+	float speed;					
 
-	//dash
-	float dashDuration = 0.2f; 		      // Duration of the dash
-	float cooldownDuration = 0.5f;		 // Time before the dash can be used again
-	float cooldownTimer = 0.0f;		    // Timer for the cooldown
-	float dashTimer = 0.2f;			   // Timer for the dash duration
+	float dashDuration = 0.2f; 		     
+	float cooldownDuration = 0.5f;		
+	float cooldownTimer = 0.0f;		    
+	float dashTimer = 0.2f;			 
 
 
-	float Iframe;					// Iframe (in second)
-	float IframeTimer;				// Actual Iframe acting as a timer
+	float Iframe;					
+	float IframeTimer;				
 
-	float velocityY = 0;			// Vertical Velocity
-	float velocityX = 0;			// Horizontal Velocity
+	float velocityY = 0;			
+	float velocityX = 0;			
 
-	float PawnCenterX;				// Center of the player rectangle used for fliping the sprite
+	float PawnCenterX;				
 	float ColliderCenterX;
 
-	int direction;					// Direction of the player
+	int direction;				
 
-	//  |\=-_
-	//  STATE MACHINE
-	// a optimiser
 	bool isGrounded = true;
 	bool isInvincible = false;
 	bool isalive = true;
 
 	StateMachine& state;
 
-	//  |\=-_
-	//  DOUBLE SAUT
 	bool isJumping;
 	bool isDoubleJumping = false;
 	bool isInpuConsume = false;
@@ -59,14 +51,9 @@ struct Pawn {
 
 	bool canDB;
 	bool canFloat;
-	//  |\=-_
-	//  SDL VARIABLE
-	// SDL_FlipMode flip = SDL_FLIP_NONE;
 	sf::RectangleShape rect;
 	sf::Texture texture;
 
-	//  |\=-_
-	//  FUNCTION
 	Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float sizeX_, float sizeY_, float power_jump_, float speed_, std::string image, float Iframe_, StateMachine& state_);
 	virtual ~Pawn();
 

@@ -99,13 +99,6 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		55,
 		true
 	);
-	/*pnjDoubleJump = new Pnj(
-		150,
-		2628,
-		60,
-		78,
-		"sprite/SpriteSheet/pnj.png"
-	);*/
 
     hud = new Hud();
 
@@ -132,7 +125,6 @@ Level0::~Level0() {
 	delete blob1;
 	delete blob2;
 	delete flot;
-	//delete pnjDoubleJump;
 	delete flot2;
 	delete flot3;
 	delete flot4;
@@ -160,7 +152,6 @@ Level0::~Level0() {
 	blob1 = nullptr;
 	blob2 = nullptr;
 	flot = nullptr;
-	/*pnjDoubleJump = nullptr;*/
 	flot2 = nullptr;
 	flot3 = nullptr;
 	flot4 = nullptr;
@@ -198,7 +189,6 @@ void Level0::update(const bool* keys, float dt) {
 	flot7->update(*player, dt);
 	flot8->update(*player, dt);
 	flot9->update(*player, dt);
-	//pnjDoubleJump->updatePnj(dt, *player, 1, 1, glob);
 	
 	projectile1->update(dt, *player, 5.0f);
 	projectile2->update(dt, *player, 5.0f);
@@ -239,7 +229,6 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot7->draw(window);
 	flot8->draw(window);
 	flot9->draw(window);
-	//pnjDoubleJump->renderPnj(window);
 	
 	projectile1->render(window);
 	projectile2->render(window);
@@ -267,8 +256,7 @@ void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow
 		glob.hp = player->hp;
 		currentScene = SceneState::Map3;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-	{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)){
 		music.stop();
 		currentScene = SceneState::MenuS;
 	}

@@ -16,8 +16,6 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
     Iframe = Iframe_;
     IframeTimer = Iframe;
 
-    //texture.loadFromFile(image.c_str());
-    //rect.setTexture(&texture);
     rect.setFillColor(sf::Color::Green);
 
     canDB = false;
