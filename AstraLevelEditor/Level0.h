@@ -54,7 +54,9 @@ public:
 	Pnj* pnjDoubleJump;
 
 	Shooter* shooter1;
+	Shooter* shooter2;
 	Projectile* projectile1;
+	Projectile* projectile2;
 
 	Global& glob;
 };
