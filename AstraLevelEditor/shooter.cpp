@@ -19,8 +19,6 @@ Shooter::Shooter(float posX, float posY, float speedMove, char _direction)
 	}
 }
 Shooter::~Shooter() {
-	delete projectile;
-	projectile = nullptr;
 }
 
 void Shooter::update(float dt, float _timeShoot, Projectile* _projectile )
