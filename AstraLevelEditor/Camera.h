@@ -26,5 +26,5 @@ public:
     Camera(float ScreenX, float ScreenY, float LevelX, float LevelY, float lagfactor);
     ~Camera();
 
-    void Update(Pawn& pawn);
+    void Update(float dt, Pawn& pawn);
 };

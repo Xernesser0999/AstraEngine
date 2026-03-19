@@ -14,16 +14,15 @@ Camera::~Camera() {
     view = nullptr;
 }
 
-void Camera::Update(Pawn& pawn) {
+void Camera::Update(float dt, Pawn& pawn) {
     ObjectivePos = { pawn.pos.x + pawn.size.x / 2, pawn.pos.y + pawn.size.y / 2 };
 
-	// TODO : make it so that the camera doesn't show outside of the level, but still allows the player to be in the center of the screen when near the borders
     ObjectivePos.x = std::max(ScreenSize.x / 2, std::min(ObjectivePos.x, LevelSize.x - ScreenSize.x / 2));
     ObjectivePos.y = std::max(ScreenSize.y / 2, std::min(ObjectivePos.y, LevelSize.y - ScreenSize.y / 2));
 
     sf::Vector2f current = view->getCenter();
-    current.x += (ObjectivePos.x - current.x) * lag;
-    current.y += (ObjectivePos.y - current.y) * lag;
+    current.x += (ObjectivePos.x - current.x) * lag * dt;
+    current.y += (ObjectivePos.y - current.y) * lag * dt;
 
     view->setCenter(current);
     pos = current;

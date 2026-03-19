@@ -18,7 +18,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1080,
 		76 * 50,
 		60 * 50,
-		0.005
+		10
 	);
 	Machine = new StateMachine(new IdleState());
 
@@ -150,7 +150,7 @@ Level0::~Level0() {
 void Level0::update(const bool* keys, float dt) {
 	loader->update(dt, *player);
 	player->update(dt, loader->colliders);
-	cam->Update(*player);
+	cam->Update(dt,  *player);
 	parralax->update(dt, *cam);
 	trig1->update(dt, *player);
 	trig2->update(dt, *player);
@@ -172,9 +172,9 @@ void Level0::update(const bool* keys, float dt) {
 
 	point->update(dt, *player, glob);
 
-	if (player->pos.y > 10000) {
-		player->pos.y = glob.pos.y;
-	}
+	//if (player->pos.y > 10000) {
+	//	player->pos.y = glob.pos.y;
+	//}
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {

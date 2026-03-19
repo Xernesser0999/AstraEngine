@@ -65,7 +65,7 @@ EngineLevel::~EngineLevel() {
 void EngineLevel::update(const bool* keys, float dt) {
     loader->update(dt, *player);
     player->update(dt, loader->colliders);
-    cam->Update(*player);
+    cam->Update(dt, *player);
     parralax->update(dt, *cam);
     trig->update(dt, *player);
     if (trig->trigger) {

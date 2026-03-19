@@ -18,7 +18,7 @@ Level2::Level2(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1080,               // Taille Y camera (a pas modif)
 		120 * 50,               // Taille X du niveau
 		150 * 50,               // Tailel Y du niveau
-		0.005               // Lag factor
+		10               // Lag factor
 	);
 	Machine = new StateMachine(new IdleState());
 
@@ -71,7 +71,7 @@ Level2::~Level2() {
 void Level2::update(const bool* keys, float dt) {
 	loader->update(dt, *player);
 	player->update(dt, loader->colliders);
-	cam->Update(*player);
+	cam->Update(dt, *player);
 	parralax->update(dt, *cam);
 	trig->update(dt, *player);
 
