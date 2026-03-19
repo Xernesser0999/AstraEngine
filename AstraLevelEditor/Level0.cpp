@@ -18,7 +18,7 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1080,
 		76 * 50,
 		60 * 50,
-		10
+		7
 	);
 	Machine = new StateMachine(new IdleState());
 

@@ -18,7 +18,7 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 		1080,               // Taille Y camera (a pas modif)
 		230 * 50,               // Taille X du niveau
 		150 * 50,               // Taille Y du niveau
-		10               // Lag factor
+		7               // Lag factor
 	);
 	Machine = new StateMachine(new IdleState());
 
