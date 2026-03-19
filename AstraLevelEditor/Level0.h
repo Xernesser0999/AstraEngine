@@ -11,8 +11,9 @@
 #include "Spike.h"
 #include "FlottingElement.h"
 #include "Pnj.h"
+#include "Hud.h"
 #include "projectiles.h"
-//#include "shooter.h"
+#include "shooter.h"
 #include "StateMachine.h"
 
 class Global;
@@ -52,9 +53,11 @@ public:
 	FlottingElement* flot8;
 	FlottingElement* flot9;
 	Pnj* pnjDoubleJump;
-
-	/*Shooter* lvl1shooterN1;
-	Projectile* lvl1projectileN1;*/
+	Hud* hud;
+	Shooter* shooter1;
+	Shooter* shooter2;
+	Projectile* projectile1;
+	Projectile* projectile2;
 
 	Global& glob;
 };

@@ -15,9 +15,6 @@ Pawn::Pawn(sf::RenderWindow& window, int hp_, float posX_, float posY_, float si
 
     Iframe = Iframe_;
     IframeTimer = Iframe;
-
-    texture.loadFromFile(image.c_str());
-    rect.setTexture(&texture);
 }
 
 void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
@@ -25,7 +22,6 @@ void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void Pawn::render(sf::RenderWindow& window) {
-    window.draw(rect);
 }
 
 bool Pawn::intersects(const sf::FloatRect& a, const sf::FloatRect& b) {
@@ -107,7 +103,11 @@ void Pawn::collisionVert(const std::vector<Collider*>& colliders) {
 }
 
 void Pawn::takedamage(int dmg) {
-    hp -= dmg;
+    if (!isInvincible) { 
+        hp -= dmg;
+        isInvincible = true;
+        IframeTimer = Iframe;
+    }
     if (hp <= 0) {
         isalive = false;
     }
