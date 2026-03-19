@@ -8,7 +8,6 @@ SceneManager::SceneManager(sf::RenderWindow& window) {
 	previousState = SceneState::MenuS;
 
 	MyMenu = new Menu(window, var);
-
 }
 
 SceneManager::~SceneManager() {

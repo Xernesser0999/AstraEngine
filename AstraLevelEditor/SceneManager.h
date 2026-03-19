@@ -21,6 +21,8 @@ public:
 
 	sf::Vector2f playerpos;
 
+	int actualLevel;
+
 public:
 	SceneManager(sf::RenderWindow& window);
 	~SceneManager();

@@ -7,7 +7,8 @@
 
 int main() {
 
-    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "Astra Engine", sf::State::Fullscreen);
+    //sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "Astra Engine", sf::State::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "Astra Engine");
     SceneManager sM = SceneManager(window);
     SceneManager::Instance = &sM;//Ne pas supprimer, mis par Benoit
     keys myKeys;

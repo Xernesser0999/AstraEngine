@@ -65,17 +65,17 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
         player->pos = glob.pos;
     }
 
-    parralax = new BG_parralax_Full();
-    parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
+        parralax = new BG_parralax_Full();
+        parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
-    trig = new Trigger(
-        3800,
-        650,
-        50,
-        150,
-        true
-    );
-}
+        trig = new Trigger(
+            3800,
+            650,
+            50,
+            150,
+            true
+        );
+    }
 
 Level0::~Level0() {
     Colliderlist.clear();
@@ -137,6 +137,10 @@ void Level0::update(const bool* keys, float dt) {
     flot7->update(*player, dt);
     flot8->update(*player, dt);
     flot9->update(*player, dt);
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M)) {
+        glob.save(*player, 0);
+    }
 }
 
 void Level0::displayScene(sf::RenderWindow& window) {
@@ -159,6 +163,8 @@ void Level0::displayScene(sf::RenderWindow& window) {
     flot7->draw(window);
     flot8->draw(window);
     flot9->draw(window);
+
+    
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

@@ -1,7 +1,6 @@
 #include "StateMachine.h"
 #include "Pawn.h"  
 
-
 StateMachine::StateMachine(IState* startState) : currentState(startState) {}
 
 void StateMachine::update(float dt, Pawn& pawn)
