@@ -51,8 +51,6 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	flot8 = new FlottingElement(window, 1268, 450, 50, 50, 4, 150, "sprite/Debug/PlaceHolder.png");
 	flot9 = new FlottingElement(window, 771, 450, 50, 50, 3, 300, "sprite/Debug/PlaceHolder.png");
 
-	/*lvl1shooterN1 = new Shooter(750, 2600, 1.5f, 'l');
-	lvl1projectileN1 = new Projectile(*lvl1shooterN1);*/
 
 	if (glob.Boot) {
 		glob.Boot = false;
@@ -180,6 +178,9 @@ void Level0::displayScene(sf::RenderWindow& window) {
 	flot8->draw(window);
 	flot9->draw(window);
 	pnjDoubleJump->renderPnj(window);
+
+	window.setView(window.getDefaultView());
+	hud->draw(window, *player);
 }
 
 void Level0::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window) {

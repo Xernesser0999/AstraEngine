@@ -22,7 +22,6 @@ void Pawn::update(float dt, const std::vector<Collider*>& colliders) {
 }
 
 void Pawn::render(sf::RenderWindow& window) {
-    window.draw(rect);
 }
 
 bool Pawn::intersects(const sf::FloatRect& a, const sf::FloatRect& b) {

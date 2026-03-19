@@ -1,5 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
+class Pawn;
+
 class Life {
 public:
 	sf::RectangleShape heart;
@@ -11,7 +14,7 @@ public:
 	Life();
 	~Life();
 	void update();
-	void draw(sf::RenderWindow& window, int nbHeart);
+	void draw(sf::RenderWindow& window, Pawn& pawn);
 };
 
 class Capacities {
@@ -33,7 +36,7 @@ public:
 
 	Hud();
 	~Hud();
-	void draw(sf::RenderWindow& window, int nbHeart);
+	void draw(sf::RenderWindow& window, Pawn& pawn);
 };
 
 

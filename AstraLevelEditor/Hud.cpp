@@ -1,4 +1,5 @@
 #include "Hud.h"
+#include "Pawn.h"
 
 Hud::Hud() {
 	life = new Life();
@@ -11,8 +12,8 @@ Hud::~Hud() {
 	life = nullptr;
 	capacities = nullptr;
 }
-void Hud::draw(sf::RenderWindow& window, int nbHeart) {
-	life->draw(window, nbHeart);
+void Hud::draw(sf::RenderWindow& window, Pawn& pawn) {
+	life->draw(window, pawn);
 	capacities->draw(window);
 }
 
@@ -28,8 +29,8 @@ Life::Life(){
 Life::~Life() {
 }
 
-void Life::draw(sf::RenderWindow& window, int nbHeart){
-	for(int i = 0; i < nbHeart; i++){
+void Life::draw(sf::RenderWindow& window, Pawn& pawn){
+	for(int i = 0; i < pawn.hp; i++){
 		heart.setPosition({ posHeart.x + (i * 100), posHeart.y });
 		window.draw(heart);
 	}
