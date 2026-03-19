@@ -24,7 +24,7 @@ void LevelLoader::load(const std::string& collider_path, const std::string& rend
             }
             if (c == '2')
             {
-                spike.push_back(new Spike(window, actualX, actualY+25, size, 25, "sprite/Environment/Piques.png"));
+                spike.push_back(new Spike(window, actualX, actualY+5, size, 50, "sprite/Environment/Piques.png"));
             }
 
             actualX += size;
