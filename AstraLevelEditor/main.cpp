@@ -5,9 +5,9 @@
 #include "SceneManager.h"
 #include "KeyStruct.h"
 
-int main() {
+int main() { 
 
-    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "Astra Engine"/*, sf::State::Fullscreen*/);
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "Astra Engine", sf::State::Fullscreen);
     SceneManager sM = SceneManager(window);
     SceneManager::Instance = &sM;//Ne pas supprimer, mis par Benoit
     keys myKeys;

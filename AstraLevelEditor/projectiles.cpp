@@ -53,6 +53,21 @@ void Projectile::update(float dt, Pawn& pawn, float _lifetime)
         if (lifeTime > 0.0f)
         {
             lifeTime -= dt;
+            if (direction == 'l')
+            {
+                pos.x -= speed * dt;
+            }
+            else if (direction == 'r')
+            {
+                pos.x += speed * dt;
+            }
+            rect.setPosition(pos);
+
+            if (Intersect(pawn))
+            {
+                pawn.takedamage(1);
+                isAlive = false;
+            }
             if (lifeTime <= 0.0f)
             {
                 isAlive = false;
@@ -61,21 +76,7 @@ void Projectile::update(float dt, Pawn& pawn, float _lifetime)
     }
 
     // movement
-    if (direction == 'l')
-    {
-        pos.x -= speed * dt;
-    }
-    else if (direction == 'r')
-    {
-        pos.x += speed * dt;
-    }
-    rect.setPosition(pos);
-
-    if (Intersect(pawn))
-    {
-        pawn.takedamage(1);
-        isAlive = false;
-    }
+    
 }
 
 void Projectile::render(sf::RenderWindow& window)

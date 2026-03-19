@@ -4,18 +4,18 @@
 Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
     loader = new LevelLoader();
     loader->load(
-        "level/TestLevel/maptestv2.txt",  
-        "level/TestLevel/maplvl2.png",  
+        "level/TestLevel/lvl2.txt",  
+        "level/TestLevel/lvl2.png",  
         window,
         230,                         
-        120                          
+        150                          
     );
    
     cam = new Camera(
         1920,              
         1080,               
         230*50,               
-        120*50,             
+        150*50,             
         0.005             
     );
     Machine = new StateMachine(new DummyState());
