@@ -22,7 +22,7 @@ void Shooter::update(float dt, float _timeShoot, Projectile* _projectile )
 {
 	projectile = _projectile;
 	shootTimer += dt;
-	float interval = (_timeShoot > 0.0f) ? _timeShoot : shootInterval;//kind of useless imo but pretty so I keep it
+	float interval = (_timeShoot > 0.0f) ? _timeShoot : shootInterval; //kind of useless imo but pretty so I keep it
 
 	if (shootTimer >= interval)
 	{

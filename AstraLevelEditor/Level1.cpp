@@ -38,10 +38,14 @@ Level1::Level1(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	);
 
 	lvl2ShooterN1 = new Shooter(10810.0f, 4030.0f, 1.5f, 'r');
-	lvl2ProjectileN1 = new Projectile(*lvl2ShooterN1);
-
 	lvl2ShooterN2 = new Shooter(11400.0f, 3750, 1.5f, 'l');
+	lvl2ShooterN3 = new Shooter(8572.77f, 3550, 1.5f, 'r');
+	lvl2ShooterN4 = new Shooter(9450, 3550, 1.5f, 'l');
+
+	lvl2ProjectileN1 = new Projectile(*lvl2ShooterN1);
 	lvl2ProjectileN2 = new Projectile(*lvl2ShooterN2);
+	lvl2ProjectileN3 = new Projectile(*lvl2ShooterN3);
+	lvl2ProjectileN4 = new Projectile(*lvl2ShooterN4);
 
 
 	cam->view->setCenter(player->pos);
@@ -69,6 +73,11 @@ Level1::~Level1()
 	delete trig;
 	delete lvl2ShooterN1;
 	delete lvl2ProjectileN1;
+	delete lvl2ProjectileN2;
+	delete lvl2ShooterN3;
+	delete lvl2ProjectileN3;
+	delete lvl2ShooterN4;
+	delete lvl2ProjectileN4;
 
 	loader = nullptr;
 	cam = nullptr;
@@ -77,6 +86,10 @@ Level1::~Level1()
 	trig = nullptr;
 	lvl2ShooterN1 = nullptr;
 	lvl2ProjectileN1 = nullptr;
+	lvl2ShooterN3 = nullptr;
+	lvl2ProjectileN3 = nullptr;
+	lvl2ShooterN4 = nullptr;
+	lvl2ProjectileN4 = nullptr;
 }
 
 void Level1::update(const bool* keys, float dt)
@@ -88,8 +101,12 @@ void Level1::update(const bool* keys, float dt)
 	trig->update(dt, *player);
 	lvl2ProjectileN1->update(dt, *player, 3.0f);
 	lvl2ProjectileN2->update(dt, *player, 2.0f);
+	lvl2ProjectileN3->update(dt, *player, 2.0f);
+	lvl2ProjectileN4->update(dt, *player, 2.0f);
 	lvl2ShooterN1->update(dt, 5.0f, lvl2ProjectileN1);
 	lvl2ShooterN2->update(dt, 5.0f, lvl2ProjectileN2);
+	lvl2ShooterN3->update(dt, 5.0f, lvl2ProjectileN3);
+	lvl2ShooterN4->update(dt, 5.0f, lvl2ProjectileN4);
 
 }
 
@@ -104,8 +121,12 @@ void Level1::displayScene(sf::RenderWindow& window)
 
 	lvl2ShooterN1->render(window);
 	lvl2ShooterN2->render(window);
+	lvl2ShooterN3->render(window);
+	lvl2ShooterN4->render(window);
 	lvl2ProjectileN1->render(window);
 	lvl2ProjectileN2->render(window);
+	lvl2ProjectileN3->render(window);
+	lvl2ProjectileN4->render(window);
 }
 
 void Level1::nextScene(SceneState& currentScene, keys* _myKeys, sf::RenderWindow& window)

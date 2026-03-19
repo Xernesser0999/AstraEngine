@@ -63,8 +63,8 @@ Level0::Level0(sf::RenderWindow& window, Global& var_) : glob(var_) {
 	parralax->addlayer("sprite/Background/Debugmap.png", 0.5);
 
 	trig1 = new Trigger(
-		3800,
-		650,
+		596.623,
+		2750,
 		50,
 		150,
 		true
